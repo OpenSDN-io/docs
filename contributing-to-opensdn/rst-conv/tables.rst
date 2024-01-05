@@ -4,7 +4,7 @@ Tables
 ======
 
 This section describes several types of tables that you can use in the
-Tungsten Fabric documentation. Each table must have a title. Name a table using
+OpenSDN documentation. Each table must have a title. Name a table using
 the ``table`` directive. See corresponding subsections for the title
 formatting details.
 

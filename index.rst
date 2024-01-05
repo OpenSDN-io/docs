@@ -34,8 +34,10 @@ Documentation Structure
    tungsten-fabric-monitoring-and-troubleshooting-guide/index.rst
    tungsten-fabric-operator/index.rst
    contributing-to-tungsen-fabric/index.rst
-   governance/index.rst
    infrastructure/index.rst
+..
+   governance/index.rst
+
 
 Licensing
 ---------

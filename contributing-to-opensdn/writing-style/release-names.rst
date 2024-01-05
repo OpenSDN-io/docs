@@ -3,7 +3,7 @@
 Release names
 =============
 
-Use the names of the Tungsten Fabric releases as described in Release Notes.
+Use the names of the OpenSDN releases as described in Release Notes.
 
 **Example:**
 

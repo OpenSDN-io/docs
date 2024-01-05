@@ -2,9 +2,9 @@ Getting started as a developer
 ==============================
 
 This brief note would serve as a reference for a developer looking to
-start-up on the Tungsten Fabric development environment.
+start-up on the OpenSDN development environment.
 
-PLEASE NOTE: Until 2018, Tungsten Fabric was named “OpenContrail”. There
+PLEASE NOTE: Until 2018, OpenSDN was named “OpenContrail”. There
 are still several references to the old name in the code and other
 utilities.
 
@@ -12,11 +12,11 @@ utilities.
 1. OS installation and configuration
 ------------------------------------
 
-Install Centos 7 for a stable installation of Tungsten Fabric.
+Install Centos 7 for a stable installation of OpenSDN.
 
-You can also use Ubuntu 20.04 (In case of problems, check https://github.com/tungstenfabric/tf-devstack)
+You can also use Ubuntu 20.04 (In case of problems, check https://github.com/OpenSDN-io/tf-devstack)
 
-1.1 Relevant packages for the Tungsten Fabric installation
+1.1 Relevant packages for the OpenSDN installation
 ----------------------------------------------------------
 
 ::
@@ -25,9 +25,6 @@ You can also use Ubuntu 20.04 (In case of problems, check https://github.com/tun
         sudo yum install git
         sudo yum install git-core
         sudo yum install openssh-server
-
-
-
 1.2 Generate SSH key and add it to local SSH-agent
 --------------------------------------------------
 
@@ -61,14 +58,14 @@ Copy the entire output line(your public ssh id)
    This is required for the correct operation of the Gerrit
 
 
-2. Tungsten Fabric + Devstack setup(Ansible Deployer)
+2. OpenSDN + Devstack setup(Ansible Deployer)
 -----------------------------------------------------
 
-Ref: https://github.com/tungstenfabric/tf-devstack
+Ref: https://github.com/OpenSDN-io/tf-devstack
 
 If you have any questions, you can see more detailed instructions in this README:
 
-https://github.com/tungstenfabric/tf-devstack/tree/master/ansible
+https://github.com/OpenSDN-io/tf-devstack/tree/master/ansible
 
 2.1 Create a nonroot user and add it to the wheel group
 -------------------------------------------------------
@@ -106,10 +103,10 @@ Switch to the new user and navigate to the home directory
 
 ::
 
-        git clone http://github.com/tungstenfabric/tf-devstack
+        git clone http://github.com/OpenSDN-io/tf-devstack
    
 
-2.2 Set up Tungsten Fabric
+2.2 Set up OpenSDN
 --------------------------
 
 Execute script and wait for installation:
@@ -117,11 +114,11 @@ Execute script and wait for installation:
 
         ./tf-devstack/ansible/run.sh  // 
 
-2.3 Accessing Openstack and Tungsten Fabric GUIs
+2.3 Accessing Openstack and OpenSDN GUIs
 ------------------------------------------------
 Openstack and contrail GUIs can be accessed as follows:-
 
-1. Tungsten Fabric GUI: :code:`http://localhost:8143/`
+1. OpenSDN GUI: :code:`http://localhost:8143/`
 
 2. Openstack GUI: :code:`http://localhost/dashboard/` (only if you have installed with the openstack orchestrator)
 

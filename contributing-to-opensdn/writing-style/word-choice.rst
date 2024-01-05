@@ -55,7 +55,7 @@ The following table lists the preferred word or phrase choice.
 +-------------------------------------+-------------------------------------+
 | **log in (verb)**                   | login                               |
 +-------------------------------------+-------------------------------------+
-| **Tungsten Fabric**                 | tungsten fabric, TungstenFabric     |
+| **OpenSDN**                 | tungsten fabric, TungstenFabric     |
 +-------------------------------------+-------------------------------------+
 | **plug-in**                         | plugin                              |
 +-------------------------------------+-------------------------------------+

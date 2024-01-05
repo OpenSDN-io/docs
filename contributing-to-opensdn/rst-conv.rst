@@ -3,7 +3,7 @@
 RST conventions
 ===============
 
-Tungsten Fabric documentation uses reStructuredText (RST) markup syntax
+OpenSDN documentation uses reStructuredText (RST) markup syntax
 with Sphinx extensions.
 
 RST is a powerful and straightforward markup language that, in combination

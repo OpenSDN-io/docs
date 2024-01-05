@@ -5,7 +5,7 @@ General writing guidelines
 ==========================
 
 Follow these guidelines to ensure readability and consistency of the
-Tungsten Fabric documentation.
+OpenSDN documentation.
 
 Use standard English
 --------------------
@@ -130,12 +130,12 @@ Writing in second person has the following advantages:
   referenced noun in number.
 
 Use first person plural pronouns (we, our) judiciously. These pronouns
-emphasize the writer or Tungsten Fabric rather than the user, so before you use
+emphasize the writer or OpenSDN rather than the user, so before you use
 them, consider whether second person or imperative mood is more
 "user-friendly." However, use "we recommend" rather than "it is recommended"
-or "Tungsten Fabric recommends".
+or "OpenSDN recommends".
 
-Also, you can use "we" in the place of Tungsten Fabric if necessary.
+Also, you can use "we" in the place of OpenSDN if necessary.
 
 Do not use first person to avoid naming the product or to avoid using passive
 voice. If the product is performing the action, use third person (the product
@@ -185,7 +185,7 @@ Do not use subjunctive mood.
 +-------------------------------------------+------------------------------------------+
 | **Do not use**                            | **Use**                                  |
 +===========================================+==========================================+
-| If you were to deploy Tungsten Fabric...  | If you want to deploy Tungsten Fabric... |
+| If you were to deploy OpenSDN...  | If you want to deploy OpenSDN... |
 | (Implied: but you are not)                |                                          |
 +-------------------------------------------+------------------------------------------+
 
@@ -373,7 +373,7 @@ Do not use "please" and "thank you" in technical documentation.
 Use consistent terminology
 --------------------------
 
-Use consistent terms across Tungsten Fabric content. Avoid multiple
+Use consistent terms across OpenSDN content. Avoid multiple
 variations or spellings to refer to the same service, function,
 UI element, and so on.
 
@@ -390,7 +390,7 @@ UI element, and so on.
 +------------------------+----------------------------------+
 
 If you suspect the subject was previously described, search the
-Tungsten Fabric documentation and look for a precedence.
+OpenSDN documentation and look for a precedence.
 
 Use spelling and grammar checking tools
 ---------------------------------------

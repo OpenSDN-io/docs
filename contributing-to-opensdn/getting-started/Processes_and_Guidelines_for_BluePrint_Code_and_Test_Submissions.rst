@@ -43,7 +43,7 @@ Blueprint submission is a two step process.
 
 1. Submit a blueprint providing high level overview of the feature (or
       enhancement) proposed. The blueprint is submitted
-      at\ https://github.com/tungstenfabric/tf-specs/ . This
+      at\ https://github.com/OpenSDN-io/tf-specs/ . This
       blueprint must have a link to the full specifications of the
       feature (or enhancement).
 
@@ -54,7 +54,7 @@ At a minimum, the blueprint must have the following fields filled:
 -  Milestone Targeted
 
 2. Submit full specification of the feature (or enhancement) in details.
-      This specification must be submitted at https://github.com/tungstenfabric/tf-specs/ . 
+      This specification must be submitted at https://github.com/OpenSDN-io/tf-specs/ . 
       This specification must be submitted in Markdown format (file with .md
       extension).
 
@@ -62,12 +62,12 @@ EULA is necessary for submitting a spec file.
 
    An MD file is a text file which is created using dialects of Markdown
    language. All specification files reside
-   at\ https://github.com/tungstenfabric/tf-specs/ . Full details of the feature
+   at\ https://github.com/OpenSDN-io/tf-specs/ . Full details of the feature
    must be provided in order for the feature to be considered by ARB.
    Take a look at any of the specs present at the above mentioned github
    repo and ensure that you fill in all of the fields of the spec to be
    considered. Here is an example of specification using MD file
-   -\ https://github.com/tungstenfabric/tf-specs/blob/master/ironic_contrail.md
+   -\ https://github.com/OpenSDN-io/tf-specs/blob/master/ironic_contrail.md
 
 Launchpad
 ---------
@@ -115,11 +115,11 @@ Spec
 ----
 
    Specs must be submitted
-   into\ https://github.com/tungstenfabric/tf-specs/ . Make sure first
+   into\ https://github.com/OpenSDN-io/tf-specs/ . Make sure first
    you have a Gerrit account. Once the account is in place here is the
    command line needed to do push your spec file for review:
 
-   git clone https://github.com/tungstenfabric/tf-specs/
+   git clone https://github.com/OpenSDN-io/tf-specs/
 
    cd contrail-specs/5.0
 

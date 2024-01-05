@@ -1,4 +1,4 @@
-Contributing to Tungsten Fabric
+Contributing to OpenSDN
 ===============================
 
 .. toctree::
@@ -8,7 +8,7 @@ Contributing to Tungsten Fabric
    contribute.rst
    getting-started/index
    getting-started/Processes_and_Guidelines_for_BluePrint_Code_and_Test_Submissions
-   getting-started/Tungsten_Fabric_JIRA_Workflow
+   getting-started/OpenSDN_JIRA_Workflow
    ../gerrit_patchreview.rst
    rst-conv
    writing-style

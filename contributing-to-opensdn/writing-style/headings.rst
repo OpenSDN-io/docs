@@ -3,7 +3,7 @@ Headings
 
 Readers use the table of contents or scan through the headings to find the
 required content. Therefore, headings must reflect the information that the
-readers search. The Tungsten Fabric documentation includes the following types of
+readers search. The OpenSDN documentation includes the following types of
 headings:
 
 * Section titles
@@ -44,9 +44,9 @@ with a verb in gerund or a noun.
 
 **Example:**
 
-* Testing the Tungsten Fabric environment
+* Testing the OpenSDN environment
 
-  * Testing Ceph and Tungsten Fabric interoperability
+  * Testing Ceph and OpenSDN interoperability
 
     * Test Ceph and Glance
     * Test Ceph and Cinder
