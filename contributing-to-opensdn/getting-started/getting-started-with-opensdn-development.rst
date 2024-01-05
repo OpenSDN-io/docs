@@ -25,6 +25,7 @@ You can also use Ubuntu 20.04 (In case of problems, check https://github.com/Ope
         sudo yum install git
         sudo yum install git-core
         sudo yum install openssh-server
+
 1.2 Generate SSH key and add it to local SSH-agent
 --------------------------------------------------
 

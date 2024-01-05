@@ -185,7 +185,7 @@ Do not use subjunctive mood.
 +-------------------------------------------+------------------------------------------+
 | **Do not use**                            | **Use**                                  |
 +===========================================+==========================================+
-| If you were to deploy OpenSDN...  | If you want to deploy OpenSDN... |
+| If you were to deploy OpenSDN...          | If you want to deploy OpenSDN...         |
 | (Implied: but you are not)                |                                          |
 +-------------------------------------------+------------------------------------------+
 

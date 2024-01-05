@@ -33,11 +33,8 @@ Documentation Structure
    tungsten-fabric-networking-and-security-user-guide/index.rst
    tungsten-fabric-monitoring-and-troubleshooting-guide/index.rst
    tungsten-fabric-operator/index.rst
-   contributing-to-tungsen-fabric/index.rst
+   contributing-to-opensdn/index.rst
    infrastructure/index.rst
-..
-   governance/index.rst
-
 
 Licensing
 ---------
