@@ -1,0 +1,160 @@
+Juniper Contrail Container Registry
+Juniper Networks Contrail Container Registry
+Tungsten Fabric API >> OpenSDN API
+Tungsten Fabric alert streaming >> OpenSDN alert streaming
+TF alert >> OpenSDN alert
+Tungsten Fabric Analytics Application Programming Interfaces >> OpenSDN Analytics Application Programming Interfaces
+Tungsten Fabric Analytics components >> OpenSDN Analytics components
+Tungsten Fabric Analytics Database >> OpenSDN Analytics Database 
+Tungsten Fabric Analytics node >> OpenSDN Analytics node
+Tungsten Fabric Analytics optional modules >> OpenSDN Analytics optional modules 
+Tungsten Fabric Analytics >> OpenSDN Analytics 
+Tungsten Fabric Ansible Deployer >> OpenSDN Ansible Deployer
+Tungsten Fabric Ansible Deployer >> OpenSDN Ansible Deployer
+TF Ansible >> OpenSDN Ansible
+TF BGP >> OpenSDN BGP
+TF BGPaaS >> OpenSDN BGPaaS
+TF BGPaaS features >> OpenSDN BGPaaS features
+TF CLI >> OpenSDN CLI
+TF CNI >> OpenSDN CNI
+TF CSN >> OpenSDN CSN
+Tungsten Fabric Ceilometer plugin >> OpenSDN Ceilometer plugin
+Tungsten Fabric Ceilometer plugin >> OpenSDN Ceilometer plugin 
+TF environment >> OpenSDN environment
+TF Charm >> OpenSDN Charm
+TF Charms >> OpenSDN Charms
+Contrail Cloud >> manually: proprietary
+TF cluster >> OpenSDN cluster
+TF cluster >> OpenSDN cluster
+Tungsten Fabric Collector >> OpenSDN Collector
+Contrail Command >> manually: proprietary
+Contrail Command GUI >> manually: proprietary
+Contrail Command UI >> manually: proprietary
+Tungsten Fabric Config >> OpenSDN Config
+Tungsten Fabric Configuration >> OpenSDN Configuration
+Tungsten Fabric Configuration >> OpenSDN Configuration
+TF configuration >> OpenSDN configuration
+TF Container Network Interface >> OpenSDN Container Network Interface 
+TF Containers >> OpenSDN Containers
+Contrail Controller >> Contrail Controller
+Tungsten Fabric Control >> OpenSDN Control
+Tungsten Fabric Control Introspect >> OpenSDN Control Introspect
+Tungsten Fabric Control Node >> OpenSDN Control Node
+Tungsten Fabric Control Nodes >> OpenSDN Control Nodes
+Tungsten Fabric Controller Node >> OpenSDN Controller Node
+Tungsten Fabric Controller topology >> OpenSDN Controller topology
+Tungsten Fabric Controller >> OpenSDN Controller
+Tungsten Fabric Controllers >> OpenSDN Controllers
+TF databases >> OpenSDN databases
+TF database >> OpenSDN database
+Tungsten Fabric Device Manager >> OpenSDN Device Manager
+Tungsten Fabric DPDK Node >> OpenSDN DPDK Node
+TF DPDK >> OpenSDN DPDK
+TF feature comparison >> OpenSDN feature comparison
+TF feature guide >> OpenSDN feature guide
+TF feature >> OpenSDN feature
+Tungsten Fabric Firewall >> OpenSDN Firewall
+TF Heat >> OpenSDN Heat
+TF infrastructure installed >> OpenSDN infrastructure installed
+Contrail Insights >> manually: proprietary
+TF integrated >> OpenSDN integrated
+TF integration >> OpenSDN integration
+Contrail Introspect feature >> Contrail Introspect feature
+Tungsten Fabric Introspect feature >> OpenSDN Introspect feature 
+Tungsten Fabric Introspect >> OpenSDN Introspect 
+Contrail Juniper >> manually: proprietary
+Contrail Juniper Networks >> manually: proprietary
+TF Kubernetes Cluster >> OpenSDN Kubernetes Cluster
+TF Kubernetes Clusters >> OpenSDN Kubernetes Clusters
+TF Kubernetes Manager >> OpenSDN Kubernetes Manager
+TF Kubernetes Service >> OpenSDN Kubernetes Service
+TF Kubernetes Solution >> OpenSDN Kubernetes Solution
+TF Kubernetes >> OpenSDN Kubernetes
+TF LBaaS >> OpenSDN LBaaS
+Contrail LBaaS implementation >> OpenSDN LBaaS implementation
+TF manifests >>  OpenSDN manifests
+Contrail microservices architecture >> OpenSDN microservices architecture
+TF microservices >> OpenSDN microservices
+Tungsten Fabric Msg >> OpenSDN Msg
+Tungsten Fabric  >> OpenSDN 
+Contrail Networking architecture  >> OpenSDN Networking architecture 
+Tungsten Fabric Network >> OpenSDN Network
+Contrail Neutron plugin >> OpenSDN Neutron plugin
+TF Neutron plugin >> OpenSDN Neutron plugin
+TF Neutron >> OpenSDN Neutron
+Tungsten Fabric node >> OpenSDN node
+Tungsten Fabric node status >> OpenSDN node status
+TF OpenShift >> OpenSDN OpenShift
+TF OpenStack platform >> OpenSDN OpenStack platform
+TF OpenStack >> OpenSDN OpenStack
+TF OpenStack >> OpenSDN OpenStack
+TF QoS >> OpenSDN QoS
+TF RBAC >> OpenSDN RBAC
+Contrail Registry >> manually: proprietary
+Contrail Release >> manually
+TF Release >> OpenSDN Release
+Tungsten Fabric roles >> OpenSDN roles
+Tungsten Fabric Role and Resource-Based Access >> OpenSDN Role and Resource-Based Access
+TF SNMP >> OpenSDN SNMP 
+TF SSL >> OpenSDN SSL
+Tungsten Fabric >> Tungsten Fabric
+Tungsten Fabric Service >> OpenSDN Service
+Tungsten Fabric Service Chain >> OpenSDN Service Chain
+Tungsten Fabric Services >> OpenSDN Services
+Tungsten Fabric SR-IOV node >> OpenSDN SR-IOV node 
+Tungsten Fabric System Log >> OpenSDN System Log
+TF TLS >> OpenSDN TLS
+TF TripleO >> OpenSDN TripleO
+Tungsten Fabric Tsn Node >> OpenSDN Tsn Node
+Tungsten Fabric TSN >> OpenSDN TSN
+Tungsten Fabric DPDK >> OpenSDN DPDK
+Contrail UI >> manually
+Tungsten Fabric WebUI >> OpenSDN WebUI
+TF using OpenSDN >> OpenSDN using Tungsten Fabric
+TF VMware vRealize  >> OpenSDN VMware vRealize 
+TF VMware >> OpenSDN VMware
+TF VM >> OpenSDN VM
+Tungsten Fabric VNC API >> OpenSDN VNC API 
+Tungsten Fabric VNC >> OpenSDN VNC
+Tungsten Fabric Virtual Network Controller >> OpenSDN Virtual Network Controller
+Tungsten Fabric WebUI >> OpenSDN WebUI
+Tungsten Fabric WebUI >> OpenSDN WebUI
+Tungsten Fabric Web User Interface process (WebUI) >> OpenSDN Web User Interface process (WebUI) 
+Tungsten Fabric Web User Interface (WebUI) >> OpenSDN Web User Interface (WebUI)
+Tungsten Fabric WebUI >> OpenSDN WebUI
+Tungsten Fabric WebUI >> OpenSDN WebUI
+Tungsten Fabric WebUI >> OpenSDN WebUI
+TF charms >> OpenSDN charms 
+TF analytics >> OpenSDN analytics
+TF deployment >> OpenSDN deployment
+TF operator >> OpenSDN operator
+TF operations >> OpenSDN operations
+TF supports >> OpenSDN supports
+TF vCenter playbook >> OpenSDN vCenter playbook
+TF vCenter >> OpenSDN vCenter
+TF vRO plugin >> OpenSDN vRO plugin
+TF vRO >> OpenSDN vRO
+Tungsten Fabric vRouter agent >> OpenSDN vRouter agent
+Tungsten Fabric vRouter next hop >> OpenSDN vRouter next hop
+Tungsten Fabric vRouter >> OpenSDN vRouter
+TF virtual networks >> OpenSDN virtual networks
+TF virtual >> OpenSDN virtual
+Tungsten Fabric vRouter >> OpenSDN vRouter
+Tungsten Fabric WebUI >> OpenSDN WebUI
+Tungsten Fabric WebUI >> OpenSDN WebUI
+Tungsten Fabric WebUI >> OpenSDN WebUI
+TF machine >> OpenSDN machine
+TF WebUI >> OpenSDN WebUI
+Tungsten Fabric Ansible Deployer >> OpenSDN Ansible Deployer
+TF ansible >> OpenSDN ansible
+TF components >> OpenSDN components
+TF networking >> OpenSDN networking
+TF networking policy >> OpenSDN networking policy
+contrail operator
+TF plugin >> OpenSDN plugin
+TF service >> OpenSDN service
+TF status >> OpenSDN status
+TF virtual node >> OpenSDN virtual node
+TF implementation >> OpenSDN implementation
+TF control >> OpenSDN control
+TF provides >> OpenSDN provides

@@ -1,19 +1,16 @@
 Infrastructure
 ==============
 
-Docs Structure
---------------
-
 .. toctree::
    :maxdepth: 2
    :titlesonly:
    :hidden:
 
-   tungsten-fabric-infrastructure.rst
+   opensdn-infrastructure.rst
 
-Infrastucture Documents
------------------------
+Documents
+---------
 
--  `TF CI`_: The founding document for Tungsten Fabric infra such as CI/CD, Gerrit, and related tools.
+-  `OpenSDN CI`_: The founding document for OpenSDN infrastructure such as CI/CD, Gerrit, and related tools.
 
-.. _TF CI: tungsten-fabric-infrastructure.html
+.. _OpenSDN CI: opensdn-infrastructure.html

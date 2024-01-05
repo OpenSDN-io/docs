@@ -1,25 +1,25 @@
-Tungsten Fabric as a CNI for Kubernetes: A Quick Start Guide
+OpenSDN as a CNI for Kubernetes: A Quick Start Guide
 =============================================================
 
-Tungsten Fabric (TF), formerly known as OpenContrail, is an open source multi-cloud, multi-stack Software Defined Networking (SDN) solution that provides a single point of control to observe, analyze and securely manage the connectivity between workloads running in the same or different domains. It essentially consists of two main components, namely: the TF controller and TF vRouter. The former collects statistics and maintains the network model and policies, whereas the latter is deployed at each host to enforce those policies. A more detailed description of the TF architecture is presented here.
+OpenSDN, formerly known as Tungsten Fabric/OpenContrail/Contrail, is an open source multi-cloud, multi-stack Software Defined Networking (SDN) solution that provides a single point of control to observe, analyze and securely manage the connectivity between workloads running in the same or different domains. It essentially consists of two main components, namely: the OpenSDN controller and OpenSDN vRouter. The former collects statistics and maintains the network model and policies, whereas the latter is deployed at each host to enforce those policies. A more detailed description of the OpenSDN architecture is presented here.
 
-TF is compatible with a wide range of cloud technology stacks, including the well-known Kubernetes (K8s) container management platform. A key component in K8s is the Container Networking Interface (CNI), i.e., a plugable framework which provides the networking functionality between pods as well as externally facing services. By default K8s provides a flat networking model wherein all pods can talk to each other. Tungsten Fabric adds additional networking functionality to the CNI solution including multi-tenancy, network isolation, micro-segmentation with network policies, load-balancing etc. While K8s also supports several other CNI plugins, TF is unique because provides comprehensive support for heterogeneous environments, multicloud/multi-tenancy workloads, scaling in multiple diemensions and provides a rich set of features.
+OpenSDN is compatible with a wide range of cloud technology stacks, including the well-known Kubernetes (K8s) container management platform. A key component in K8s is the Container Networking Interface (CNI), i.e., a plugable framework which provides the networking functionality between pods as well as externally facing services. By default K8s provides a flat networking model wherein all pods can talk to each other. OpenSDN adds additional networking functionality to the CNI solution including multi-tenancy, network isolation, micro-segmentation with network policies, load-balancing etc. While K8s also supports several other CNI plugins, OpenSDN is unique because provides comprehensive support for heterogeneous environments, multicloud/multi-tenancy workloads, scaling in multiple diemensions and provides a rich set of features.
 
-This document serves as a quick start guide for beginners looking to deploy TF for managing the K8s cluster networking. We will start by setting up a basic K8s cluster and configure TF to be used as an addon plugin to manage and monitor the connectivity between pods. The rest of the guide will walk you through a number of use cases, starting with a few simple scenarios and then moving onto more advanced ones.
+This document serves as a quick start guide for beginners looking to deploy OpenSDN for managing the K8s cluster networking. We will start by setting up a basic K8s cluster and configure OpenSDN to be used as an addon plugin to manage and monitor the connectivity between pods. The rest of the guide will walk you through a number of use cases, starting with a few simple scenarios and then moving onto more advanced ones.
 
 ----
 
 Prerequisites
 -------------
 
-This guide assumes that the reader has a basic knowledge of `Git`, `Ansible` and some Linux CLI/terminal tool such as `vim`, `nano` and `less`. Kubernetes cluster and TF will be deployed on virtual machines, which we refer to as 'Target nodes'. Throughout this guide Tungsten Fabric solution will be provisioned via `Ansible` automation tool. In order to deploy TF solution, besides the Target nodes mentioned earlier, we also need another node, from which we will run `Ansible` commands. Similarly, this node can be either a virtual machine or your own local machine. We will refer to this node as 'Deploy node'.
+This guide assumes that the reader has a basic knowledge of `Git`, `Ansible` and some Linux CLI/terminal tool such as `vim`, `nano` and `less`. Kubernetes cluster and OpenSDN will be deployed on virtual machines, which we refer to as 'Target nodes'. Throughout this guide OpenSDN solution will be provisioned via `Ansible` automation tool. In order to deploy OpenSDN solution, besides the Target nodes mentioned earlier, we also need another node, from which we will run `Ansible` commands. Similarly, this node can be either a virtual machine or your own local machine. We will refer to this node as 'Deploy node'.
 
 ----
 
 Hardware and Software Requirements
 ----------------------------------
 
-Below are specified the minimum hardware and software requirements that need to be met for a smooth Tungsten Fabric experience.
+Below are specified the minimum hardware and software requirements that need to be met for a smooth OpenSDN experience.
 
 Hardware:
 
@@ -59,23 +59,23 @@ Preparation
 3. Install `pip` and `Ansible` in `Deploy Node`:
     * `` yum install -y yum-plugin-priorities yum-utils vim net-tools git ansible``
 
-4. Clone the [TF Ansible deployer repository](https://github.com/Juniper/contrail-ansible-deployer) in `Deploy Node`:
+4. Clone the [OpenSDN Ansible deployer repository](https://github.com/Juniper/contrail-ansible-deployer) in `Deploy Node`:
     * `` git clone https://github.com/Juniper/contrail-ansible-deployer.git ``
 
 ----
 
-Basic Deployment of Tungsten Fabric as a CNI for K8s
+Basic Deployment of OpenSDN as a CNI for K8s
 ----------------------------------------------------
 
 ### Configuration
 
-In this section we will demonstrate a basic deployment of TF. Before proceeding we would need to configure the `instances.yml` located within the `contrail-ansible-deployer/config` folder of the cloned repository. It contains three main sections:
+In this section we will demonstrate a basic deployment of OpenSDN. Before proceeding we would need to configure the `instances.yml` located within the `contrail-ansible-deployer/config` folder of the cloned repository. It contains three main sections:
 
 1. `provider_config`: contains provider specific setting such as the ssh user name and location of ssh keys required to login to the target hosts.
 
 2. `instances`: contains target host specific information and specifies which roles to install on each host.
 
-3. `contrail_configuration`: contains TF configuration settings. All parameters in this section are optional. A list of parameters for this section is presented in `contrail_configuration.md` of the cloned repository.
+3. `contrail_configuration`: contains OpenSDN configuration settings. All parameters in this section are optional. A list of parameters for this section is presented in `contrail_configuration.md` of the cloned repository.
 
 The following shows a sample `instances.yaml` configuration for a k8s cluster with two nodes, one acting as a master and the other as a worker. A separate IP space for `KUBERNETES_SERVICE_SUBNETS` (service) and `KUBERNETES_POD_SUBNETS` (pods) is defined with different CIDRs. Note by default the minimum database disk space requirement is set to 256GB, however, for this deployment we have changed it to 2GB as can be seen in `DATABASE_NODEMGR__DEFAULTS__minimum_diskGB` and `CONFIG_DATABASE_NODEMGR__DEFAULTS__minimum_diskGB:`. Fill in placeholders - marked as ``<...>`` - with info from your setup:
 
@@ -89,7 +89,7 @@ The following shows a sample `instances.yaml` configuration for a k8s cluster wi
     instances:
       bms1:
        provider: bms
-       ip: <TF_contrroller_IP_address_master_node>
+       ip: <OpenSDN_controller_IP_address_master_node>
        roles:
         config_database:
         config:
@@ -123,20 +123,20 @@ The following shows a sample `instances.yaml` configuration for a k8s cluster wi
 ---
 
 ### Installation
-Switch to the main directory of `contrail-ansible-deployer` and deploy Tungsten Fabric in a simple three step process as below:
+Switch to the main directory of `contrail-ansible-deployer` and deploy OpenSDN in a simple three step process as below:
 
     cd contrail-ansible-deployer
     ansible-playbook -e orchestrator=kubernetes -i inventory/ playbooks/configure_instances.yml
     ansible-playbook -e orchestrator=kubernetes -i inventory/ playbooks/install_k8s.yml
     ansible-playbook -e orchestrator=kubernetes -i inventory/ playbooks/install_contrail.yml
 
-Note: the above procedure first installs docker and Kubernetes and then deploys the TF framework.
+Note: the above procedure first installs docker and Kubernetes and then deploys the OpenSDN framework.
 
 ---
 
 ### Validation
 
-After the Tungsten Fabric deployment, we can run ``contrail-status`` command on the master node to check whether Tungsten Fabric Docker containers are up and running. A successful installation should display all Tungsten Fabric containers as `active`. Following is the expected output of `contrail-status`:
+After the OpenSDN deployment, we can run ``contrail-status`` command on the master node to check whether OpenSDN Docker containers are up and running. A successful installation should display all OpenSDN containers as `active`. Following is the expected output of `contrail-status`:
 
 
     == Contrail control ==
@@ -182,9 +182,9 @@ After the Tungsten Fabric deployment, we can run ``contrail-status`` command on 
     schema: active
 
 
-Alternatively, the installation can also be verified by accessing the TF web interface via port `8143` over `HTTPS`:
+Alternatively, the installation can also be verified by accessing the OpenSDN web interface via port `8143` over `HTTPS`:
 
-    https://<TF_contrroller_IP_address_master_node>:8143
+    https://<OpenSDN_controller_IP_address_master_node>:8143
     Default credentials: 
         * username: admin
         * password: contrail123
@@ -196,7 +196,7 @@ Alternatively, the installation can also be verified by accessing the TF web int
 Use Cases
 ---------
 
-So far we have configured and deployed the TF framework on to as a CNI for a Kubernetes cluster. The rest of this guide will walk you through a few common scenarios around networking that you can encounter when developing and operating an application that runs on Kubernetes. For the purpose of demonstration, we will be using a very simple, light-weight and well documented mock application called `yelb`. Further details on its working and internal architecture can be found [here](https://github.com/mreferre/yelb#yelb-architecture). It essentially comprises of four components: `yelb-ui` the frontend UI, `yelb-appserver`, `yelb-db` postgres backend database and `yelb-cache` redis cache server.
+So far we have configured and deployed the OpenSDN framework on to as a CNI for a Kubernetes cluster. The rest of this guide will walk you through a few common scenarios around networking that you can encounter when developing and operating an application that runs on Kubernetes. For the purpose of demonstration, we will be using a very simple, light-weight and well documented mock application called `yelb`. Further details on its working and internal architecture can be found [here](https://github.com/mreferre/yelb#yelb-architecture). It essentially comprises of four components: `yelb-ui` the frontend UI, `yelb-appserver`, `yelb-db` postgres backend database and `yelb-cache` redis cache server.
 
 
     #Switch to Target Node 1 (Master Node) and make sure you have
@@ -212,11 +212,11 @@ So far we have configured and deployed the TF framework on to as a CNI for a Kub
 
 ----
 
-### Case 1: Deploying an application with TF managed networking
+### Case 1: Deploying an application with OpenSDN managed networking
 
 The most basic and fundamental functionality provided by any CNI plugin is to enable application pods to communicate with each other, i.e., at minimum provide a pod-to-pod connectivity. In addition to this, the CNI must also manage all incoming and outgoing pods in a smooth and scalable fashion. When you create a Deployment, the CNI plugin works in coordination with Kubernetes to assign IP addresses to each of the application Pods, and interconnect each pod to the cluster’s network
 
-To demonstrate this use case we would deploy the `yelb` app onto our previous TF deployment:
+To demonstrate this use case we would deploy the `yelb` app onto our previous OpenSDN deployment:
 
 
     #Switch to manifests directory within the cloned repository:
@@ -226,7 +226,7 @@ To demonstrate this use case we would deploy the `yelb` app onto our previous TF
     kubectl create -f cnawebapp-loadbalancer.yaml
 
 
-Upon successful deployment of `yelb`, the TF should have assigned each pod with a unique IP addresses and they must be listening to their own respective ports. To verify the deployment, in the Target Node:
+Upon successful deployment of `yelb`, the OpenSDN should have assigned each pod with a unique IP addresses and they must be listening to their own respective ports. To verify the deployment, in the Target Node:
 
     #Check that all ports have their own IP address:
     kubectl get pods -o wide
@@ -272,7 +272,7 @@ Once you’ve explored enough, clean things up to proceed to next case:
 
 ### Case 2: Exposing an external IP to service
 
-Notice the pending External-IP in the output of `kubectl get svc` in previous case, this prevents a direct access to application. In this section we will be configuring Tungsten Fabric to dynamically allocate floating IP to servcies. For demostration we will be using the same setup as in previous case. Login to the TF `web-UI` and move onto the `configure` tab and then switch to `Networking -> Networks`. We will first create a new network in `K8-default project`. Click the `+` icon on the right to start creating a new network. Enter the network name and select all the default policies. 
+Notice the pending External-IP in the output of `kubectl get svc` in previous case, this prevents a direct access to application. In this section we will be configuring OpenSDN to dynamically allocate floating IP to servcies. For demostration we will be using the same setup as in previous case. Login to the OpenSDN `web-UI` and move onto the `configure` tab and then switch to `Networking -> Networks`. We will first create a new network in `K8-default project`. Click the `+` icon on the right to start creating a new network. Enter the network name and select all the default policies. 
 
 
 ![](add-network.png)
@@ -322,7 +322,7 @@ Note: The subnet we defined was 10.32.0.0/12
 ----
 
 ### Case 3: Adding a network policy
-Kubernetes uses network policies to describe the communication behaviour of application pods deployed on the platform. These policies are mainly user-defined and are not enforced by K8s itself but is instead passed onto the underlying CNI addon plugin. Tungsten Fabric fully supports the network policies irrespective of the deployment scenario, it allows the user to define various rules relating to the traffic, port, and the sequence in which to apply a rule.
+Kubernetes uses network policies to describe the communication behaviour of application pods deployed on the platform. These policies are mainly user-defined and are not enforced by K8s itself but is instead passed onto the underlying CNI addon plugin. OpenSDN fully supports the network policies irrespective of the deployment scenario, it allows the user to define various rules relating to the traffic, port, and the sequence in which to apply a rule.
 
 For the purpose of demonstration, we would be defining a very simple policy to pass all incoming traffic to `yelb-ui`. The policy will be f
 
@@ -361,7 +361,7 @@ The above Policy basically says that for Pods with Labels of `app: yelb-ui` and 
 ----
 
 ### Case 4: Namespace segmentation
-Kubernetes uses namespaces to organize multiple virtual clusters within a single physical cluster so as to logical separate multiple environments. This helps reduce the number of clusters and share the spare capacity. While namespaces are useful in keeping things organized in a cluster, however, they are incomplete without the ability of isolating namespaces network-wise. Tungsten Fabric fully supports namespace segmentation, an application deployed into an isolated Namespace cannot reach any Pods outside the Namespace it’s in, and its Pods and Services cannot be reached by applications from other Namespaces. TF helps manage what network communications are allowed for applications in virtual clusters.
+Kubernetes uses namespaces to organize multiple virtual clusters within a single physical cluster so as to logical separate multiple environments. This helps reduce the number of clusters and share the spare capacity. While namespaces are useful in keeping things organized in a cluster, however, they are incomplete without the ability of isolating namespaces network-wise. OpenSDN fully supports namespace segmentation, an application deployed into an isolated Namespace cannot reach any Pods outside the Namespace it’s in, and its Pods and Services cannot be reached by applications from other Namespaces. OpenSDN helps manage what network communications are allowed for applications in virtual clusters.
 
 
 Using the same setup from `case 2` lets consider different scenarios for namespace segmentation. First lets create a new manifest that describes our new isolated Namespace:
@@ -375,7 +375,7 @@ Using the same setup from `case 2` lets consider different scenarios for namespa
        "opencontrail.org/isolation" : "true"
      }
 
-Note the annotations section - this is what signals TF to make your new Namespace isolated. Next let's create this namespace:
+Note the annotations section - this is what signals OpenSDN to make your new Namespace isolated. Next let's create this namespace:
 
     #create our new namespace:
     kubectl create -f dev-isolated.yaml
@@ -432,7 +432,7 @@ Third pods and services in isolated Namespaces should only be reachable from pod
     #pinging it:
     kubectl exec --namespace kube-system -it ${src_pod} ping ${isolated_pod_ip}
 
-From the output you may notice that the command is stuck, not displaying any responses because this time we’re trying to reach something that isn’t reachable because TF is preventing it. Press ctrl+c to cancel.
+From the output you may notice that the command is stuck, not displaying any responses because this time we’re trying to reach something that isn’t reachable because OpenSDN is preventing it. Press ctrl+c to cancel.
 
 
 The final behaviour to verify is an exception to the above one: Services of type `LoadBalancer` in isolated Namespaces will be reachable from the outside world. This can be verified by following the first use case. A copy of `yelb` running in an isolated Namespace `dev-isolated` should be available to the Internet through the `LoadBalancer` Service `yelb-ui`:
@@ -456,9 +456,9 @@ Let's clean thing up
 
 ### Case 5: BGP peering
 
-Kubernetes clusters are often deployed in multiple clouds/sites with distinct networks and therefore require connectivity so that distributed pods/services can interact with each other. Tungsten Fabric fully supports such deployments and provides an easy to set up BGP peering. To demonstrate this use case we will be using two deployments of TF based K8s cluster with slightly different configurations each deployed in a different network. The changes required are different IP ranges for pods and service in each cluster, this can be done modifying the manifest `instances.yaml` and changing the CIDR's for both `KUBERNETES_POD_SUBNETS` and `KUBERNETES_SERVICE_SUBNETS`.
+Kubernetes clusters are often deployed in multiple clouds/sites with distinct networks and therefore require connectivity so that distributed pods/services can interact with each other. OpenSDN fully supports such deployments and provides an easy to set up BGP peering. To demonstrate this use case we will be using two deployments of OpenSDN based K8s cluster with slightly different configurations each deployed in a different network. The changes required are different IP ranges for pods and service in each cluster, this can be done modifying the manifest `instances.yaml` and changing the CIDR's for both `KUBERNETES_POD_SUBNETS` and `KUBERNETES_SERVICE_SUBNETS`.
 
-After the deployment access the TF web UI of each cluster and switch to `configure` tab and then `infrastructure -> BGP router`. Click on `+` to create a BGP router. From router type select `BGP Router` and enter host name and vendor id. Insert the IP address of the other cluster's master node you want to BGP peer with. Scroll down to `Associate Peer(s)` section and add a peer with local.
+After the deployment access the OpenSDN web UI of each cluster and switch to `configure` tab and then `infrastructure -> BGP router`. Click on `+` to create a BGP router. From router type select `BGP Router` and enter host name and vendor id. Insert the IP address of the other cluster's master node you want to BGP peer with. Scroll down to `Associate Peer(s)` section and add a peer with local.
 
 ![](bgp-peer.png)
 
@@ -484,11 +484,11 @@ If the two enviornments are correctly BGP peered you should see a continous ping
 
 ### Case 6: Service chaining
 
-Service chaining essentially involves the use of network services such as a firewall and load balancer that are interconnected through the network to support an application. It is formed when a network policy specifies that the traffic between two networks has to flow through one or more network functions. The functions can be physical appliances, virtual machines or container-based. Tungsten Fabric creates underlay tunnels traversing through these functions based on user-defined policies. The figure below shows an example service chain schema:
+Service chaining essentially involves the use of network services such as a firewall and load balancer that are interconnected through the network to support an application. It is formed when a network policy specifies that the traffic between two networks has to flow through one or more network functions. The functions can be physical appliances, virtual machines or container-based. OpenSDN creates underlay tunnels traversing through these functions based on user-defined policies. The figure below shows an example service chain schema:
 
 ![](svc-chain3.png)
 
-Following a basic deployment of TF we will be setting the above shown service chain. First, we will create two virtual networks named `left-network` and `right-network` with different subnets:
+Following a basic deployment of OpenSDN we will be setting the above shown service chain. First, we will create two virtual networks named `left-network` and `right-network` with different subnets:
 
     #Create a new file named `network.yaml` with the following content:
     apiVersion: k8s.cni.cncf.io/v1
@@ -519,7 +519,7 @@ Following a basic deployment of TF we will be setting the above shown service ch
     #Create networks:
     kubectl apply -f network.yaml
 
-Creation of network can be confirmed via the TF web-ui from `configure` tab `networking -> network` switch to `k8s-default` namespace, you should see the two networks. Next we will create the three pods, namely: `left-pod`, `service-pod` and `right-pod`. The `left-pod` is attached to the `left-network` subnet and the `right-pod` is attached to the `right-network` subnet. The `service-pod` has multiple interface, used to connect to both left and right network subnets.
+Creation of network can be confirmed via the OpenSDN web-ui from `configure` tab `networking -> network` switch to `k8s-default` namespace, you should see the two networks. Next we will create the three pods, namely: `left-pod`, `service-pod` and `right-pod`. The `left-pod` is attached to the `left-network` subnet and the `right-pod` is attached to the `right-network` subnet. The `service-pod` has multiple interface, used to connect to both left and right network subnets.
 
     #Create a new file named `multiIntPods.yaml` with the following content:
     apiVersion: v1
@@ -608,7 +608,7 @@ Subsequent to pod creation and network assignment, we will now configure the ser
                 - right
 
 
-TF uses three modes to cater to different types of traffic from network services, namley Transparent, In-Network and In-Network-NAT service-chain. Transparent is typically used for network services that do not modify the packet. In network (or layer-3) service chain provides a gateway service where packets are routed between the service instance interfaces, packets are routed based on destination IP. Finally, the In-Network-Nat mode is similar to In-Network, however, it replicates right virtual-network's prefixes to left virtual-network, but not vice-versa. Typical usecase of this flavor of service-chain is VNF's left interface has private ip, and the right interface has global ip, in a case such as SNAT for internet access is performed. Since private ip can't be exported to the internet, in this case, left virtual-network's prefix can't be replicated to right virtual-network.
+OpenSDN uses three modes to cater to different types of traffic from network services, namley Transparent, In-Network and In-Network-NAT service-chain. Transparent is typically used for network services that do not modify the packet. In network (or layer-3) service chain provides a gateway service where packets are routed between the service instance interfaces, packets are routed based on destination IP. Finally, the In-Network-Nat mode is similar to In-Network, however, it replicates right virtual-network's prefixes to left virtual-network, but not vice-versa. Typical usecase of this flavor of service-chain is VNF's left interface has private ip, and the right interface has global ip, in a case such as SNAT for internet access is performed. Since private ip can't be exported to the internet, in this case, left virtual-network's prefix can't be replicated to right virtual-network.
 
 Next we need to create a `service instance` from the `Configure->Services->Service instance`. Click the (+) icon to create a new service instance with the following configuration:
 
