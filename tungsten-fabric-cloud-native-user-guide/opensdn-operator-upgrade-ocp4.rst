@@ -1,11 +1,11 @@
-How to Upgrade Tungsten Fabric Through Kubernetes and/or Red Hat OpenShift
+How to Upgrade OpenSDN Through Kubernetes and/or Red Hat OpenShift
 ==============================================================================
 
-Starting in Tungsten Fabric Release R21.12, you can update Tungsten Fabric through Kubernetes and/or Red Hat OpenShift.
+Starting in OpenSDN Release R21.12, you can update OpenSDN through Kubernetes and/or Red Hat OpenShift.
 
-You can use this procedure to update Tungsten Fabric deployed by the Tungsten Fabric (TF) Operator.
+You can use this procedure to update OpenSDN deployed by the OpenSDN (TF) Operator.
 
-To update Tungsten Fabric:
+To update OpenSDN:
 
 1. Update manifests with the new container tag.
 
@@ -28,7 +28,7 @@ Note: Only CONTRAIL_CONTAINER_TAG must have a new tag. The render manifest must 
 
     kubectl –n tf get pods -w | grep tf-operator
 
-4. Update Tungsten Fabric resources.
+4. Update OpenSDN resources.
 
 .. code-block:: shell
 
@@ -41,7 +41,7 @@ Note: Only CONTRAIL_CONTAINER_TAG must have a new tag. The render manifest must 
 
     kubectl –n tf get pods -w
 
-6. Use the contrail-status tool to check the Tungsten Fabric status on all the master nodes.
+6. Use the contrail-status tool to check the OpenSDN status on all the master nodes.
 
 .. code-block:: shell
 

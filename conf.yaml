@@ -1,9 +1,9 @@
 ---
-project: TungstenFabric
+project: OpenSDN
 release: master
 version: master
-author: Tungsten Fabric Project
-copyright: 2019, Tungsten Fabric Project
+author: OpenSDN
+copyright: 2024, OpenSDN
 
 needs_sphinx: '1.6.5'
 extensions:

@@ -3,11 +3,11 @@ How to Enable Keystone Authentication in a Juju Cluster within a Kubernetes Envi
 
 :date: 2020-12-08
 
-Starting in Tungsten Fabric Release 2011, Kubernetes can use the
+Starting in OpenSDN Release 2011, Kubernetes can use the
 Keystone authentication service in Openstack for authentication in
 environments that contain cloud networks using Openstack and Kubernetes
 orchestrators when the Kubernetes environment is using Juju. This
-capability is available when the cloud networks are both using Tungsten Fabric 
+capability is available when the cloud networks are both using OpenSDN 
 and when the Kubernetes cluster was created in an environment using Juju.
 
 This document discusses how to enable keystone authentication in
@@ -16,7 +16,7 @@ Kubernetes environments and contains the following sections:
 Overview: Keystone Authentication in Kubernetes Environments with a Juju Cluster
 --------------------------------------------------------------------------------
 
-A cloud environment that includes TF clusters in
+A cloud environment that includes OpenSDN clusters in
 Kubernetes-orchestrated environments and OpenStack-orchestrated
 environments can simplify authentication processes by having a single
 authentication service in place of each orchestrator authenticating
@@ -34,7 +34,7 @@ kubemanager.
 
 Both orchestrators use their native authentication processes by default.
 The ability for Kubernetes to use Keystone authentication in an
-environment using Juju was introduced in Tungsten Fabric Release
+environment using Juju was introduced in OpenSDN Release
 2011 and must be user-enabled.
 
 How to Enable Keystone Authentication in a Kubernetes Environment
@@ -57,7 +57,7 @@ To enable Keystone authentication for Kubernetes:
    keystone-auth pod in Kubernetes.
 
    You can disable IP Fabric Forwarding and enable SNAT from the kubectl
-   CLI or from the Tungsten Fabric GUI.
+   CLI or from the OpenSDN GUI.
 
    -  *Kubectl*:
 
@@ -70,7 +70,7 @@ To enable Keystone authentication for Kubernetes:
            annotations:
              opencontrail.org/ip_fabric_snat: "true"
 
-   -  *Tungsten Fabric Graphical User Interface*
+   -  *OpenSDN Graphical User Interface*
 
       Change the appropriate settings in the Configure > Networking >
       Networks > default-domain > k8s-kube-system workflow.

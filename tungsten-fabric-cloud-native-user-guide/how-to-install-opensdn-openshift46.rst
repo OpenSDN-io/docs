@@ -1,15 +1,15 @@
-.. _how-to-install-contrail-networking-and-red-hat-openshift-46:
+.. _how-to-install-opensdn-and-red-hat-openshift-46:
 
-How to Install Tungsten Fabric and Red Hat OpenShift 4.6
+How to Install OpenSDN and Red Hat OpenShift 4.6
 ========================================================
 
  :date: 2021-04-30
 
-Starting in Tungsten Fabric Release 2011, you can install
-Tungsten Fabric with Red Hat Openshift 4.6 in multiple environments.
+Starting in OpenSDN Release 2011, you can install
+OpenSDN with Red Hat Openshift 4.6 in multiple environments.
 
 This document shows one method of installing Red Hat Openshift 4.6 with
-Tungsten Fabric in two separate contexts—on a VM running in a KVM
+OpenSDN in two separate contexts—on a VM running in a KVM
 module and within Amazon Web Services (AWS).
 
 There are many implementation and configuration options available for
@@ -22,17 +22,17 @@ from Red Hat.
 
 This document includes the following sections:
 
-.. _how-to-install-contrail-networking-and-red-hat-openshift-46-using-a-vm-running-in-a-kvm-module:
+.. _how-to-install-opensdn-and-red-hat-openshift-46-using-a-vm-running-in-a-kvm-module:
 
-How to Install Tungsten Fabric and Red Hat OpenShift 4.6 using a VM Running in a KVM Module
+How to Install OpenSDN and Red Hat OpenShift 4.6 using a VM Running in a KVM Module
 -------------------------------------------------------------------------------------------
-This section illustrates how to install Tungsten Fabric with Red Hat
-OpenShift 4.6 orchestration, where Tungsten Fabric and Red Hat
+This section illustrates how to install OpenSDN with Red Hat
+OpenShift 4.6 orchestration, where OpenSDN and Red Hat
 Openshift are running on virtual machines (VMs) in a Kernel-based
 Virtual Machine (KVM) module.
 
 This procedure can also be performed to configure an environment where
-Tungsten Fabric and Red Hat OpenShift 4.6 are running in an
+OpenSDN and Red Hat OpenShift 4.6 are running in an
 environment with bare metal servers. You can, for instance, use this
 procedure to establish an environment where the master nodes host the
 VMs that run the control plane on KVM while the worker nodes operate on
@@ -41,19 +41,19 @@ physical bare metal servers.
 When to Use This Procedure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This procedure is used to install Tungsten Fabric and Red Hat
+This procedure is used to install OpenSDN and Red Hat
 OpenShift 4.6 orchestration on a virtual machine (VM) running in a
-Kernel-based Virtual Machine (KVM) module. Support for Contrail
+Kernel-based Virtual Machine (KVM) module. Support for OpenSDN
 Networking installations onto VMs in Red Hat OpenShift 4.6 environments
-is introduced in Tungsten Fabric Release 2011.
+is introduced in OpenSDN Release 2011.
 
-You can also use this procedure to install Tungsten Fabric and Red
+You can also use this procedure to install OpenSDN and Red
 Hat OpenShift 4.6 orchestration on a bare metal server.
 
 You cannot incrementally upgrade from an environment using an earlier
-version of Red Hat OpenShift and Tungsten Fabric to an environment
+version of Red Hat OpenShift and OpenSDN to an environment
 using Red Hat OpenShift 4.6. You must use this procedure to install
-Tungsten Fabric with Red Hat Openshift 4.6.
+OpenSDN with Red Hat Openshift 4.6.
 
 This procedure should work with all versions of Openshift 4.6.
 
@@ -64,8 +64,8 @@ This document makes the following assumptions about your environment:
 
 -  the KVM environment is operational.
 
--  the server meets the platform requirements for the Contrail
-   Networking installation. See `Tungsten Fabric Supported
+-  the server meets the platform requirements for the OpenSDN
+   Networking installation. See `OpenSDN Supported
    Platforms <https://www.juniper.net/documentation/en_US/release-independent/contrail/topics/reference/contrail-supported-platforms.pdf>`__  .
 
 -  Minimum server requirements:
@@ -87,22 +87,22 @@ This document makes the following assumptions about your environment:
    -  Helper node: 4 CPU, 8GB RAM, 30GB SSD storage
 
 -  In single node deployments, do not use spinning disk arrays with low
-   Input/Output Operations Per Second (IOPS) when using Contrail
+   Input/Output Operations Per Second (IOPS) when using OpenSDN
    Networking with Red Hat Openshift. Higher IOPS disk arrays are
    required because the control plane always operates as a high
    availability setup in single node deployments.
 
    IOPS requirements vary by environment due to multiple factors beyond
-   Tungsten Fabric and Red Hat Openshift. We, therefore, provide
+   OpenSDN and Red Hat Openshift. We, therefore, provide
    this guideline but do not provide direct guidance around IOPS
    requirements.
 
-.. _install-contrail-networking-and-red-hat-openshift-46:
+.. _install-opensdn-and-red-hat-openshift-46:
 
-Install Tungsten Fabric and Red Hat Openshift 4.6
+Install OpenSDN and Red Hat Openshift 4.6
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Perform these steps to install Tungsten Fabric and Red Hat OpenShift
+Perform these steps to install OpenSDN and Red Hat OpenShift
 4.6 using a VM running in a KVM module:
 
 
@@ -111,7 +111,7 @@ Create a Virtual Network or a Bridge Network for the Installation
 
 To create a virtual network or a bridge network for the installation:
 
-1. Log onto the server that will host the VM that will run Contrail
+1. Log onto the server that will host the VM that will run OpenSDN
    Networking.
 
    Download the ``virt-net.xml`` virtual network configuration file from
@@ -434,8 +434,8 @@ To create Ignition configurations:
        # ls -1 ~/.openshift/pull-secret
        /root/.openshift/pull-secret
 
-4.  (Contrail containers in password protected registries only) If the
-    Contrail containers in your environment are in password protected
+4.  (OpenSDN containers in password protected registries only) If the
+    OpenSDN containers in your environment are in password protected
     registries, also add the authentication information for the
     registries in the ``root/.openshift/pull-secret`` directory.
 
@@ -535,14 +535,14 @@ To create Ignition configurations:
     This configuration change is needed to prevent pods from being
     scheduled on control plane machines.
 
-10. Install the YAML files to apply the TF configuration:
+10. Install the YAML files to apply the OpenSDN configuration:
 
     Configure the YAML file for your environment, paying particular
     attention to the registry, container tag, cluster name, and domain
     fields.
 
     The container tag for any R2011 and R2011.L release can be retrieved
-    from `README Access to Contrail Registry
+    from `README Access to OpenSDN Registry
     20XX <https://www.juniper.net/documentation/en_US/contrail20/information-products/topic-collections/release-notes/readme-contrail-20.pdf>`__  .
 
     ::
@@ -796,23 +796,23 @@ To finish the installation:
 
 7. Add a user to the cluster. See `How to Add a User After Completing
    the
-   Installation <how-to-install-contrail-networking-openshift46.html>`.
+   Installation <how-to-install-opensdn-openshift46.html>`.
 
-.. _how-to-install-contrail-networking-and-red-hat-openshift-46-on-amazon-web-services:
+.. _how-to-install-opensdn-and-red-hat-openshift-46-on-amazon-web-services:
 
-How to Install Tungsten Fabric and Red Hat OpenShift 4.6 on Amazon Web Services
+How to Install OpenSDN and Red Hat OpenShift 4.6 on Amazon Web Services
 -------------------------------------------------------------------------------
 
-Follow these procedures to install Tungsten Fabric and Red Hat
+Follow these procedures to install OpenSDN and Red Hat
 Openshift 4.6 on Amazon Web Services (AWS):
 
 
 When to Use This Procedure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This procedure is used to install Tungsten Fabric and Red Hat
-OpenShift 4.6 orchestration in AWS. Support for Tungsten Fabric and
-Red Hat OpenShift 4.6 environments is introduced in Tungsten Fabric
+This procedure is used to install OpenSDN and Red Hat
+OpenShift 4.6 orchestration in AWS. Support for OpenSDN and
+Red Hat OpenShift 4.6 environments is introduced in OpenSDN
 Release 2011.
 .. _prerequisites-1:
 
@@ -821,8 +821,8 @@ Prerequisites
 
 This document makes the following assumptions about your environment:
 
--  the server meets the platform requirements for the Contrail
-   Networking installation. See `Tungsten Fabric Supported
+-  the server meets the platform requirements for the OpenSDN
+   Networking installation. See `OpenSDN Supported
    Platforms <https://www.juniper.net/documentation/en_US/release-independent/contrail/topics/reference/contrail-supported-platforms.pdf>`__  .
 
 -  You have the Openshift binary version 4.4.8 files or later. See the
@@ -848,9 +848,9 @@ Configure DNS
 
 A DNS zone must be created and available in Route 53 for your AWS
 account before starting this installation. You must also register a
-domain for your TF cluster in AWS Route 53. All entries created in
+domain for your OpenSDN cluster in AWS Route 53. All entries created in
 AWS Route 53 are expected to be resolvable from the nodes in the
-TF cluster.
+OpenSDN cluster.
 
 For information on configuring DNS zones in AWS Route 53, see the
 ``Amazon Route 53 Developer Guide`` from AWS.
@@ -947,7 +947,7 @@ To deploy the cluster:
     -  The ``networkType`` field is usually set as ``OpenShiftSDN`` in
        the YAML file by default.
 
-       For configuration pointing at TF cluster nodes, the
+       For configuration pointing at OpenSDN cluster nodes, the
        ``networkType`` field needs to be configured as ``Contrail``.
 
     -  OpenShift master nodes need larger instances. We recommend
@@ -964,7 +964,7 @@ To deploy the cluster:
        customizations <https://docs.openshift.com/container-platform/4.5/installing/installing_aws/installing-aws-customizations.html>`__
        document from Red Hat OpenShift.
 
-    -  You may want to add the credentials to the Contrail secured
+    -  You may want to add the credentials to the OpenSDN secured
        registry at ``hub.juniper.net`` at this point of the procedure.
 
     A sample ``install-config.yaml`` file:
@@ -1023,14 +1023,14 @@ To deploy the cluster:
 
        # openshift-install create manifests
 
-5.  Install the YAML files to apply the TF configuration.
+5.  Install the YAML files to apply the OpenSDN configuration.
 
     Configure the YAML file for your environment, paying particular
     attention to the registry, container tag, cluster name, and domain
     fields.
 
     The container tag for any R2011 and R2011.L release can be retrieved
-    from `README Access to Contrail Registry
+    from `README Access to OpenSDN Registry
     20XX <https://www.juniper.net/documentation/en_US/contrail20/information-products/topic-collections/release-notes/readme-contrail-20.pdf>`__  .
 
     ::
@@ -1081,22 +1081,22 @@ To deploy the cluster:
 
        $ openshift-install create cluster --log-level=debug
 
-    -  Tungsten Fabric needs to open some networking ports for
+    -  OpenSDN needs to open some networking ports for
        operation within AWS. These ports are opened by adding rules to
        security groups.
 
        Follow this procedure to add rules to security groups when AWS
        resources are manually created:
 
-       1. Build the TF CLI tool for managing security group ports
+       1. Build the OpenSDN CLI tool for managing security group ports
           on AWS. This tool allows you to automatically open ports that
-          are required for Contrail to manage security group ports on
-          AWS that are attached to TF cluster resources.
+          are required for OpenSDN to manage security group ports on
+          AWS that are attached to OpenSDN cluster resources.
 
           To build this tool:
 
           1. Clone the tool operator into AWS. In this sample output,
-             the operator is cloned for Tungsten Fabric Release
+             the operator is cloned for OpenSDN Release
              2011:
 
              ::
@@ -1161,7 +1161,7 @@ To deploy the cluster:
 
 11. Add a user to the cluster. See `How to Add a User After Completing
     the
-    Installation <how-to-install-contrail-networking-openshift46.html>`.
+    Installation <how-to-install-opensdn-openshift46.html>`.
 
 How to Add a User After Completing the Installation
 ---------------------------------------------------
@@ -1235,9 +1235,9 @@ HTTPasswd identity provider.
    user <https://docs.openshift.com/container-platform/4.5/authentication/remove-kubeadmin.html>`__
    document from Red Hat OpenShift.
 
-How to Install Earlier Releases of Tungsten Fabric and Red Hat OpenShift
+How to Install Earlier Releases of OpenSDN and Red Hat OpenShift
 ----------------------------------------------------------------------------
 
-If you have a need to install Tungsten Fabric with earlier versions
-of Red Hat Openshift, earlier versions of Tungsten Fabric are also
+If you have a need to install OpenSDN with earlier versions
+of Red Hat Openshift, earlier versions of OpenSDN are also
 supported with Red Hat Openshift versions 4.5, 4.4, and 3.11.

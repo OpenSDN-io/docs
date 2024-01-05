@@ -6,12 +6,12 @@ import re
 import pprint
 
 
-class DeContralizeDocument(object):
+class DeTungstenizeDocument(object):
     def __init__(self):
         self.newDocumentText = []
-        self.decontralize()
+        self.detungstenize()
 
-    def decontralize(self):
+    def detungstenize(self):
         pp = pprint.PrettyPrinter(indent=4)
 
         #open file
@@ -66,13 +66,13 @@ class DeContralizeDocument(object):
         return True
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='This script takes input two files: one with de-contralization guidance and one where those words need to be replaced. As a result it will save the same file with new content.',
+    parser = argparse.ArgumentParser(description='This script takes input two files: one with de-tungsten-ization guidance and one where those words need to be replaced. As a result it will save the same file with new content.',
         formatter_class=argparse.RawTextHelpFormatter)
     parser.add_argument('-d','--dictionary', help=textwrap.dedent('''\
-        dictionary that contain guidance what and how should be replaced. The defualt decontralization_guide.txt can be found in this repo.
+        dictionary that contain guidance what and how should be replaced. The default de-tungsten-ize-guide.txt can be found in this repo.
         '''),
         required=True)
-    parser.add_argument('-t','--textFile',help='File that needs to be de-contralized', required=True)
+    parser.add_argument('-t','--textFile',help='File that needs to be de-tungsten-ized', required=True)
     args = parser.parse_args()
 
-    DeContralizeDocument()
+    DeTungstenizeDocument()

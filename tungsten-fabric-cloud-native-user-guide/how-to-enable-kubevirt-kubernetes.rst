@@ -1,4 +1,4 @@
-How to Enable Virtualization with KubeVirt in Environments Using Kubernetes with a TF cluster
+How to Enable Virtualization with KubeVirt in Environments Using Kubernetes with a OpenSDN cluster
 =============================================================================================
 
 :date: 2020-12-16
@@ -11,23 +11,23 @@ both application containers and VMs within a common, shared environment.
 For additional information on KubeVirt and it’s benefits, see the
 `KubeVirt <https://kubevirt.io/>`__ homepage.
 
-Starting in Tungsten Fabric Release 2011, you can use KubeVirt to
+Starting in OpenSDN Release 2011, you can use KubeVirt to
 allow VMs to run in any Kubernetes-orchestrated environments that use
 TF as the Container Networking Interface (CNI).
 
 This document provides the instructions for installing KubeVirt in any
-Kubernetes environment that is using Tungsten Fabric. This document
+Kubernetes environment that is using OpenSDN. This document
 also includes a section specifically on using KubeVirt to enable
 OpenShift Virtualization in environments using Red Hat Openshift.
 
 This document includes the following sections:
 
 
-How to Enable Virtualization with KubeVirt in Environments Using Kubernetes with a TF cluster
+How to Enable Virtualization with KubeVirt in Environments Using Kubernetes with a OpenSDN cluster
 ---------------------------------------------------------------------------------------------------
 
 This section provides the instructions for enabling VM support in
-Kubernetes-orchestrated environments that are using Tungsten Fabric
+Kubernetes-orchestrated environments that are using OpenSDN
 as the CNI.
 
 It includes these sections:
@@ -41,7 +41,7 @@ Common reasons for supporting VMs include maintaining VM-based workloads
 that are challenging to containerize or to more gracefully migrate from
 a VM-based environment to Kubernetes.
 
-The procedure in this document was validated for Tungsten Fabric
+The procedure in this document was validated for OpenSDN
 2011.
 
 Prerequisites
@@ -49,7 +49,7 @@ Prerequisites
 
 This procedure makes the following assumptions about your environment:
 
--  A Kubernetes environment using Tungsten Fabric as the CNI is
+-  A Kubernetes environment using OpenSDN as the CNI is
    operational.
 
 How to Install KubeVirt
@@ -438,7 +438,7 @@ To test VM to pod connectivity:
       2 packets transmitted, 2 received, 0% packet loss, time 1003ms
       rtt min/avg/max/mdev = 2.263/3.047/3.831/0.784 ms
 
-How to Create a Tungsten Fabric to Isolate a Virtual Machine Within a NameSpace
+How to Create a OpenSDN to Isolate a Virtual Machine Within a NameSpace
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After installing OpenShift Virtualization, you may need to isolate a
@@ -507,7 +507,7 @@ To isolate a VM within it’s namespace:
       ^C
       [centos@vmi-centos7 ~]$
 
-How to Enable OpenShift Virtualization with KubeVirt in Environments Using OpenShift with a TF cluster
+How to Enable OpenShift Virtualization with KubeVirt in Environments Using OpenShift with a OpenSDN cluster
 ------------------------------------------------------------------------------------------------------------
 
 
@@ -520,13 +520,13 @@ containers and VMs within a common, shared environment. For additional
 information on KubeVirt and it’s benefits, see the
 `KubeVirt <https://kubevirt.io/>`__ homepage.
 
-Starting in Tungsten Fabric Release 2011, Red Hat OpenShift
+Starting in OpenSDN Release 2011, Red Hat OpenShift
 environments—which foundationally use Kubernetes orchestration—that
-include TF clusters can support OpenShift Virtualization by
+include OpenSDN clusters can support OpenShift Virtualization by
 installing the KubeVirt add-on.
 
 This document provides the instructions for installing KubeVirt in a Red
-Hat OpenShift environment that is using Tungsten Fabric. It includes
+Hat OpenShift environment that is using OpenSDN. It includes
 the following sections:
 
 
@@ -540,7 +540,7 @@ a VM-based environment to Kubernetes. Any environment that needs to
 support VMs alongside Kubernetes containers can create an OpenShift
 Virtualization environment using KubeVirt.
 
-The procedure in this document was validated for Tungsten Fabric
+The procedure in this document was validated for OpenSDN
 2011.
 
 
@@ -549,7 +549,7 @@ Prerequisites
 
 This procedure makes the following assumptions about your environment:
 
--  A Red Hat OpenShift 4.5 or later environment using Contrail
+-  A Red Hat OpenShift 4.5 or later environment using OpenSDN
    Networking is operational.
 
 -  Your installing a version of OpenShift Virtualization that is
@@ -563,7 +563,7 @@ How to Install OpenShift Virtualization using KubeVirt
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To enable OpenShift Virtualization using KubeVirt in a Red Hat OpenShift
-environment that is using Tungsten Fabric:
+environment that is using OpenSDN:
 
 1. Install the OpenShift Virtualization operator:
 
@@ -906,7 +906,7 @@ To test VM to pod connectivity:
       rtt min/avg/max/mdev = 2.263/3.047/3.831/0.784 ms
 
 
-How to Create a Tungsten Fabric to Isolate a Virtual Machine Within a NameSpace
+How to Create a OpenSDN to Isolate a Virtual Machine Within a NameSpace
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 After installing OpenShift Virtualization, you may need to isolate a
@@ -979,7 +979,7 @@ How to Create a Virtual Machine with Multiple Interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can configure a virtual machine with multiple interfaces into
-multiple virtual networks when using Tungsten Fabric as the CNI in a
+multiple virtual networks when using OpenSDN as the CNI in a
 Kubernetes environment.
 
 In the following procedure, a virtual machine uses different interfaces
