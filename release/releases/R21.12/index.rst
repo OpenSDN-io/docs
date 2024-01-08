@@ -98,5 +98,5 @@ Starting in Tungsten Fabric Release R21.12, you can configure Maximum Transmissi
 
 
 .. _Layer 3 Multihoming: ../../../tungsten-fabric-service-provider-focused-features-guide/layer-3-multihoming.html
-.. _Stickiness for Load-Balanced Flows: ../../../tungsten-fabric-cloud-native-user-guide/flow-stickiness-for-lb.html
-.. _OpenShift Operator Upgrade: ../../../tungsten-fabric-cloud-native-user-guide/tf-operator-upgrade-ocp4.html
+.. _Stickiness for Load-Balanced Flows: ../../../opensdn-cloud-native-user-guide/flow-stickiness-for-lb.html
+.. _OpenShift Operator Upgrade: ../../../opensdn-cloud-native-user-guide/opensdn-operator-upgrade-ocp4.html
