@@ -29,7 +29,7 @@ html_static_path:
   - _static
 html_theme: bootstrap
 html_theme_options:
-  bootswatch_theme: united
+  bootswatch_theme: spacelab
   navbar_sidebarrel: true
   source_link_position: footer
   globaltoc_depth: 3
