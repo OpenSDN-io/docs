@@ -29,7 +29,7 @@ Jenkins master
 Ubuntu 20.04 based VM, 4 CPU, 8 Gb RAM, 100Gb for root volume.
 
 - URL: `<https://jenkins.opensdn.io/>`_
-- Source code: `<https://github.com/opensdn/tf-jenkins>`_
+- Source code: `<https://github.com/opensdnio/tf-jenkins>`_
 
 Jenkins master is deployed as a docker container. All further configuration (user, plugins, ...) is applied inside Jenkins itself.
 
