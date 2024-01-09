@@ -23,20 +23,24 @@ Standardized policies will make your security team happy, too.
    treat this documentation with care.  References to the above may still be in many
    parts of the documentation.
 
-Documentation Structure
------------------------
+Documentation
+-------------
+
+Release Information
+~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 1
    :titlesonly:
 
-Release Information
-~~~~~~~~~~~~~~~~~~~
-
    release/index.rst
 
 Core Architecture & Features
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
 
    opensdn-feature-architecture-guide/index.rst
    opensdn-cloud-native-user-guide/index.rst
@@ -47,11 +51,19 @@ Core Architecture & Features
 OpenSDN Operations
 ~~~~~~~~~~~~~~~~~~
 
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
+
    opensdn-installation-and-upgrade-guide/index.rst
    opensdn-monitoring-and-troubleshooting-guide/index.rst
 
 OpenSDN Development
 ~~~~~~~~~~~~~~~~~~~
+
+.. toctree::
+   :maxdepth: 1
+   :titlesonly:
 
    contributing-to-opensdn/index.rst
    infrastructure/index.rst
