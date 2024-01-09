@@ -1,4 +1,4 @@
-OpenSDN networking and security user guide
+OpenSDN Networking and Security User Guide
 ==========================================
 
 Use this guide to understand how you can create and orchestrate highly secure 
@@ -10,8 +10,8 @@ OpenSDN security implements intent-based policy framework that uses policy const
 such as tags, labels, application policy set, address groups, and service groups.
 
 
-Documentation Structure
------------------------
+Documentation
+-------------
 
 Configuring Virtual Networks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -23,7 +23,7 @@ Configuring Virtual Networks
    next-hop-limit-increase
 
 Configuring Service Chaining
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 1

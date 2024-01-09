@@ -24,7 +24,7 @@ Supported platforms and server requirements
 Installing OpenSDN with OpenStack
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Setting Up Contrail with Red Hat OpenStack 16.1
+Setting Up OpenSDN with Red Hat OpenStack 16.1
 ***********************************************
 
 .. toctree::
@@ -36,7 +36,7 @@ Setting Up Contrail with Red Hat OpenStack 16.1
    setting-up-opensdn-rhosp16-undercloud
    setting-up-opensdn-rhosp16-overcloud
 
-Setting Up Contrail with Red Hat OpenStack 13
+Setting Up OpenSDN with Red Hat OpenStack 13
 *********************************************
 
 .. toctree::

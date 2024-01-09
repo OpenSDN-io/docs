@@ -59,7 +59,6 @@ Load Balancers
    :maxdepth: 1
    :titlesonly:
 
-   lbaas-tf3-F5
    lbaas-v2-vnc
    load-balance-as-service-vnc
 

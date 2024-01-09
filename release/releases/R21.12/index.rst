@@ -1,6 +1,6 @@
 
 =====================================
-Release Notes: Tungsten Fabric R21.12
+Release Notes: OpenSDN R21.12
 =====================================
 
 
@@ -57,7 +57,7 @@ Supported Platforms and Versions
 Support for Dynamic Address Learning with IPVLAN Networking
 ------------------------------------------------------------
 
-In the latest release of Tungsten Fabric a vRouter can learn multiple MAC-IP address bindings for a single MAC address when Dynamic Address Learning is enabled in a virtual network.
+In the latest release of OpenSDN a vRouter can learn multiple MAC-IP address bindings for a single MAC address when Dynamic Address Learning is enabled in a virtual network.
 
 For more information see: :ref:`Dynamic MAC/IP Learning <DynamicMacIP>`.
 
@@ -83,10 +83,10 @@ Support for User-Defined Tags in Security Policy
 In this latest release security policy allows optional user-defined tags which enables you to define tag IDs along with tag names. You can also create a predefined tag type with user-defined tag value ID.
 
 
-Upgrade Tungsten Fabric Through Kubernetes and/or Red Hat OpenShift
+Upgrade OpenSDN Through Kubernetes and/or Red Hat OpenShift
 ------------------------------------------------------------------------
 
-Starting in Tungsten Fabric Release R21.12, you can update Tungsten Fabric through Kubernetes and/or Red Hat OpenShift. You can use this procedure to update Tungsten Fabric deployed by the Tungsten Fabric (TF) Operator.
+Starting in OpenSDN Release R21.12, you can update OpenSDN through Kubernetes and/or Red Hat OpenShift. You can use this procedure to update OpenSDN deployed by the OpenSDN Operator.
 
 For more information see: `OpenShift Operator Upgrade`_
 
@@ -94,9 +94,9 @@ For more information see: `OpenShift Operator Upgrade`_
 Configure MTU For Virtual Networks
 ------------------------------------
 
-Starting in Tungsten Fabric Release R21.12, you can configure Maximum Transmission Unit (MTU) for virtual networks(VN) in the Contrail Command UI. To configure MTU, select Overlay>Virtual Networks>Create Virtual Network. In the Advanced option, you can configure the MTU value in the MTU field. The available range is 0-9216. The Dynamic Host Configuration Protocol (DHCP) will not use the MTU value and it will not be inherited by VMIs attached to the VN.
+Starting in OpenSDN Release R21.12, you can configure Maximum Transmission Unit (MTU) for virtual networks(VN) in the Contrail Command UI. To configure MTU, select Overlay>Virtual Networks>Create Virtual Network. In the Advanced option, you can configure the MTU value in the MTU field. The available range is 0-9216. The Dynamic Host Configuration Protocol (DHCP) will not use the MTU value and it will not be inherited by VMIs attached to the VN.
 
 
-.. _Layer 3 Multihoming: ../../../tungsten-fabric-service-provider-focused-features-guide/layer-3-multihoming.html
+.. _Layer 3 Multihoming: ../../../opensdn-service-provider-focused-features-guide/layer-3-multihoming.html
 .. _Stickiness for Load-Balanced Flows: ../../../opensdn-cloud-native-user-guide/flow-stickiness-for-lb.html
 .. _OpenShift Operator Upgrade: ../../../opensdn-cloud-native-user-guide/opensdn-operator-upgrade-ocp4.html

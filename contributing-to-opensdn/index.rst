@@ -1,5 +1,5 @@
 Contributing to OpenSDN
-===============================
+=======================
 
 .. toctree::
    :maxdepth: 1
