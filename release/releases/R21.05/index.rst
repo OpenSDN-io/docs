@@ -310,7 +310,7 @@ OpenSDN can now use the Keystone authentication service in OpenStack for authent
 Support for contrail-vrouter-utils package in the Contrail Tools Container
 --------------------------------------------------------------------------
 
-Starting with Contrail Networking Release 2011, the contrail-vrouter-utils package is available only in the contrail-tools container. You must use the contrail-tools container to execute tools like vif, nh, rt, and so on available in the contrail-vrouter-utils package. In previous releases, the contrail-vrouter-utils package is available in the contrail-vrouter-agent and contrail-vrouter-dpdk container. You can no longer use the contrail-vrouter-agent and contrail-vrouter-dpdk containers to execute the tools available in the contrail-vrouter-utils package.
+Starting with OpenSDN Networking Release 2011, the contrail-vrouter-utils package is available only in the contrail-tools container. You must use the contrail-tools container to execute tools like vif, nh, rt, and so on available in the contrail-vrouter-utils package. In previous releases, the contrail-vrouter-utils package is available in the contrail-vrouter-agent and contrail-vrouter-dpdk container. You can no longer use the contrail-vrouter-agent and contrail-vrouter-dpdk containers to execute the tools available in the contrail-vrouter-utils package.
 
 
 Support for Netronome SmartNIC vRouter for Juju Charms Deployment
@@ -324,4 +324,4 @@ Support for Red Hat OpenShift 4.6
 ---------------------------------
 
 In the latest release of OpenSDN you can enable OpenSDN as the Container Network Interface (CNI) in environments using Red Hat OpenShift 4.6. Red Hat OpenShift is a platform. 
-For more information on Red Hat Openshift 4.6 in OpenSDN see How to Contrail Networking and Red Hat OpenShift 4.6.
+For more information on Red Hat Openshift 4.6 in OpenSDN see How to OpenSDN Networking and Red Hat OpenShift 4.6.

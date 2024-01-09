@@ -94,7 +94,7 @@ For more information see: `OpenShift Operator Upgrade`_
 Configure MTU For Virtual Networks
 ------------------------------------
 
-Starting in OpenSDN Release R21.12, you can configure Maximum Transmission Unit (MTU) for virtual networks(VN) in the Contrail Command UI. To configure MTU, select Overlay>Virtual Networks>Create Virtual Network. In the Advanced option, you can configure the MTU value in the MTU field. The available range is 0-9216. The Dynamic Host Configuration Protocol (DHCP) will not use the MTU value and it will not be inherited by VMIs attached to the VN.
+Starting in OpenSDN Release R21.12, you can configure Maximum Transmission Unit (MTU) for virtual networks(VN) in the OpenSDN Command UI. To configure MTU, select Overlay>Virtual Networks>Create Virtual Network. In the Advanced option, you can configure the MTU value in the MTU field. The available range is 0-9216. The Dynamic Host Configuration Protocol (DHCP) will not use the MTU value and it will not be inherited by VMIs attached to the VN.
 
 
 .. _Layer 3 Multihoming: ../../../opensdn-service-provider-focused-features-guide/layer-3-multihoming.html
