@@ -31,10 +31,10 @@ Setting Up Contrail with Red Hat OpenStack 16.1
    :maxdepth: 1
    :titlesonly:
 
-   setting-up-tf-rhosp16-introduction
-   setting-up-tf-rhosp16-infrastructure
-   setting-up-tf-rhosp16-undercloud
-   setting-up-tf-rhosp16-overcloud
+   setting-up-opensdn-rhosp16-introduction
+   setting-up-opensdn-rhosp16-infrastructure
+   setting-up-opensdn-rhosp16-undercloud
+   setting-up-opensdn-rhosp16-overcloud
 
 Setting Up Contrail with Red Hat OpenStack 13
 *********************************************
@@ -43,10 +43,10 @@ Setting Up Contrail with Red Hat OpenStack 13
    :maxdepth: 1
    :titlesonly:
 
-   setting-up-tf-rhosp-introduction
-   setting-up-tf-rhosp-infrastructure
-   setting-up-tf-rhosp-undercloud
-   setting-up-tf-rhosp-overcloud
+   setting-up-opensdn-rhosp-introduction
+   setting-up-opensdn-rhosp-infrastructure
+   setting-up-opensdn-rhosp-undercloud
+   setting-up-opensdn-rhosp-overcloud
    smartnic-vrouter-support
    rhosp-octavia
 
@@ -58,8 +58,8 @@ Using OpenSDN with Juju Charms
    :maxdepth: 1
    :titlesonly:
 
-   deploying-tf-using-juju-charms
-   deploying-tf-using-juju-charms-kubernetes
+   deploying-opensdn-using-juju-charms
+   deploying-opensdn-using-juju-charms-kubernetes
    juju-charms-nested-kubernetes
    canonical-octavia
    smartnic-vrouter-juju-charms
@@ -71,9 +71,9 @@ Using OpenSDN with VMware vCenter
    :maxdepth: 1
    :titlesonly:
 
-   vcenter-tf
-   install-tf-vRO-plugin
-   integrating-tf501-with-vRO
+   vcenter-opensdn
+   install-opensdn-vRO-plugin
+   integrating-opensdn501-with-vRO
    vcenter-as-orchestrator-deployment-scenarios-501
 
 
@@ -99,36 +99,36 @@ Post Installation Tasks
    backup-using-json-50
    canonical-octavia
    config-control-node-with-bgp
-   deploying-tf-using-juju-charms-kubernetes
-   deploying-tf-using-juju-charms
+   deploying-opensdn-using-juju-charms-kubernetes
+   deploying-opensdn-using-juju-charms
    graceful-restart-bgp-persist-vnc
    hardware-reqs-vnc
-   how-to-install-tf-networking-openshift4
-   tf-issu-rhosp-13
-   install-tf-rhosp-ziu
-   install-tf-vRO-plugin
-   installing-tf-ansible-ziu
-   integrating-tf501-with-vRO
+   how-to-install-opensdn-networking-openshift4
+   opensdn-issu-rhosp-13
+   install-opensdn-rhosp-ziu
+   install-opensdn-vRO-plugin
+   installing-opensdn-ansible-ziu
+   integrating-opensdn501-with-vRO
    juju-charms-nested-kubernetes
    md5-authentication-configuring
    provisioning-k8s-cluster
    rbac-analytics-api
    rhosp-octavia
    role-resource-access-control-vmc
-   setting-up-tf-rhosp-infrastructure
-   setting-up-tf-rhosp-introduction
-   setting-up-tf-rhosp-overcloud
-   setting-up-tf-rhosp-undercloud
-   setting-up-tf-rhosp16-infrastructure
-   setting-up-tf-rhosp16-introduction
-   setting-up-tf-rhosp16-overcloud
-   setting-up-tf-rhosp16-undercloud
+   setting-up-opensdn-rhosp-infrastructure
+   setting-up-opensdn-rhosp-introduction
+   setting-up-opensdn-rhosp-overcloud
+   setting-up-opensdn-rhosp-undercloud
+   setting-up-opensdn-rhosp16-infrastructure
+   setting-up-opensdn-rhosp16-introduction
+   setting-up-opensdn-rhosp16-overcloud
+   setting-up-opensdn-rhosp16-undercloud
    smartnic-vrouter-support
    update-canonical-openstack-juju
-   upgrade-tf-ansible-deployer
+   upgrade-opensdn-ansible-deployer
    upgrade-in-place
    vcenter-as-orchestrator-deployment-scenarios-501
-   vcenter-tf
+   vcenter-opensdn
 
 
 Upgrading OpenSDN
@@ -138,10 +138,10 @@ Upgrading OpenSDN
    :maxdepth: 1
    :titlesonly:
 
-   installing-tf-ansible-ziu
-   install-tf-rhosp-ziu
+   installing-opensdn-ansible-ziu
+   install-opensdn-rhosp-ziu
    update-canonical-openstack-juju
-   upgrade-tf-ansible-deployer
+   upgrade-opensdn-ansible-deployer
    upgrade-in-place
    ffu-ziu-rhosp16.1-cn
 

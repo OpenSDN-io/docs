@@ -18,6 +18,11 @@ policies that are portable to any cloud environment. All of your clouds
 can have a consistent and easily maintainable configuration.
 Standardized policies will make your security team happy, too.
 
+.. warning::
+   OpenSDN was formerly know as Contrail, OpenContrail, and Tungsten Fabric (TF). Please
+   treat this documentation with care.  References to the above may still be in many
+   parts of the documentation.
+
 Documentation Structure
 -----------------------
 
@@ -26,7 +31,7 @@ Documentation Structure
    :titlesonly:
 
    release/index.rst
-   tungsten-fabric-installation-and-upgrade-guide/index.rst
+   opensdn-installation-and-upgrade-guide/index.rst
    opensdn-feature-architecture-guide/index.rst
    opensdn-cloud-native-user-guide/index.rst
    opensdn-service-provider-focused-features-guide/index.rst
