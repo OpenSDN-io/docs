@@ -32,7 +32,7 @@ Documentation Structure
    tungsten-fabric-service-provider-focused-features-guide/index.rst
    tungsten-fabric-networking-and-security-user-guide/index.rst
    tungsten-fabric-monitoring-and-troubleshooting-guide/index.rst
-   tungsten-fabric-operator/index.rst
+   opensdn-operator/index.rst
    contributing-to-opensdn/index.rst
    infrastructure/index.rst
 
