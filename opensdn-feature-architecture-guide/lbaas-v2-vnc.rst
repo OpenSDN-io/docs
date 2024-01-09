@@ -3,9 +3,12 @@ Support for OpenStack LBaaS
 
 :date: 2021-01-26
 
-Starting with Release 3.1, TF provides support for the OpenStack
+Starting with Release 3.1, OpenSDN provides support for the OpenStack
 Load Balancer as a Service (LBaaS) Version 2.0 APIs in the Liberty
 release of OpenStack.
+
+.. warning::
+   Careful, this section of documentation is extremely out of date.
 
 .. _openstack-neutron-lbaas-version-20:
 
@@ -15,13 +18,13 @@ OpenStack Neutron LBaaS Version 2.0
 Platform Support
 ~~~~~~~~~~~~~~~~
 
-Table 1 shows which TF with OpenStack release combinations support
+Table 1 shows which OpenSDN with OpenStack release combinations support
 which version of OpenStack LBaaS APIs.
 
-Table 1: TF OpenStack platform Support for LBaaS Versions
+Table 1: OpenSDN OpenStack platform Support for LBaaS Versions
 
 +----------------------------------+----------------------------------+
-| TF OpenStack platform            | LBaaS Support                    |
+| OpenSDN OpenStack platform       | LBaaS Support                    |
 +==================================+==================================+
 | Contrail-3.1-Liberty (and        | Only LBaaS v2 is supported.      |
 | subsequent OS releases)          |                                  |
@@ -45,7 +48,7 @@ LBaaS Version 2.0 extension is used to create and manage load balancers,
 listeners, pools, members of a pool, and health monitors, and to view
 the status of a resource.
 
-For LBaaS v2.0, the TF controller aggregates the configuration by
+For LBaaS v2.0, the OpenSDN controller aggregates the configuration by
 provider. For example, if ``haproxy`` is the provider, the controller
 generates the configuration for ``haproxy`` and eliminates the need to
 send all of the load-balancer resources to the ``vrouter-agent``; only
@@ -118,10 +121,10 @@ OpenStack Octavia LBaaS
 Using Octavia Load-Balancer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Tungsten Fabric Release 2005 supports Octavia as LBaaS. The
+OpenSDN Release 2005 supports Octavia as LBaaS. The
 deployment supports RHOSP and Juju platforms.
 
-With Octavia as LBaaS, Tungsten Fabric is only maintaining network
+With Octavia as LBaaS, OpenSDN is only maintaining network
 connectivity and is not involved in any load balancing functions.
 
 For each OpenStack load balancer creation, Octavia launches a VM known
@@ -130,7 +133,7 @@ the load balancer in OpenStack. Whenever the load balancer gets updated
 in OpenStack, *amphora VM* updates the running HAPROXY configuration.
 The *amphora VM* is deleted on deleting the load balancer.
 
-Tungsten Fabric provides connectivity to *amphora VM* interfaces.
+OpenSDN provides connectivity to *amphora VM* interfaces.
 *Amphora VM* has two interfaces; one for management and the other for
 data. The management interface is used by the Octavia services for the
 management communication. Since, Octavia services are running in the
@@ -164,4 +167,4 @@ The following is an example of Octavia load-balancer creation:
    * - Release
      - Description
    * - 2011
-     - Tungsten Fabric Release 2011 supports Octavia as LBaaS.
+     - OpenSDN Release 2011 supports Octavia as LBaaS.

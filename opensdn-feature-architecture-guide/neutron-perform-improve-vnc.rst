@@ -4,7 +4,7 @@ Working with Neutron
 :date: 2020-09-16
 
 OpenStack’s networking solution, Neutron, has representative elements
-for Tungsten Fabric elements for Network (VirtualNetwork), Port
+for OpenSDN elements for Network (VirtualNetwork), Port
 (VirtualMachineInterface), Subnet (IpamSubnets), and Security-Group. The
 Neutron plugin translates the elements from one representation to
 another.
@@ -12,8 +12,8 @@ another.
 Data Structure
 --------------
 
-Although the actual data between Neutron and TF is similar, the
-listings of the elements differs significantly. In the Tungsten Fabric API, the
+Although the actual data between Neutron and OpenSDN is similar, the
+listings of the elements differs significantly. In the OpenSDN API, the
 networking elements list is a summary, containing only the UUID, FQ
 name, and an href, however, in Neutron, all details of each resource are
 included in the list.
@@ -30,19 +30,19 @@ especially at scale, because it:
 As a result, the API server spends most of the time in this type of GET
 operation just waiting for results from the Cassandra database.
 
-The following features in TF improve performance with Neutron:
+The following features in OpenSDN improve performance with Neutron:
 
 -  An optional detail query parameter is added in the GET of collections
    so that the API server returns details of all the resources in the
    list, instead of just a summary. This is accompanied by changes in
-   the Tungsten Fabric API library so that a caller gets returned a list of the
+   the OpenSDN API library so that a caller gets returned a list of the
    objects.
 
--  The existing TF list API takes in an optional ``parent_id``
+-  The existing OpenSDN list API takes in an optional ``parent_id``
    query parameter to return information about the resource anchored by
    the parent.
 
--  The Tungsten Fabric API server reads objects from Cassandra in a multiget
+-  The OpenSDN API server reads objects from Cassandra in a multiget
    format into ``obj_uuid_cf``, where object contents are stored,
    instead of reading in an xget/get format. This reduces the number of
    round-trips to and from the Cassandra database.
@@ -87,7 +87,7 @@ Commands for Neutron Network Sharing
 ------------------------------------
 
 The following table summarizes the most common Neutron commands used
-with TF.
+with OpenSDN.
 
 +----------------------------------+----------------------------------------------------+
 | Action                           | Command                                            |
@@ -119,7 +119,7 @@ devices that are managed by the OpenStack compute service. Software
 developers create applications by using the OpenStack Networking API
 v2.0 (Neutron).
 
-TF provides the following features to increase support for
+OpenSDN provides the following features to increase support for
 OpenStack Neutron:
 
 -  Create a port independently of a virtual machine.
@@ -140,10 +140,10 @@ For more information about using OpenStack Networking API v2.0
 and the OpenStack Neutron Wiki at:
 http://wiki.openstack.org/wiki/Neutron.
 
-TF Neutron plugin
------------------
+OpenSDN Neutron plugin
+----------------------
 
-The TF Neutron plugin provides an implementation for the following
+The OpenSDN Neutron plugin provides an implementation for the following
 core resources:
 
 -  Network
@@ -163,7 +163,7 @@ extensions:
 
 -  Allowed address pair
 
-The following TF-specific extensions are implemented:
+The following OpenSDN-specific extensions are implemented:
 
 -  Network IPAM
 
@@ -196,7 +196,7 @@ https://github.com/Juniper/contrail-controller/wiki/Extra-DHCP-Options .
 Incompatibilities
 -----------------
 
-In the Tungsten Fabric architecture, the following are known incompatibilities
+In the OpenSDN architecture, the following are known incompatibilities
 with the Neutron API.
 
 -  Filtering based on any arbitrary key in the resource is not

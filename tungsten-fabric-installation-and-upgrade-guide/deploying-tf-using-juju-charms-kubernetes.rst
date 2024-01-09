@@ -12,7 +12,7 @@ controller. A Charm is a module containing a collection of scripts and
 metadata and is used with Juju to deploy TF.
 
 A Juju Charm helps you deploy Docker containers to the cloud. For more
-information on containerized TF, see :ref:`Understanding TF Containers`. Juju Charms
+information on containerized TF, see :ref:`Understanding OpenSDN Containers`. Juju Charms
 simplifies TF deployment by providing a simple way to deploy,
 configure, scale, and manage TF operations.
 

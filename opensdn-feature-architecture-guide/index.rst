@@ -1,23 +1,23 @@
-Tungsten Fabric Feature and Architecture Guide
-==============================================
+OpenSDN Feature and Architecture Guide
+======================================
 
-Use this guide to use and configure the Tungsten Fabric solution. 
+Use this guide to use and configure the OpenSDN solution. 
 
 
-Understanding Tungsten Fabric
+Understanding OpenSDN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 1
    :titlesonly:
    
-   understanding-tf
-   understanding-tf-components 
+   understanding-opensdn
+   understanding-opensdn-components 
    summary-of-container-design
-   intro-microservices-tf  
+   intro-microservices-opensdn
   
 
-Using Tungsten Fabric with OpenStack
+Using OpenSDN with OpenStack
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Configuring Virtual Networks
@@ -32,7 +32,7 @@ Configuring Virtual Networks
    creating-image-vnc
    creating-security-groups
 
-Using Contrail Resources in Heat Templates
+Using OpenSDN Resources in Heat Templates
 ******************************************
 
 .. toctree::
@@ -42,7 +42,7 @@ Using Contrail Resources in Heat Templates
    heat-template-vnc
 
    
-QoS Support in Contrail Networking
+QoS Support in OpenSDN Networking
 **********************************
 
 .. toctree::
@@ -63,7 +63,7 @@ Load Balancers
    lbaas-v2-vnc
    load-balance-as-service-vnc
 
-Optimizing Tungsten Fabric
+Optimizing OpenSDN
 **************************
 
 .. toctree::
@@ -72,7 +72,7 @@ Optimizing Tungsten Fabric
 
    multiqueue-virtio-vnc
 
-Tungsten Fabric OpenStack Analytics
+OpenSDN OpenStack Analytics
 ***********************************
 
 .. toctree::
@@ -81,8 +81,8 @@ Tungsten Fabric OpenStack Analytics
 
    ceilometer-configuring
 
-TF OpenStack APIs
-*****************
+OpenSDN OpenStack APIs
+**********************
 
 .. toctree::
    :maxdepth: 1

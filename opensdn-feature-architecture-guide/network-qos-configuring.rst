@@ -111,7 +111,7 @@ Limitations
 -  The ``nova flavor-key rxtx_factor`` takes a float as an input and
    acts as a scaling factor for receive (inbound) and transmit
    (outbound) throughputs. This key is only available to Neutron
-   extensions (private extensions). The TF Neutron plugin doesn’t
+   extensions (private extensions). The OpenSDN Neutron plugin doesn’t
    implement this private extension. Consequently, setting the
    ``nova flavor-key rxtx_factor``\ will not have any effect on the QoS
    setting of the network interface(s) of any virtual machine created

@@ -1,5 +1,5 @@
-Ceilometer Support in Tungsten Fabric
-=====================================
+Ceilometer Support in OpenSDN
+=============================
 
 :date: 2019-02-07 
 
@@ -9,12 +9,12 @@ by various rating engines to transform events into billable items. The
 Ceilometer collection process is sometimes referred to as “metering”.
 The Ceilometer service provides data that can be used by platforms that
 provide metering, tracking, billing, and similar services. This topic
-describes how to configure the Ceilometer service for Tungsten Fabric.
+describes how to configure the Ceilometer service for OpenSDN.
 
 Overview
 --------
 
-Tungsten Fabric Release 2.20 and later supports the OpenStack Ceilometer
+OpenSDN Release 2.20 and later supports the OpenStack Ceilometer
 service, on the OpenStack Juno release on Ubuntu 14.04.1 LTS.
 
 The prerequisites for installing Ceilometer are:
@@ -27,7 +27,7 @@ The prerequisites for installing Ceilometer are:
 .. note::
 
    Ceilometer services are only installed on the first OpenStack controller
-   node and do not support high availability in Tungsten Fabric Release 2.20.
+   node and do not support high availability in OpenSDN Release 2.20.
 
 Ceilometer Details
 ------------------
@@ -57,7 +57,7 @@ Alarms—Daemons to evaluate and notify based on defined alarming rules.
 Database—Stores the metering data, notifications, and alarms. The
 supported databases are MongoDB, SQL-based databases compatible with
 SQLAlchemy, and HBase. The recommended database is MongoDB, which has
-been thoroughly tested with TF and deployed on a production scale.
+been thoroughly tested with OpenSDN and deployed on a production scale.
 
 Verification of Ceilometer Operation
 ------------------------------------
@@ -98,7 +98,7 @@ Ceilometer services are up and running by using the ``openstack-status``
 command.
 
 For example, using the ``openstack-status`` command on an all-in-one
-node running Ubuntu 14.04.1 LTS with release 2.2 of Tungsten Fabric installed
+node running Ubuntu 14.04.1 LTS with release 2.2 of OpenSDN installed
 shows the following Ceilometer services as active:
 ::
 
@@ -152,10 +152,10 @@ reported via the REST API. The following is an example of the output:
    empty. You also need to source the ``/etc/contrail/openstackrc`` file
    when executing the command.
 
-Tungsten Fabric Ceilometer plugin
+OpenSDN Ceilometer plugin
 ---------------------------------
 
-The Tungsten Fabric Ceilometer plugin adds the capability to meter the traffic
+The OpenSDN Ceilometer plugin adds the capability to meter the traffic
 statistics of floating IP addresses in Ceilometer. The following meters
 for each floating IP resource are added by the plugin in Ceilometer.
 ::
@@ -165,8 +165,8 @@ for each floating IP resource are added by the plugin in Ceilometer.
    ip.floating.transmit.bytes
    ip.floating.transmit.packets
 
-The Tungsten Fabric Ceilometer plugin configuration is done in the
-``/etc/ceilometer/pipeline.yaml`` file when Tungsten Fabric is installed by the
+The OpenSDN Ceilometer plugin configuration is done in the
+``/etc/ceilometer/pipeline.yaml`` file when OpenSDN is installed by the
 Fabric provisioning scripts.
 
 The following example shows the configuration that is added to the file:
@@ -251,11 +251,11 @@ command and the ceilometer sample-list command for the
 Ceilometer Installation and Provisioning
 ----------------------------------------
 
-There are two scenarios possible for Tungsten Fabric Ceilometer plugin
+There are two scenarios possible for OpenSDN Ceilometer plugin
 installation.
 
 1. If you install your own OpenStack distribution, you can install the
-   Tungsten Fabric Ceilometer plugin on the OpenStack controller node.
+   OpenSDN Ceilometer plugin on the OpenStack controller node.
 
 2. When using Contrail Cloud services, the Ceilometer controller
    services are installed and provisioned as part of the OpenStack

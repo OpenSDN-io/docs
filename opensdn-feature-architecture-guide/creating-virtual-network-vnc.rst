@@ -1,15 +1,15 @@
 .. _CreateVN:
 
-Creating a Virtual Network with OpenStack TF
-============================================
+Creating a Virtual Network with OpenStack OpenSDN
+=================================================
 
 :date: 2020-01-06
 
-You can create virtual networks in Tungsten Fabric from the
+You can create virtual networks in OpenSDN from the
 OpenStack. The following procedure shows how to create a virtual network
 when using OpenStack.
 
-1. To create a virtual network when using OpenStack TF, select
+1. To create a virtual network when using OpenStack OpenSDN, select
    :menuselection:`Project > Network > Networks`. The :guilabel:`Networks` page is displayed.
 
    |Figure 1: Networks Page|

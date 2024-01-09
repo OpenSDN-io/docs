@@ -1,5 +1,5 @@
-Quality of Service in Tungsten Fabric
-=====================================
+Quality of Service in OpenSDN
+=============================
 
 :date: 2020-04-03
 
@@ -12,10 +12,10 @@ Network traffic can be marked with QoS bits (DSCP, 802.1p, and MPLS EXP)
 that intermediate network switches and routers can use to provide
 service guarantees.
 
-TF QoS Model
-------------
+OpenSDN QoS Model
+-----------------
 
-The QoS model in Tungsten Fabric has the following features:
+The QoS model in OpenSDN has the following features:
 
 -  All packet forwarding devices, such as vRouter and the gateway,
    combine to form a system.
@@ -41,7 +41,7 @@ classes and QoS marking on the fabric must be controlled by the system
 administrator. The administrator might choose to provision different
 classes of service on the fabric.
 
-In TF, classes of service are determined by both of the following:
+In OpenSDN, classes of service are determined by both of the following:
 
 -  Queueing on the fabric interface, including queues, scheduling of
    queues, and drop policies, and
@@ -51,7 +51,7 @@ In TF, classes of service are determined by both of the following:
    use.
 
 Tenants can define which forwarding class their traffic can use,
-deciding which packets use which forwarding class. The TF QoS
+deciding which packets use which forwarding class. The OpenSDN QoS
 configuration object has a mapping table, mapping the incoming DSCP or
 802.1p value to the forwarding class mapping.
 
@@ -61,12 +61,12 @@ interface, or a network policy.
 QoS Configuration Parameters for Provisioning
 ---------------------------------------------
 
-.. _configuring-qos-in-tungsten-fabric-release-50-and-later:
+.. _configuring-qos-in-opensdn-release-50-and-later:
 
-Configuring QoS in Tungsten Fabric Release 5.0 and Later
+Configuring QoS in OpenSDN Release 5.0 and Later
 --------------------------------------------------------
 
-This section describes how to provision QoS in Tungsten Fabric
+This section describes how to provision QoS in OpenSDN
 release 5.0 and later.
 
 1. Define the hardware queues and priority group in the
@@ -111,13 +111,13 @@ The vRouter provides the infrastructure to use queues supplied by the
 network interface, a method that is also called hardware queueing.
 Network interface cards (NICs) that implement hardware queueing have
 their own set of scheduling algorithms associated with the queues. The
-TF implementation is designed to work with most NICs, however, the
+OpenSDN implementation is designed to work with most NICs, however, the
 method is tested only on an Intel-based 10G NIC, also called Niantic.
 
-TF QoS Configuration Objects
-----------------------------
+OpenSDN QoS Configuration Objects
+---------------------------------
 
-TF QoS configuration objects include the:
+OpenSDN QoS configuration objects include the:
 
 -  forwarding class
 
@@ -272,8 +272,8 @@ The levels that can be configured with QoS and their order of priority:
 Queuing
 -------
 
-Tungsten Fabric supports QoS. These sections provide an overview of
-the queuing features available in Tungsten Fabric.
+OpenSDN supports QoS. These sections provide an overview of
+the queuing features available in OpenSDN.
 
 The queue to which a packet is sent is specified by the forwarding
 class.
@@ -284,7 +284,7 @@ Queue Selection in Datapath
 
 In vRouter, in the data path, the forwarding class number specifies the
 actual physical hardware queue to which the packet needs to be sent, not
-to a logical selection as in other parts of TF. There is a mapping
+to a logical selection as in other parts of OpenSDN. There is a mapping
 table in the vRouter configuration file, to translate the physical queue
 number from the logical queue number.
 

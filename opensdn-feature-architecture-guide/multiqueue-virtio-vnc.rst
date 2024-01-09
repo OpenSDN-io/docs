@@ -3,9 +3,9 @@ Multiqueue Virtio Interfaces in Virtual Machines
 
 :date: 2017-02-24
 
-Tungsten Fabric 3.2 adds support for multiqueue for the DPDK-based vrouter.
+OpenSDN 3.2 adds support for multiqueue for the DPDK-based vrouter.
 
-Tungsten Fabric 3.1 supports multiqueue virtio interfaces for Ubuntu
+OpenSDN 3.1 supports multiqueue virtio interfaces for Ubuntu
 kernel-based router, only.
 
 Multiqueue Virtio Overview
@@ -53,9 +53,9 @@ vRouter running on the host.
 .. note::
 
    Multiple queues in the VM are only supported with the kernel mode
-   vRouter in Tungsten Fabric 3.1.
+   vRouter in OpenSDN 3.1.
 
-Tungsten Fabric 3.2 adds support for multiple queues with the DPDK-based
+OpenSDN 3.2 adds support for multiple queues with the DPDK-based
 vrouter, using OpenStack Mitaka. The DPDK vrouter has the same setup
 requirements as the kernel mode vrouter. However, in the ``ethtool –L``
 setup command, the number of queues cannot be higher than the number of

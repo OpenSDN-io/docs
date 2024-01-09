@@ -1,21 +1,21 @@
-Understanding Tungsten Fabric Components
+Understanding OpenSDN Components
 ========================================
 
 :date: 2019-05-29
 
-Tungsten Fabric is comprised of the following key components:
+OpenSDN is comprised of the following key components:
 
--  *Tungsten Fabric management Web GUI and plug-ins* integrate with
+-  *OpenSDN management Web GUI and plug-ins* integrate with
    orchestration platforms such as Kubernetes, OpenShift, Mesos,
    OpenStack, VMware vSphere, and with service provider operations
    support systems/business support systems (OSS/BSS). Many of these
    integrations are built, certified, and tested with technology
-   alliances like Red Hat, Mirantis, Canonical, NEC, and more. TF
+   alliances like Red Hat, Mirantis, Canonical, NEC, and more. OpenSDN
    Networking sits under such orchestration systems and integrates
    northbound via published REST APIs. It can be automatically driven
    through the APIs and integrations.
 
--  *Tungsten Fabric control and management systems*, commonly called
+-  *OpenSDN control and management systems*, commonly called
    the controller, have several functions. Few of the major functions
    are:
 
@@ -28,7 +28,7 @@ Tungsten Fabric is comprised of the following key components:
    -  *Control Nodes*—This function maintains a scalable, highly
       available network model and state by federating with other peer
       instances of itself. It directs network provisioning for the
-      Tungsten Fabric vRouters using Extensible Messaging and
+      OpenSDN vRouters using Extensible Messaging and
       Presence Protocol (XMPP). It can also exchange network
       connectivity and state with peer physical routers using open
       industry-standard MP-BGP which is useful for routing the overlay
@@ -42,7 +42,7 @@ Tungsten Fabric is comprised of the following key components:
       or Apache Kafka. Through the Web GUI, the data can be analyzed
       with SQL style queries.
 
--  *Tungsten Fabric vRouter* runs on the compute nodes of the cloud
+-  *OpenSDN vRouter* runs on the compute nodes of the cloud
    or NFV infrastructure. It gets network tenancy, VPN, and reachability
    information from the control function nodes and ensures native Layer
    3 services for the Linux host on which it runs or for the containers
@@ -52,8 +52,8 @@ Tungsten Fabric is comprised of the following key components:
    module or as an Intel Data Plane Development Kit (DPDK)-based
    process.
 
-|Figure 1: Tungsten Fabric Overview|
+|Figure 1: OpenSDN Overview|
 
  
 
-.. |Figure 1: Tungsten Fabric Overview| image:: images/g300459.png
+.. |Figure 1: OpenSDN Overview| image:: images/g300459.png

@@ -1,5 +1,5 @@
-Configuring Load Balancing as a Service in TF
-=============================================
+Configuring Load Balancing as a Service in OpenSDN
+==================================================
 
 :date: 2020-05-26
 
@@ -7,9 +7,9 @@ Overview: Load Balancing as a Service
 -------------------------------------
 
 Load Balancing as a Service (LBaaS) is a feature available through
-OpenStack Neutron. Tungsten Fabric 1.20 and greater allows the use of
+OpenStack Neutron. OpenSDN 1.20 and greater allows the use of
 the Neutron API for LBaaS to apply open source load balancing
-technologies to provision a load balancer in the TF system.
+technologies to provision a load balancer in the OpenSDN system.
 
 The LBaaS load balancer enables the creation of a pool of virtual
 machines serving applications, all front-ended by a virtual-ip. The
@@ -42,7 +42,7 @@ The pool member is selected using one of following methods:
 
 -  source IP selects based on the ``source-ip`` of the packet
 
-|Figure 1: Load Balancing as a Service in TF|
+|Figure 1: Load Balancing as a Service in OpenSDN|
 
 Additionally, the load balancer monitors the health of each pool member
 using the following methods:
@@ -54,17 +54,17 @@ using the following methods:
 
 -  Monitors ping by checking if a member can be reached by pinging.
 
-TF LBaaS Implementation
------------------------
+OpenSDN LBaaS Implementation
+----------------------------
 
-TF supports the OpenStack LBaaS Neutron APIs and creates relevant
+OpenSDN supports the OpenStack LBaaS Neutron APIs and creates relevant
 objects for LBaaS, including ``virtual-ip``,
 ``loadbalancer-pool, loadbalancer-member,`` and
-``loadbalancer-healthmonitor``. TF creates a service instance when
+``loadbalancer-healthmonitor``. OpenSDN creates a service instance when
 a ``loadbalancer-pool`` is associated with a ``virtual-ip`` object. The
 service scheduler then launches a namespace on a randomly selected
 virtual router and spawns HAProxy into that namespace. The configuration
-for HAProxy is picked up from the load balancer objects. TF
+for HAProxy is picked up from the load balancer objects. OpenSDN
 supports high availability of namespaces and HAProxy by spawning active
 and standby on two different vrouters.
 
@@ -73,7 +73,7 @@ A Note on Installation
 
 To use the LBaaS feature, HAProxy, version 1.5 or greater and
 ``iproute2``, version 3.10.0 or greater must both be installed on the
-TF compute nodes.
+OpenSDN compute nodes.
 
 If you are using fab commands for installation, the haproxy and iproute2
 packages will be installed automatically with LBaaS if you set the
@@ -115,7 +115,7 @@ LBaaS currently has these limitations:
 Configuring LBaaS Using CLI
 ---------------------------
 
-The LBaaS feature is enabled on TF through Neutron API calls. The
+The LBaaS feature is enabled on OpenSDN through Neutron API calls. The
 following procedure shows how to create a pool network and a VIP network
 using CLI. The VIP network is created in the public network and members
 are added in the pool network.
@@ -123,7 +123,7 @@ are added in the pool network.
 Creating a Load Balancer
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Use the following steps to create a load balancer in TF.
+Use the following steps to create a load balancer in OpenSDN.
 
 1. Create a VIP network.
 
@@ -154,7 +154,7 @@ Use the following steps to create a load balancer in TF.
 Deleting a Load Balancer
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Use the following steps to delete a load balancer in TF.
+Use the following steps to delete a load balancer in OpenSDN.
 
 1. Delete the VIP.
 
@@ -212,4 +212,4 @@ pool.
 
    ``neutron lb-vip-create --name myvip --protocol-port 443 --protocol HTTP --subnet-id vipsubnet mypool​``
 
-.. |Figure 1: Load Balancing as a Service in TF| image:: images/g300523.png
+.. |Figure 1: Load Balancing as a Service in OpenSDN| image:: images/g300523.png
