@@ -1,12 +1,12 @@
-Development of TF Operator
-==========================
+Development of OpenSDN Operator
+===============================
 
 :Date: 2021-02-16
 
 Prerequisities
 --------------
 
-To develop TF Operator you will need:
+To develop OpenSDN Operator you will need:
 
 * Go (minimal 1.14.1)
 * `Docker <https://github.com/operator-framework/operator-sdk/>`_
@@ -28,7 +28,7 @@ Changing Operator API
 Any change of operator API (files under `pkg/apis/` directory) requires to run 2 commands:
 
 #. ``operator-sdk generate k8s`` - which re-generates Go code for API handling
-#. ``operator-sdk generate crds`` - which updates Custom Resource Definition (CRD) files for Tungsten Fabric resources
+#. ``operator-sdk generate crds`` - which updates Custom Resource Definition (CRD) files for OpenSDN resources
 
 Writing Kubernetes Operators Best Practises
 -------------------------------------------

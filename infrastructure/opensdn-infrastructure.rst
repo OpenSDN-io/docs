@@ -29,7 +29,7 @@ Jenkins master
 Ubuntu 20.04 based VM, 4 CPU, 8 Gb RAM, 100Gb for root volume.
 
 - URL: `<https://jenkins.opensdn.io/>`_
-- Source code: `<https://github.com/opensdnio/tf-jenkins>`_
+- Source code: `<https://github.com/opensdn-io/tf-jenkins>`_
 
 Jenkins master is deployed as a docker container. All further configuration (user, plugins, ...) is applied inside Jenkins itself.
 
@@ -54,9 +54,9 @@ For now it serves:
 - docker registry on port 5101 (5001 the same without SSL) - used for short lived images with different tags like review images. Images are stored for 24 hours - then they are removed.
 - docker registry on port 5102 (5002 the same without SSL) - used for long lived images with constant tags like 'latest', 'nightly', 'R2011', ...
 - raw hosted folder 'images' - used for VM images for sanity tests. It has some predeployed content which is saved on S3.
-- raw hosted folder 'contrail_third_party' - used as a local cache to resources from files `<https://github.com/opensdnio/tf-third-party/blob/master/packages.xml>`_ and `<https://github.com/opensdnio/tf-webui-third-party/blob/master/packages.xml>`_ to avoid network glitches in CI
+- raw hosted folder 'contrail_third_party' - used as a local cache to resources from files `<https://github.com/opensdn-io/tf-third-party/blob/master/packages.xml>`_ and `<https://github.com/opensdn-io/tf-webui-third-party/blob/master/packages.xml>`_ to avoid network glitches in CI
 - YUM repo for 'TPC binary' - third-party cache of static yum packages. These packages were taken long time ago somewhere and there is no source code for them. So this repo has predeployed content which saved on S3.
-- YUM repo for 'TPC source' - third-party cache of built yum packages. Source spec files for these RPM-s are stored in `<https://github.com/opensdnio/tf-third-party-packages>`_ and this repo can be fully re-built from scratch. It's used when product needs some yum package which is not available as yum package - only sources or pyhton package is present.
+- YUM repo for 'TPC source' - third-party cache of built yum packages. Source spec files for these RPM-s are stored in `<https://github.com/opensdn-io/tf-third-party-packages>`_ and this repo can be fully re-built from scratch. It's used when product needs some yum package which is not available as yum package - only sources or pyhton package is present.
 - Some maven repos with predefined content in one of them. But knowledge why it's required is absent.
 
 Nginx is deployed on nexus to provide https access to those CI registries on ports 5101 and 5102 respectively. Registries on ports 5101 and 5102 are not secured.
@@ -123,18 +123,18 @@ Used tools
 
 Various tools were used to build artifacts, set up OpenSDN, and test it. Please read README-s in these projects for more information.
 
-- `<https://github.com/opensdnio/tf-dev-env>`_
+- `<https://github.com/opensdn-io/tf-dev-env>`_
 
 This project is used for creation of OpenSDN's docker images.
 
-- `<https://github.com/opensdnio/tf-devstack>`_
+- `<https://github.com/opensdn-io/tf-devstack>`_
 
 This project is used for various deployment scenarios.
 
-- `<https://github.com/opensdnio/tf-dev-test>`_
+- `<https://github.com/opensdn-io/tf-dev-test>`_
 
 This project is used for running concrete test suite - tf-test (also called as sanity) and tf-deployment-test (see below).
 
-- `<https://github.com/opensdnio/tf-deployment-test>`_
+- `<https://github.com/opensdn-io/tf-deployment-test>`_
 
 This project contains various deployment test like ZIU, etc.

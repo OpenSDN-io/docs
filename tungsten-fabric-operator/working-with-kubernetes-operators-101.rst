@@ -38,46 +38,46 @@ Commonly, it creates, deletes or updates standard Kubernetes resources like pods
 How does it work here?
 ----------------------
 
-This operator implements custom resources for Tungsten Fabric deployment.
-Before tf-operator the `tf-ansible-deployer <https://github.com/tungstenfabric/tf-ansible-deployer>`__ was used, which contained
+This operator implements custom resources for OpenSDN deployment.
+Before tf-operator the `tf-ansible-deployer <https://github.com/opensdn-io/tf-ansible-deployer>`__ was used, which contained
 set of ansible playbooks that setup instances based on a file with configuration.
 This method took a lot time and could often fail, because of connection lost between bootstraping instance and cluster or unexpected failure.
 
 With tf-operator all that's required is Kubernetes cluster (or Kubernetes-like cluster e.g. Openshift)
 and one manifest in common format similar to definition of simple Pod or Daemonset.
-Applying manifest on cluster will create all required resources to deploy Tungsten Fabric succesfullly.
+Applying manifest on cluster will create all required resources to deploy OpenSDN succesfullly.
 Status of all components is available to check at any time of deployment as well as during lifetime of a cluster.
 
-Tungsten Fabric may be configured in various ways for various infrastructures.
+OpenSDN may be configured in various ways for various infrastructures.
 Example infrastructure with 3 master nodes and 3 worker nodes is presented below.
 
 .. image:: figures/operator-tf-scheme.png
-    :alt: Sample Tungsten Fabric Infrastructure on Kubernetes Cluster
+    :alt: Sample OpenSDN Infrastructure on Kubernetes Cluster
 
-Master node contains Tungsten Fabric controller components.
+Master node contains OpenSDN controller components.
 Rabbitmq, Zookeeper and Cassandra create databases with configuration.
 From configuration database, Config components take or store current configuration of cluster.
 Configuration may be set with WebUI and it's read and propagated by Control components to vRouters which manage networking on an interface
-on remote machines that are managed by Tungsten Fabric.
+on remote machines that are managed by OpenSDN.
 Controller also contains Kubemanager component which gathers information from Kubernetes cluster and provides it to configuration.
 vRouters mounted on every node control networking traffic on an interface with rules defined by agent that gathers rules from control node.
-Controller components may also have more than one replica spread across multiple nodes which allows Tungsten Fabric to work in HA (High Availability) mode.
+Controller components may also have more than one replica spread across multiple nodes which allows OpenSDN to work in HA (High Availability) mode.
 
 In order to deploy such infrastructure on Kubernetes cluster it's necessary to create manifest which defines the Manager custom resource.
-Manager is a single resource which defines Tungsten Fabric cluster.
+Manager is a single resource which defines OpenSDN cluster.
 In its definition user defines which components should be created and with what configuration.
 
 However, Kubernetes cluster by default does not know what is Manager resource how to implement it's deployment.
 Because of that it's necessary to beforewards apply all CRDs (Custom Resource Definitions) to cluster which in this repository are located under
-`deploy/crds <https://github.com/tungstenfabric/tf-operator/tree/master/deploy/crds>`__ directory.
-While Kubernetes cluster will now properly read manifests for Tungsten Fabric custom resources, it does not have logic that
+`deploy/crds <https://github.com/opensdn-io/tf-operator/tree/master/deploy/crds>`__ directory.
+While Kubernetes cluster will now properly read manifests for OpenSDN custom resources, it does not have logic that
 should be used in order to properly control resources.
 
 To fix that problem, operator itself has to be deployed on cluster.
 Applied operator will create separate Pod which will act as controller of custom resources in cluster.
 
 Afterwards, when manifest is applied on cluster in namespace *contrail* (*contrail* namespace has to be created beforehand),
-status of all pods created by Tungsten Fabric may be observed.
+status of all pods created by OpenSDN may be observed.
 Because operator allows to create custom logic in code, some components wait for other components to be deployed in order to start its'
 Pods which protects deployment against race conditions and potential failures.
 
@@ -117,17 +117,17 @@ After example infrastructure is deployed following Pods run in contrail namespac
     zookeeper1-zookeeper-statefulset-1            1/1     Running            0          8m
     zookeeper1-zookeeper-statefulset-2            1/1     Running            0          8m
 
-That is just one resource type which creates all the custom Tungsten Fabric resources the in cluster during deployment.
+That is just one resource type which creates all the custom OpenSDN resources the in cluster during deployment.
 
 Miscellaneous elements of deployment
 ------------------------------------
 
 Deployment described in previous section is just a core solution of tf-operator.
 However, for different platforms, deployment may vary.
-Because of that, additional components are defined in this repository. They allow to deploy operatorized Tungsten Fabric
+Because of that, additional components are defined in this repository. They allow to deploy operatorized OpenSDN
 with platforms like Openstack or Openshift.
 Depending on specific bussiness problem and environment it's necessary to pick components that will fulfill the needs.
-To find out more about Tungsten Fabric architecture watch `this <https://wiki.lfnetworking.org/display/LN/2021-02-02+-+TF+Architecture+Overview>`__
+To find out more about OpenSDN architecture watch `this <https://wiki.lfnetworking.org/display/LN/2021-02-02+-+TF+Architecture+Overview>`__
 presentation or read `this <https://codilime.com/tungsten-fabric-architecture-an-overview/>`__ blogpost.
 
 Openshift deployment use case example
@@ -136,15 +136,15 @@ Openshift deployment use case example
 For example, to deploy described above infrastructure on Openshift, it is necessary to apply some additional resources.
 Openshift is based on RedHat CoreOS nodes which have generally read-only filesystem and limited system tools for configuration during runtime.
 CoreOS is designed to be configured buring boot process with so called ignition configs and then work with persistent configuration.
-Because of that `here <https://github.com/tungstenfabric/tf-openshift/tree/master/deploy/openshift>`__ are some ignition configs applied as custom resources managed by operator
-delivered by Openshift. For example nftables rules required by Tungsten Fabric are applied with ignition files or an overlay mount
+Because of that `here <https://github.com/opensdn-io/tf-openshift/tree/master/deploy/openshift>`__ are some ignition configs applied as custom resources managed by operator
+delivered by Openshift. For example nftables rules required by OpenSDN are applied with ignition files or an overlay mount
 of `/lib/modules` directory is created in order to allow mount of vRouter kernel module.
 
 Openshift deployment process from version 4 is fully based on operators.
 It means that every feature of this platform is deployed as set of custom resources managed by operator.
 Because of that, tf-operator works great with deploying CNI plugin on cluster during Openshift installation.
 Openshift installation process is all defined with manifests similar to manifests created for
-Tungsten Fabric created by Openshift just before cluster install which means that Tungsten Fabric `manifests <https://github.com/tungstenfabric/tf-openshift/tree/master/deploy/manifests>`__ may just be
+OpenSDN created by Openshift just before cluster install which means that OpenSDN `manifests <https://github.com/opensdn-io/tf-openshift/tree/master/deploy/manifests>`__ may just be
 added to other install manifests and will be applied on cluster during install process.
 
-More on Openshift install process with Tungsten Fabric as CNI `here <https://github.com/tungstenfabric/tf-openshift>`__.
+More on Openshift install process with OpenSDN as CNI `here <https://github.com/opensdn-io/tf-openshift>`__.

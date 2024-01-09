@@ -1,7 +1,7 @@
-TF Operator with Openshift 4.x
-==============================
+OpenSDN Operator with Openshift 4.x
+===================================
 
-`Code repository <https://github.com/tungstenfabric/tf-openshift>`__
+`Code repository <https://github.com/opensdn-io/tf-openshift>`__
 
 :Date: 2021-02-16
 
@@ -15,7 +15,7 @@ Openshift deploys every compnent of the cluster as custom Openshift application 
 Because these components are separately developed for Openshift purposes, its' architecture differes in details from standard Kubernetes clusters.
 From Openshift version 4.x all these components are based on operators.
 Openshift brings also a lot of features during installation where some of them requires CNI plugin installed from the begining of a cluster.
-While Tungsten Fabric may act as CNI plugin for various orchestration platforms, it is challenging to integrate TF with Openshift platform where CNI plugin is such a vital elements of a whole platform.
+While OpenSDN may act as CNI plugin for various orchestration platforms, it is challenging to integrate OpenSDN with Openshift platform where CNI plugin is such a vital elements of a whole platform.
 
 Other distinctive problem of Openshift platform is usage of CoreOS nodes.
 CoreOS is an operating system designed for orchestrated infrastructures which run containerized workloads.
@@ -24,11 +24,11 @@ Ignition configs is a custom way to provide confgiuration for the boot process l
 
 Another problem with such a complex platform as Openshift is integration between custom resources.
 While platform works only with Openshift components then integration is a natural process developed by the Openshift developers.
-But in case when OpenshiftSDN CNI plugin is subsituted with Tungsten Fabric it is challenging to integrate it with other components of the platform - a bit like switching one block in a whole Jenga tower.
+But in case when OpenshiftSDN CNI plugin is subsituted with OpenSDN it is challenging to integrate it with other components of the platform - a bit like switching one block in a whole Jenga tower.
 For example Openshift will not create network-dependent resources as long as custom resource Network will not have updated status that networking provided by CNI plugin is up and running.
 
-Because of problems listed above in addition to `TF Operator <https://github.com/tungstenfabric/tf-operator>`__ deployment tool it is necessary to provide confgiuration files and manifests specific for Openshift dpeloyment.
-`TF Openshift <https://github.com/tungstenfabric/tf-openshift>`__ repository contains all additional files that are required to sucessfully deploy Openshift platform with Tungsten Fabric as CNI plugin.
+Because of problems listed above in addition to `OpenSDN Operator <https://github.com/opensdn-io/tf-operator>`__ deployment tool it is necessary to provide confgiuration files and manifests specific for Openshift dpeloyment.
+`OpenSDN Openshift <https://github.com/opensdn-io/tf-openshift>`__ repository contains all additional files that are required to sucessfully deploy Openshift platform with OpenSDN as CNI plugin.
 
 Find out more on challenges with developing operators for Openshift 4.x `here <https://codilime.com/deploying-a-kubernetes-operator-in-openshift-4-x-platform/>`__ .
 
@@ -37,7 +37,7 @@ Prerequisities
 
 Deployment depends strongly on Openshift installation which is described in this `documentation <https://docs.openshift.com/container-platform/4.5/installing/installing_aws/installing-aws-customizations.html>`__
 
-Prerequisities that have to be fulfilled in order to dpeloy Tungsten Fabric with operator on Openshift:
+Prerequisities that have to be fulfilled in order to dpeloy OpenSDN with operator on Openshift:
 
 * openshift-install binary (>=4.4.8) (`download <https://cloud.redhat.com/openshift/install>`__)
 * Openshift pull secrets (`download <https://cloud.redhat.com/openshift/install/pull-secret>`__)
@@ -109,11 +109,11 @@ In install directories will be created two significant directories:
     * *manifests/* directory stores all YAML manifests that will be aplied on cluster installation
     * *openshift/* directory stores all ignition configs for CoreOS boot process
 
-Install Tungsten Fabric Manifests and Configs
+Install OpenSDN Manifests and Configs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Use script from TF Openshift to automatically apply all manifests and configs into install directory.
-`TF manifests and configs install script <https://github.com/tungstenfabric/tf-openshift/blob/master/scripts/apply_install_manifests.sh>`__
+Use script from OpenSDN Openshift to automatically apply all manifests and configs into install directory.
+`OpenSDN manifests and configs install script <https://github.com/opensdn-io/tf-openshift/blob/master/scripts/apply_install_manifests.sh>`__
 
 Modify Manifests if Neccessary
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -135,7 +135,7 @@ After Openshift cluster will be up and running on master nodes, bootstrap node w
 Open Security Groups
 ~~~~~~~~~~~~~~~~~~~~
 
-Depending on deployment environment ensure that ports necessary for Tungsten Fabric proper work are open.
+Depending on deployment environment ensure that ports necessary for OpenSDN proper work are open.
 Especially for cloud environments open additional ports in security groups or firewall rules depending on cloud provider.
 
 To open ports automatically `this <https://github.com/Juniper/contrail-operator/tree/master/deploy/openshift/tools/contrail-sc-open>`__ simple Go CLI tool may be used.
@@ -174,7 +174,7 @@ Login into console with the same credentials as for `oc`.
 Post-install notes
 ~~~~~~~~~~~~~~~~~~
 
-Tungsten Fabric Operator creates Persistent Volumes that are used by some of the deployed pods.
-After deletion of TF resources (e.g. after deleting the Manager Custom Resource), those Persistent Volumes will not be deleted.
+OpenSDN Operator creates Persistent Volumes that are used by some of the deployed pods.
+After deletion of OpenSDN resources (e.g. after deleting the Manager Custom Resource), those Persistent Volumes will not be deleted.
 Administrator has to delete them manually and make sure that directories created by these volumes on cluster nodes are in the expected state.
 Example Persistent Volumes deletion command :command:`kubectl delete pv $(kubectl get pv -o=jsonpath='{.items[?(@.spec.storageClassName=="local-storage")].metadata.name}')`

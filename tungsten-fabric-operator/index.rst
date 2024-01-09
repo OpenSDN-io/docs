@@ -1,9 +1,9 @@
-Tungsten Fabric Operator
+OpenSDN Operator
 ==============================================
 
-How to deploy Tungsten Fabric using Kubernetes operator.
+How to deploy OpenSDN using Kubernetes operator.
 
-`Code repository <https://github.com/tungstenfabric/tf-operator>`_
+`Code repository <https://github.com/opensdn-io/tf-operator>`_
 
 Documentation Structure
 -----------------------
@@ -13,7 +13,7 @@ Documentation Structure
    :titlesonly:
 
    working-with-kubernetes-operators-101
-   deploying-tf-operator
-   development-of-tf-operator
-   tf-operator-with-openshift-4
-   testing-and-debugging-tf-operator
+   deploying-opensdn-operator
+   development-of-opensdn-operator
+   opensdn-operator-with-openshift-4
+   testing-and-debugging-opensdn-operator

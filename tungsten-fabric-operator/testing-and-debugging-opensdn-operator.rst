@@ -1,15 +1,15 @@
-Testing and Debugging TF Operator
-==================================
+Testing and Debugging OpenSDN Operator
+======================================
 
 :Date: 2021-02-22
 
-This article describes how to test or debug running cluster with TF Operator applied as CNI plugin.
+This article describes how to test or debug running cluster with OpenSDN Operator applied as CNI plugin.
 
 Pod-to-Pod ping
 ---------------
 
-Working Tungsten Fabric as CNI plugin on creation of a new Pod is responsile for assigning IP address.
-As well as assigning IP address, TF provides networking between Pods.
+Working OpenSDN as CNI plugin on creation of a new Pod is responsile for assigning IP address.
+As well as assigning IP address, OpenSDN provides networking between Pods.
 In default configuration every Pod (both in the same namespace and different namespaces) should be able to ping each other.
 
 Apply below manifest onto cluster:
@@ -54,7 +54,7 @@ Check when Pods will be created and if they have IP addresses assigned with :com
 When Pods are created execute into one of them with :command:`kubectl exec -it busy1 sh`.
 Now all commands executed in the shell will be executed in `busy1` Pod.
 Check whether `busy1` Pod can ping `busy2` Pod with :command:`ping <busy2 IP address>`.
-If Tungsten Fabric provides networking properly then all ping request should be successfull.
+If OpenSDN provides networking properly then all ping request should be successfull.
 To ensure two way communication the same procedure may be repeated executing to `busy2` Pod.
 
 The same procedure may be repeated, but with one Pod placed in a different namespace.
@@ -62,7 +62,7 @@ The same procedure may be repeated, but with one Pod placed in a different names
 Isolated Namespaces ping
 ------------------------
 
-Tungsten Fabric supports Kubernetes annotations as an easy way to configure basic networking properties of Kubernetes cluster.
+OpenSDN supports Kubernetes annotations as an easy way to configure basic networking properties of Kubernetes cluster.
 One of them is namespace isolation.
 
 In order to create new namespace that will be isolated (it is not necessary to create new namespace. If there is already a namespace that should be isolated it is possible to annotate it) below manifest should be applied in the cluster:
@@ -110,15 +110,15 @@ Check when Pods will be created and if they have IP addresses assigned with :com
 When Pods are created execute into one of them with :command:`kubectl exec -it busy1 sh`.
 Now all commands executed in the shell will be executed in `busy1` Pod.
 Check whether `busy1` Pod can ping `busy2` Pod with :command:`ping <busy2 IP address>`.
-If Tungsten Fabric provides networking properly then all ping request should be dropped as `busy1` Pod is in isolated namespace which should not communicate with other namespaces.
+If OpenSDN provides networking properly then all ping request should be dropped as `busy1` Pod is in isolated namespace which should not communicate with other namespaces.
 To ensure two way communication the same procedure may be repeated executing to `busy2` Pod.
 
 Compute Node configuration
 --------------------------
 
-Every compute node has applied vRouter module which provides Tungsten Fabric networking rules (more on specific Tungsten Fabric architecture `here <https://codilime.com/tungsten-fabric-architecture-an-overview/>`__ or `here <https://wiki.lfnetworking.org/display/LN/2021-02-02+-+TF+Architecture+Overview>`__).
+Every compute node has applied vRouter module which provides OpenSDN networking rules (more on specific OpenSDN architecture `here <https://codilime.com/tungsten-fabric-architecture-an-overview/>`__ or `here <https://wiki.lfnetworking.org/display/LN/2021-02-02+-+TF+Architecture+Overview>`__).
 
-A series of simple checks may be helpful to ensure that specific compute node is working properly or to perform basic debugging of Tungsten Fabric.
+A series of simple checks may be helpful to ensure that specific compute node is working properly or to perform basic debugging of OpenSDN.
 
 Kernel module
 ~~~~~~~~~~~~~
@@ -130,7 +130,7 @@ Also, if kernel module is loaded then :command:`vif` CLI tool should be present.
 vhost0 Interface
 ~~~~~~~~~~~~~~~~
 
-vRouter operates via vhost0 interface which is virtual interface that applies Tungsten Fabric rules to a traffic that goes throught the node.
+vRouter operates via vhost0 interface which is virtual interface that applies OpenSDN rules to a traffic that goes throught the node.
 Every node should have vhost0 interface with IP address assigned from physical interface (the one that receives the traffic).
 To check whether vhost0 interface exists run :command:`ip address`.
 In list of interfaces there should be vhost0 interface with IP address assigned.
@@ -157,7 +157,7 @@ Also vhost0 and physical interface shoul dhave the same MAC address.
 If you do not know which interface is pysical interface for vhost0 then by default it is `eth0` interface.
 However, it may be checked using `vif` CLI tool that comes together with vRouter module.
 
-Command :command:`vif --list` shows all interfaces recognised by Tungsten Fabric.
+Command :command:`vif --list` shows all interfaces recognised by OpenSDN.
 Here it is also possible to recongise physical interface by comparing MAC address of vhost0 interface with any other interface.
 
 If you need specific information regarding name of the physical interface then vRouter confgiuration contains it written in `ini` format easy to parse with any programming language.
@@ -199,7 +199,7 @@ Synchronised resolv.conf
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 DNS configuration is provided by vRouter Agent running on the node.
-vRouter Agent  is a containerized application that communicates between TF Control and compute node and more specific vRouter Forwarder (more information about architecture `here <https://codilime.com/tungsten-fabric-architecture-an-overview/>`__ or `here <https://wiki.lfnetworking.org/display/LN/2021-02-02+-+TF+Architecture+Overview>`__).
+vRouter Agent  is a containerized application that communicates between OpenSDN Control and compute node and more specific vRouter Forwarder (more information about architecture `here <https://codilime.com/tungsten-fabric-architecture-an-overview/>`__ or `here <https://wiki.lfnetworking.org/display/LN/2021-02-02+-+TF+Architecture+Overview>`__).
 Some system confgiuration files are shared across the node system and vRouter Agent container.
 One of these files is `/etc/resolv.conf` which specifies DNS resolution.
 
@@ -217,7 +217,7 @@ To check whether it has been properly configured run :command:`ps aux | grep dhc
 Openshift Features Tests
 ------------------------
 
-If Tungsten Fabric is run on Openshift cluster then there are some additional tests that may be run in order to check Openshift specific features.
+If OpenSDN is run on Openshift cluster then there are some additional tests that may be run in order to check Openshift specific features.
 Openshift provides alternative CLI tool sto kubectl called ``oc``.
 Use it in order to access Openshift specific commands.
 
@@ -341,7 +341,7 @@ Edit Machine Configs of Worker Nodes
 Machine Configs are Openshift specific resources that contain ignition configs for CoreOS nodes.
 CoreOS is a read-only system that is configured via ignition configs on the boot process and then should run unchanged (more on CoreOS with Openshift `here <https://codilime.com/deploying-a-kubernetes-operator-in-openshift-4-x-platform/>`__).
 
-Openshift cluster deployed with TF Operator as CNI plugin creates some machine configs as well as custom resources:
+Openshift cluster deployed with OpenSDN Operator as CNI plugin creates some machine configs as well as custom resources:
 
 .. code-block:: console
 
@@ -370,7 +370,7 @@ Openshift cluster deployed with TF Operator as CNI plugin creates some machine c
 
 .. warning::
 
-    All of the machine configs play part in proper configuration of Tungsten Fabric networking and should not be changed on production environment.
+    All of the machine configs play part in proper configuration of OpenSDN networking and should not be changed on production environment.
     All below tests should be done only on development/test setups.
 
 Edit nm-stop service in 10-worker-nm-stop-service machineconfig by adding at the end of spec.storage.files.contents.source ``%20%23%20TEST``
