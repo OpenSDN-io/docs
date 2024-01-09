@@ -1,12 +1,12 @@
-Installing OpenStack Octavia LBaaS with RHOSP in Tungsten Fabric
+Installing OpenStack Octavia LBaaS with RHOSP in OpenSDN
 ====================================================================
 
 :date: 2020-06-08
 
-Tungsten Fabric Release 2005 supports Octavia as LBaaS. The
+OpenSDN Release 2005 supports Octavia as LBaaS. The
 deployment supports RHOSP and Juju platforms.
 
-With Octavia as LBaaS, Tungsten Fabric is only maintaining network
+With Octavia as LBaaS, OpenSDN is only maintaining network
 connectivity and is not involved in any load balancing functions.
 
 For each OpenStack load balancer creation, Octavia launches a VM known
@@ -15,7 +15,7 @@ the load balancer in OpenStack. Whenever the load balancer gets updated
 in OpenStack, *amphora VM* updates the running HAPROXY configuration.
 The *amphora VM* is deleted on deleting the load balancer.
 
-Tungsten Fabric provides connectivity to *amphora VM* interfaces.
+OpenSDN provides connectivity to *amphora VM* interfaces.
 *Amphora VM* has two interfaces; one for management and the other for
 data. The management interface is used by the Octavia services for the
 management communication. Since, Octavia services are running in the
@@ -23,9 +23,9 @@ underlay network and *amphora VM* is running in the overlay network, SDN
 gateway is needed to reach the overlay network. The data interface is
 used for load balancing.
 
-Follow the procedure to install OpenStack Octavia LBaaS with tungsten Fabric:
+Follow the procedure to install OpenStack Octavia LBaaS with OpenSDN:
 
-1. Deploy RHOSP13 with Tungsten Fabric without Octavia.
+1. Deploy RHOSP13 with OpenSDN without Octavia.
 
    ``openstack overcloud deploy --templates tripleo-heat-templates/ \--roles-file tripleo-heat-templates/roles_data_contrail_aio.yaml \-e environment-rhel-registration.yaml \-e tripleo-heat-templates/extraconfig/pre_deploy/rhel-registration/rhel-registration-resource-registry.yaml \-e tripleo-heat-templates/environments/contrail/contrail-services.yaml \-e tripleo-heat-templates/environments/contrail/contrail-net-single.yaml \-e tripleo-heat-templates/environments/contrail/contrail-plugins.yaml \-e misc_opts.yaml \-e contrail-parameters.yaml \-e docker_registry.yaml``
 
@@ -132,4 +132,4 @@ Prerequisites:
       * - Release
         - Description
       * - 2005
-        - Tungsten Fabric Release 2005 supports Octavia as LBaaS.
+        - OpenSDN Release 2005 supports Octavia as LBaaS.

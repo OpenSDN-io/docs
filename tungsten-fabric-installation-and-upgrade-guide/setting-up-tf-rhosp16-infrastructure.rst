@@ -6,7 +6,7 @@ Setting Up the Infrastructure
 Summary
 -------
 
-Follow this topic to set up the infrastructure for Tungsten Fabric
+Follow this topic to set up the infrastructure for OpenSDN
 deployment with RHOSP 16.1.
 
 Target Configuration (Example)
@@ -25,7 +25,7 @@ There are different ways to create the infrastructure providing the
 control plane elements. To illustrate the installation procedure, we
 will use four host machines for the infrastructure, each running KVM.
 KVM1 contains a VM running the undercloud while KVM2 through KVM4 each
-contains a VM running an OpenStack controller and a TF controller.
+contains a VM running an OpenStack controller and a OpenSDN controller.
 
 Table 1: Control Plane Infrastructure
 
@@ -33,9 +33,9 @@ Table 1: Control Plane Infrastructure
 KVM Host Virtual Machines
 ======== ====================================================
 KVM1     undercloud
-KVM2     OpenStack Controller 1, Tungsten Fabric Controller 1
-KVM3     OpenStack Controller 2, Tungsten Fabric Controller 2
-KVM4     OpenStack Controller 3, Tungsten Fabric Controller 3
+KVM2     OpenStack Controller 1, OpenSDN Controller 1
+KVM3     OpenStack Controller 2, OpenSDN Controller 2
+KVM4     OpenStack Controller 3, OpenSDN Controller 3
 ======== ====================================================
 
 Figure 1 shows the physical connectivity where each KVM host and each compute
@@ -180,7 +180,7 @@ do the following:
 -  create an ``ironic_list`` file to be used by the undercloud
 
 This example procedure creates a VM definition consisting of 2 compute
-nodes, 1 TF controller node, and 1 OpenStack controller node on
+nodes, 1 OpenSDN controller node, and 1 OpenStack controller node on
 each overcloud KVM host.
 
 1. Log in to an overcloud KVM host.

@@ -1,6 +1,6 @@
-.. _upgrading-contrail-networking-release-19xx-with-rhosp13-to-contrail-networking-release-2011-with-rhosp161:
+.. _upgrading-opensdn-release-19xx-with-rhosp13-to-contrail-networking-release-2011-with-rhosp161:
 
-Upgrading Tungsten Fabric Release 19xx with RHOSP13 to Tungsten Fabric Release 2011 with RHOSP16.1
+Upgrading OpenSDN Release 19xx with RHOSP13 to OpenSDN Release 2011 with RHOSP16.1
 ==========================================================================================================
 
 :data: 2020-12-11
@@ -8,9 +8,9 @@ Upgrading Tungsten Fabric Release 19xx with RHOSP13 to Tungsten Fabric Release 2
 The goal of this topic is to provide a combined procedure to upgrade Red
 Hat OpenStack Platform (RHOSP) from RHOSP 13 to RHOSP 16.1 by leveraging
 Red Hat Fast Forward Upgrade (FFU) procedure while simultaneously
-upgrading Tungsten Fabric from Release 19xx to Release 2011. The
+upgrading OpenSDN from Release 19xx to Release 2011. The
 procedure leverages the Zero Impact Upgrade (ZIU) procedure from
-TF to minimize the downtime.
+OpenSDN to minimize the downtime.
 
 The downtime will be reduced by not requiring extra server reboots in
 addition to the ones that the RHOSP FFU procedure already requires for
@@ -22,7 +22,7 @@ documentation for details on RHOSP 13 to RHOSP 16.1 Fast Forward Upgrade
 (FFU) procedure of OpenStack Platform environment from one long life
 version to the next long life version.
 
-Access ``ContrailImageTag`` located at :ref:`Getting Started with Tungsten Fabric Guide <GettingStarted>`
+Access ``ContrailImageTag`` located at :ref:`Getting Started with OpenSDN Guide <GettingStarted>`
 
 1. Follow *chapter 2—Planning and preparation for an in-place upgrade*
    through *chapter 8.3— Copying the Leapp data to the overcloud nodes*
@@ -51,7 +51,7 @@ Access ``ContrailImageTag`` located at :ref:`Getting Started with Tungsten Fabri
       $my_dir/playbook-nics-vhost0.yaml
 
       For details, see
-      https://github.com/tungstenfabric/tf-deployment-test/blob/master/rhosp/ffu_ziu_13_16/tf_specific/playbook-nics-vhost0.yaml.
+      https://github.com/opensdn-io/tf-deployment-test/blob/master/rhosp/ffu_ziu_13_16/tf_specific/playbook-nics-vhost0.yaml.
 
    4. Reboot overcloud nodes using the standard reboot procedures. For
       more information, see `Red Hat rebooting

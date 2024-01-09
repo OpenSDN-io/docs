@@ -5,7 +5,7 @@ Server Requirements and Supported Platforms
 
 :date: 2020-08-17
 
-This topic discusses server requirements in a Tungsten Fabric
+This topic discusses server requirements in a OpenSDN
 cluster.
 
 Each server must have a minimum of:
@@ -27,25 +27,25 @@ be configured in each controller node if desired in your topology.
 
 All installation images are available in repositories.
 
-The Tungsten Fabric image includes the following software:
+The OpenSDN image includes the following software:
 
 -  All dependent software packages needed to support installation and
-   operation of OpenStack and TF.
+   operation of OpenStack and OpenSDN.
 
--  Tungsten Fabric Controller software – all components.
+-  OpenSDN Controller software – all components.
 
--  OpenStack release currently in use for TF.
+-  OpenStack release currently in use for OpenSDN.
 
-All components required for installing the Tungsten Fabric Controller are
-available for each TF release, for the supported Linux operating
+All components required for installing the OpenSDN Controller are
+available for each OpenSDN release, for the supported Linux operating
 systems and versions, and for the supported versions of OpenStack.
 
-For a list of supported platforms for all Tungsten Fabric releases,
-see `Tungsten Fabric Supported Platforms
+For a list of supported platforms for all OpenSDN releases,
+see `OpenSDN Supported Platforms
 List <https://www.juniper.net/documentation/en_US/release-independent/contrail/topics/reference/contrail-supported-platforms.pdf>`__  .
 
 Access ``Container Tags`` are located at 
-:ref:`Getting Started with Tungsten Fabric Guide <GettingStarted>`
+:ref:`Getting Started with OpenSDN Guide <GettingStarted>`
 
 
  

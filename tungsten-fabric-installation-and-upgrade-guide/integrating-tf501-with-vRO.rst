@@ -1,14 +1,14 @@
 .. _integrating-tf-release-50x-with-vmware-vrealize-orchestrator:
 
-Integrating Tungsten Fabric Release 5.0.X with VMware vRealize Orchestrator
+Integrating OpenSDN Release 5.0.X with VMware vRealize Orchestrator
 ===========================================================================
 
 :date: 2019-07-29
 
-A dedicated TF plugin is used to connect to VMware vRealize
-Orchestrator (vRO). Tungsten Fabric 5.0 supported a Beta version of the
-plugin. Starting with Tungsten Fabric 5.0.1, a fully supported version
-of the plugin is available. The plugin is used to view the TF
+A dedicated OpenSDN plugin is used to connect to VMware vRealize
+Orchestrator (vRO). OpenSDN 5.0 supported a Beta version of the
+plugin. Starting with OpenSDN 5.0.1, a fully supported version
+of the plugin is available. The plugin is used to view the OpenSDN
 controller configuration in the vRO inventory, and to modify
 configurations by using vRO workflows. You can also create network
 policies, security groups, and automate both simple and complex
@@ -19,12 +19,12 @@ Components of vRealize Orchestrator
 
 vRO consists of the following components:
 
--  vRO Inventory—The vRO inventory displays the TF plugin and the
-   TF node or endpoint. All TF plugin objects that represent
+-  vRO Inventory—The vRO inventory displays the OpenSDN plugin and the
+   OpenSDN node or endpoint. All OpenSDN plugin objects that represent
    your system are displayed in the vRO Inventory. Objects are displayed
-   in a hierarchical order and are based on the TF schema.
+   in a hierarchical order and are based on the OpenSDN schema.
 
-   With Release 5.0, TF inventory objects such as projects,
+   With Release 5.0, OpenSDN inventory objects such as projects,
    security groups, virtual networks, network IPAMs, network policies,
    ports, floating IP pools, and service templates are displayed in the
    vRO inventory. Relevant API objects are also displayed in the vRO
@@ -41,19 +41,19 @@ vRO consists of the following components:
       VMware vCenter plugin workflows are represented as simple workflows
       in vRO plugin.
 
-Tungsten Fabric workflows
+OpenSDN workflows
 -------------------------
 
-You must connect to the TF controller or an endpoint before you
-create TF workflows. You must use **Create TF controller
-connection** to connect to an endpoint. You must use **Delete TF
+You must connect to the OpenSDN controller or an endpoint before you
+create OpenSDN workflows. You must use **Create OpenSDN controller
+connection** to connect to an endpoint. You must use **Delete OpenSDN
 controller connection** to terminate a connection with an endpoint. Once
 you connect to the Control controller, the vRO plugin accesses the
-TF inventory objects and then updates the vRO inventory with the
-TF inventory objects.
+OpenSDN inventory objects and then updates the vRO inventory with the
+OpenSDN inventory objects.
 
 The following workflows are defined for simple networking operations in
-Tungsten Fabric 5.0:
+OpenSDN 5.0:
 
 -  Network
 
@@ -64,7 +64,7 @@ Tungsten Fabric 5.0:
    .. note::
 
       You must use the **Create network** workflow to create a network on
-      the TF controller.
+      the OpenSDN controller.
 
 -  Network Policy
 
@@ -122,7 +122,7 @@ Tungsten Fabric 5.0:
 
    -  Edit floating IP pool
 
-Starting with Tungsten Fabric 5.0.1, the following workflows are also
+Starting with OpenSDN 5.0.1, the following workflows are also
 defined:
 
 -  Tag

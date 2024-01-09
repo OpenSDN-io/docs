@@ -1,25 +1,25 @@
-.. _Installing TF with Kubernetes by Using Juju Charms:
+.. _Installing OpenSDN with Kubernetes by Using Juju Charms:
 
-Installing TF with Kubernetes by Using Juju Charms
+Installing OpenSDN with Kubernetes by Using Juju Charms
 ========================================================
 
 :date: 2020-10-29
 
-You can deploy Tungsten Fabric using Juju Charms. Juju helps you
+You can deploy OpenSDN using Juju Charms. Juju helps you
 deploy, configure, and efficiently manage applications on private clouds
 and public clouds. Juju accesses the cloud with the help of a Juju
 controller. A Charm is a module containing a collection of scripts and
-metadata and is used with Juju to deploy TF.
+metadata and is used with Juju to deploy OpenSDN.
 
 A Juju Charm helps you deploy Docker containers to the cloud. For more
-information on containerized TF, see :ref:`Understanding OpenSDN Containers`. Juju Charms
-simplifies TF deployment by providing a simple way to deploy,
-configure, scale, and manage TF operations.
+information on containerized OpenSDN, see :ref:`Understanding OpenSDN Containers`. Juju Charms
+simplifies OpenSDN deployment by providing a simple way to deploy,
+configure, scale, and manage OpenSDN operations.
 
 Understanding Juju Charms with Kubernetes
 -----------------------------------------
 
-TF supports the following charms:
+OpenSDN supports the following charms:
 
 -  contrail-agent
 
@@ -33,10 +33,10 @@ TF supports the following charms:
 
 -  contrail-kubernetes-node
 
-Preparing to Deploy TF with Kubernetes by Using Juju Charms
------------------------------------------------------------
+Preparing to Deploy OpenSDN with Kubernetes by Using Juju Charms
+----------------------------------------------------------------
 
-You can deploy Tungsten Fabric by using Juju bundle.
+You can deploy OpenSDN by using Juju bundle.
 
 Follow these steps to prepare for deployment:
 
@@ -136,27 +136,27 @@ Follow these steps to prepare for deployment:
    A Juju controller manages and keeps track of applications in the Juju
    cloud environment.
 
-4. Download the Contrail bundle from `JAAS - TF Kubernetes <https://jaas.ai/u/juniper-os-software/contrail-k8s>`__.
+4. Download the Contrail bundle from `JAAS - OpenSDN Kubernetes <https://jaas.ai/u/juniper-os-software/contrail-k8s>`__.
 
-Deploying TF Charms with Kubernetes
------------------------------------
+Deploying OpenSDN Charms with Kubernetes
+----------------------------------------
 
-Juju Charms simplifies TF deployment by providing a simple way to
-deploy, configure, scale, and manage TF operations.
+Juju Charms simplifies OpenSDN deployment by providing a simple way to
+deploy, configure, scale, and manage OpenSDN operations.
 
-You can deploy TF Charms in a bundle or manually.
+You can deploy OpenSDN Charms in a bundle or manually.
 
-Deploying TF Charms in a Bundle
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Deploying OpenSDN Charms in a Bundle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Follow these steps to deploy TF Charms in a bundle.
+Follow these steps to deploy OpenSDN Charms in a bundle.
 
-1. Deploy TF Charms.
+1. Deploy OpenSDN Charms.
 
-   To deploy TF Charms in a bundle, use the
+   To deploy OpenSDN Charms in a bundle, use the
    ``juju deploy <bundle_yaml_file>`` command.
    The following example shows you how to use a bundle YAML file to
-   deploy TF on Amazon Web Services (AWS) Cloud.
+   deploy OpenSDN on Amazon Web Services (AWS) Cloud.
    
    ::
 
@@ -174,7 +174,7 @@ Follow these steps to deploy TF Charms in a bundle.
           series: "bionic"
           constraints: mem=8G cores=2 root-disk=60G
 
-        # TF components
+        # OpenSDN components
         5:
           series: "bionic"
           constraints: mem=16G cores=4 root-disk=60G
@@ -357,18 +357,18 @@ Follow these steps to deploy TF Charms in a bundle.
       - [ contrail-agent:juju-info, kubernetes-master:juju-info ]
       - [ contrail-kubernetes-master:contrail-kubernetes-config, contrail-kubernetes-node:contrail-kubernetes-config ]
 
-   You can create or modify the TF Charm deployment bundle YAML
+   You can create or modify the OpenSDN Charm deployment bundle YAML
    file to:
 
-   -  Point to machines or instances where the TF Charms must be
+   -  Point to machines or instances where the OpenSDN Charms must be
       deployed.
 
    -  Include the options you need.
 
-      Each TF Charm has a specific set of options. The options you
+      Each OpenSDN Charm has a specific set of options. The options you
       choose depend on the charms you select. For more information on
       the options that are available, see ``config.yaml`` file for each
-      charm located at `TF Charms <https://github.com/tungstenfabric/tf-charms>`__.
+      charm located at `OpenSDN Charms <https://github.com/opensdn-io/tf-charms>`__.
 
 2. (Optional) Check the status of deployment.
 
@@ -383,32 +383,32 @@ Follow these steps to deploy TF Charms in a bundle.
    -  ``contrail-agent``
 
       For more information, see
-      https://github.com/tungstenfabric/tf-charms/blob/master/contrail-agent/README.md.
+      https://github.com/opensdn-io/tf-charms/blob/master/contrail-agent/README.md.
 
    -  ``contrail-analytics``
 
       For more information, see
-      https://github.com/tungstenfabric/tf-charms/blob/master/contrail-analytics/README.md.
+      https://github.com/opensdn-io/tf-charms/blob/master/contrail-analytics/README.md.
 
    -  ``contrail-analyticsdb``
 
       For more information, see
-      https://github.com/tungstenfabric/tf-charms/blob/master/contrail-analyticsdb/README.md.
+      https://github.com/opensdn-io/tf-charms/blob/master/contrail-analyticsdb/README.md.
 
    -  ``contrail-controller``
 
       For more information, see
-      https://github.com/tungstenfabric/tf-charms/blob/master/contrail-controller/README.md.
+      https://github.com/opensdn-io/tf-charms/blob/master/contrail-controller/README.md.
 
    -  ``contrail-kubernetes-master``
 
       For more information, see
-      https://github.com/tungstenfabric/tf-charms/blob/master/contrail-kubernetes-master/README.md.
+      https://github.com/opensdn-io/tf-charms/blob/master/contrail-kubernetes-master/README.md.
 
    -  ``contrail-kubernetes-node``
 
       For more information, see
-      https://github.com/tungstenfabric/tf-charms/blob/master/contrail-kubernetes-node/README.md.
+      https://github.com/opensdn-io/tf-charms/blob/master/contrail-kubernetes-node/README.md.
 
 Deploying Juju Charms with Kubernetes Manually
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -424,7 +424,7 @@ Before you begin deployment, ensure that you have:
 Follow these steps to deploy Juju Charms with Kubernetes manually:
 
 1. Create machine instances for Kubernetes master, Kubernetes workers,
-   and TF.
+   and OpenSDN.
 
    ::
 
@@ -436,7 +436,7 @@ Follow these steps to deploy Juju Charms with Kubernetes manually:
 
    ::
 
-      juju add-machine ssh:<sshusername>@<IP> --constraints mem=16G cores=4 root-disk=32G --series=xenial #for TF machine
+      juju add-machine ssh:<sshusername>@<IP> --constraints mem=16G cores=4 root-disk=32G --series=xenial #for OpenSDN machine
 
 2. Deploy the Kubernetes services.
 
@@ -453,7 +453,7 @@ Follow these steps to deploy Juju Charms with Kubernetes manually:
 
    .. note::
 
-      You must use the same docker version for TF and Kubernetes.
+      You must use the same docker version for OpenSDN and Kubernetes.
 
    For more details, refer to `Juju Application Configuration <https://old-docs.jujucharms.com/2.4/en/charms-config>`__.
 
@@ -498,7 +498,7 @@ Follow these steps to deploy Juju Charms with Kubernetes manually:
           docker_runtime_key_url="https://download.docker.com/linux/ubuntu/gpg" \
           docker_runtime_package="docker-ce"
 
-4. Deploy and configure TF services.
+4. Deploy and configure OpenSDN services.
 
    Deploy contrail-analyticsdb, contrail-analytics, contrail-controller,
    contrail-kubernetes-master, contrail-kubernetes-node, contrail-agent
@@ -507,7 +507,7 @@ Follow these steps to deploy Juju Charms with Kubernetes manually:
    .. note::
 
       You must set the ``auth-mode`` parameter of the contrail-controller
-      charm to no-auth if TF is deployed without a keystone.
+      charm to no-auth if OpenSDN is deployed without a keystone.
 
    ::
 
@@ -542,7 +542,7 @@ Follow these steps to deploy Juju Charms with Kubernetes manually:
 
 7. Apply SSL.
 
-   You can apply SSL if needed. To use SSL with TF services,
+   You can apply SSL if needed. To use SSL with OpenSDN services,
    deploy easy-rsa service and ``add-relation`` command to create
    relations to contrail-controller service and contrail-agent services.
 

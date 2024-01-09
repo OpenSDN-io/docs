@@ -1,17 +1,17 @@
-Installing Tungsten Fabric with Kubernetes in Nested Mode by Using Juju Charms
+Installing OpenSDN with Kubernetes in Nested Mode by Using Juju Charms
 ==============================================================================
 
 :date: 2020-10-15
 
-Tungsten Fabric Release 1909 and later support provisioning of a
-Kubernetes cluster inside an OpenStack cluster. Tungsten Fabric
-offers a nested control and data plane where a single TF control
+OpenSDN Release 1909 and later support provisioning of a
+Kubernetes cluster inside an OpenStack cluster. OpenSDN
+offers a nested control and data plane where a single OpenSDN control
 plane and a single network stack can manage and service both the
 OpenStack and Kubernetes clusters.
 
 In nested mode, a Kubernetes cluster is provisioned in virtual machines
-of an OpenStack cluster. The CNI plugin and the TF-Kubernetes
-manager of the Kubernetes cluster interface directly with TF
+of an OpenStack cluster. The CNI plugin and the OpenSDN-Kubernetes
+manager of the Kubernetes cluster interface directly with OpenSDN
 components that manage the OpenStack cluster.
 
 All Kubernetes features, functions and specifications are supported when
@@ -19,12 +19,12 @@ used in nested mode.
 
 .. note::
 
-   Nested mode deployment is only supported for TF with OpenStack
+   Nested mode deployment is only supported for OpenSDN with OpenStack
    cluster.
 
 Before you begin:
 
--  Deploy TF with OpenStack either on bare metal server or virtual
+-  Deploy OpenSDN with OpenStack either on bare metal server or virtual
    machines.
 
    **Best Practice**
@@ -34,7 +34,7 @@ Before you begin:
 
 -  The VMs must have internet connectivity.
 
--  TF in underlay network must be configured to support nested
+-  OpenSDN in underlay network must be configured to support nested
    mode.
 
    You must select an unused IP in the cluster to configure
@@ -58,7 +58,7 @@ Use this method if you want to use the existing machines.
    ``juju bootstrap --bootstrap-series=xenial <cloud name> <controller name>``
 
    You can use OpenStack Cloud provider or manually spun-up VMs. For
-   details, refer to :ref:`Installing TF with Kubernetes by Using Juju Charms`.
+   details, refer to :ref:`Installing OpenSDN with Kubernetes by Using Juju Charms`.
 
 2. Deploy bundle.
 
@@ -83,9 +83,9 @@ manually:
    ``juju bootstrap --bootstrap-series=xenial <cloud name> <controller name>``
 
    You can use OpenStack Cloud provider or manually spun-up VMs. For
-   details, refer to :ref:`Installing TF with Kubernetes by Using Juju Charms`.
+   details, refer to :ref:`Installing OpenSDN with Kubernetes by Using Juju Charms`.
 
-2. Create machine instances for TF components, Kubernetes master
+2. Create machine instances for OpenSDN components, Kubernetes master
    and Kubernetes workers.
    Sample constraints for minimal deployment:
 
@@ -97,7 +97,7 @@ manually:
 
    Multinode deployment:
 
-   ``juju add-machine --constraints mem=8G cores=2 root-disk=50G --series=xenial # kubernetes workersjuju add-machine --constraints mem=8G cores=2 root-disk=50G --series=xenial # kubernetes mastersjuju add-machine --constraints mem=4G cores=4 root-disk=50G --series=xenial # TF components``
+   ``juju add-machine --constraints mem=8G cores=2 root-disk=50G --series=xenial # kubernetes workersjuju add-machine --constraints mem=8G cores=2 root-disk=50G --series=xenial # kubernetes mastersjuju add-machine --constraints mem=4G cores=4 root-disk=50G --series=xenial # OpenSDN components``
    You can use any series—``xenial`` or ``bionic``.
 
 3. Add machines to the cloud.
@@ -118,7 +118,7 @@ manually:
 
    **Note**
 
-   You must use the same docker version for TF and Kubernetes.
+   You must use the same docker version for OpenSDN and Kubernetes.
 
    For more details, refer to `Juju Application
    Configuration <https://old-docs.jujucharms.com/2.4/en/charms-config>`__.
@@ -149,7 +149,7 @@ manually:
           --config docker_runtime_key_url="https://download.docker.com/linux/ubuntu/gpg" \
           --config docker_runtime_package="docker-ce"
 
-6. Deploy and configure TF services.
+6. Deploy and configure OpenSDN services.
 
    Deploy contrail-kubernetes-master, contrail-kubernetes-node,
    contrail-agent from the directory where you have downloaded the
@@ -207,7 +207,7 @@ manually:
 8. Apply SSL, if needed.
 
    You must provide the same certificates to the
-   ``contrail-kubernetes-master`` node if TF in underlay cluster
+   ``contrail-kubernetes-master`` node if OpenSDN in underlay cluster
    has SSL enabled.
 
 .. list-table:: Release History Table
@@ -216,9 +216,9 @@ manually:
    * - Release
      - Description
    * - 2011
-     - Tungsten Fabric Release 2011 and later support provisioning of a
-       Kubernetes cluster inside an OpenStack cluster. Tungsten Fabric
-       offers a nested control and data plane where a single TF control
+     - OpenSDN Release 2011 and later support provisioning of a
+       Kubernetes cluster inside an OpenStack cluster. OpenSDN
+       offers a nested control and data plane where a single OpenSDN control
        plane and a single network stack can manage and service both the
        OpenStack and Kubernetes clusters.
 

@@ -3,7 +3,7 @@ Provisioning of Kubernetes Clusters
 
 :date: 2020-10-21
 
-Tungsten Fabric supports the following ways of provisioning
+OpenSDN supports the following ways of provisioning
 Kubernetes clusters:
 
 Provisioning of a Standalone Kubernetes Cluster
@@ -13,9 +13,9 @@ You can provision a standalone Kubernetes cluster using
 contrail-ansible-deployer.
 
 Perform the following steps to install one Kubernetes cluster and one
-TF cluster and integrate them together.
+OpenSDN cluster and integrate them together.
 
-1. See :ref:`Supported Platforms for Tungsten Fabric
+1. See :ref:`Supported Platforms for OpenSDN
    Release <ServerReqAndPlatform>`
    for a list of supported platforms.
 
@@ -46,7 +46,7 @@ TF cluster and integrate them together.
 
    ``ansible-playbook -e orchestrator=kubernetes -i inventory/ playbooks/configure_instances.yml``
 
-8. Install Kubernetes and TF.
+8. Install Kubernetes and OpenSDN.
 
    ``ansible-playbook -e orchestrator=kubernetes -i inventory/ playbooks/install_k8s.yml``
 
@@ -56,12 +56,12 @@ TF cluster and integrate them together.
 
    ``swapon -a``
 
-Provisioning of Nested TF Kubernetes Clusters
+Provisioning of Nested OpenSDN Kubernetes Clusters
 ---------------------------------------------------
 
-When TF provides networking for a Kubernetes cluster that is
-provisioned on the workloads of a TF-OpenStack cluster, it is
-called a nested Kubernetes cluster. TF components are shared
+When OpenSDN provides networking for a Kubernetes cluster that is
+provisioned on the workloads of a OpenSDN-OpenStack cluster, it is
+called a nested Kubernetes cluster. OpenSDN components are shared
 between the two clusters.
 
 Prerequisites
@@ -69,11 +69,11 @@ Prerequisites
 Ensure that the following prerequisites are met before provisioning a
 nested Kubernetes cluster:
 
-1. Ensure that you have an operational TF-OpenStack cluster based
-   on Tungsten Fabric Release 19<xx>..
+1. Ensure that you have an operational OpenSDN-OpenStack cluster based
+   on OpenSDN Release 19<xx>..
 
 2. Ensure that you have an operational Kubernetes v1.12.9 cluster on
-   virtual machines created on an TF-OpenStack cluster.
+   virtual machines created on an OpenSDN-OpenStack cluster.
 
 3. Update the ``/etc/hosts`` file on the Kubernetes primary node with
    entries for each node of the cluster.
@@ -89,7 +89,7 @@ nested Kubernetes cluster:
       y.y.y.y minion1
       z.z.z.z minion2
 
-4. If TF container images are stored in a secure docker registry,
+4. If OpenSDN container images are stored in a secure docker registry,
    a Kubernetes secret must be created and referenced during `generate a singleyaml`_,
    with credentials of the private docker registry.
 
@@ -117,13 +117,13 @@ Kubernetes cluster.
 
 .. _configure-network-connectivity-to-contrail-configuration-and-data-plane-functions:
 
-Configure network connectivity to TF configuration and data plane functions.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configure network connectivity to OpenSDN configuration and data plane functions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A nested Kubernetes cluster is managed by the same TF control
+A nested Kubernetes cluster is managed by the same OpenSDN control
 processes that manage the underlying OpenStack cluster.
 
-The kube-manager is essentially a part of the Tungsten Fabric Config function.
+The kube-manager is essentially a part of the OpenSDN Config function.
 In a nested deployment, one kube-manager instance will is provisioned in
 each overlay cluster. This necessitates the need The kube-manager
 running in the overlay must have network reachability to Contrail config
@@ -132,13 +132,13 @@ functions of the underlay OpenStack cluster.
 Network connectivity for the following Contrail config functions are
 required:
 
--  Tungsten Fabric Config
+-  OpenSDN Config
 
--  Tungsten Fabric Analytics
+-  OpenSDN Analytics
 
--  Tungsten Fabric Msg Queue
+-  OpenSDN Msg Queue
 
--  Tungsten Fabric VNC DB
+-  OpenSDN VNC DB
 
 -  Keystone
 
@@ -148,7 +148,7 @@ connectivity for the vRouter data plane function is also required.
 
 You can use the link local service feature or a combination of link
 local service with fabric Source Network Address Translation (SNAT)
-feature of TF to provide IP reachability to and from the overlay
+feature of OpenSDN to provide IP reachability to and from the overlay
 Kubernetes cluster config and data components to corresponding config
 and data compoenents of the underlay OpenStack cluster.
 
@@ -192,8 +192,8 @@ K8s-cni-to-agent        10.10.10.5 9091         127.0.0.1 9091
 
 .. _generate a singleyaml:
 
-Generate a single yaml file to create a TF-k8s cluster
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Generate a single yaml file to create a OpenSDN-k8s cluster
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 Contrail components are installed on the Kubernetes cluster as pods. The
@@ -220,7 +220,7 @@ This file can be generated as follows:
 
    For a sample ``common.env`` file with the required bare minimum
    configurations, see the
-   `common.env.sample.nested_mode <https://github.com/tungstenfabric/tf-container-builder/blob/master/kubernetes/sample_config_files/common.env.sample.nested_mode>`__
+   `common.env.sample.nested_mode <https://github.com/opensdn-io/tf-container-builder/blob/master/kubernetes/sample_config_files/common.env.sample.nested_mode>`__
    sample configuration file.
 
    .. note::
@@ -246,7 +246,7 @@ This file can be generated as follows:
 Instantiate the Contrail-k8s cluster
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Create TF components as pods on the Kubernetes cluster.
+Create OpenSDN components as pods on the Kubernetes cluster.
 
 ::
 
@@ -261,10 +261,10 @@ contrail-kube-manager-xxxxxx—This is the manager that acts as conduit
 between Kubernetes and OpenStack clusters
 
 contrail-kubernetes-cni-agent-xxxxx—This installs and configures
-TF CNI on Kubernetes nodes
+OpenSDN CNI on Kubernetes nodes
 
-Provisioning of Non-Nested TF Kubernetes Clusters
--------------------------------------------------
+Provisioning of Non-Nested OpenSDN Kubernetes Clusters
+------------------------------------------------------
 
 In non-nested mode, a Kubernetes cluster is provisioned side by side
 with an OpenStack cluster with networking provided by the same Contrail
@@ -275,14 +275,14 @@ Prerequisites
 Ensure that the following prerequisites are met before provisioning a
 non-nested Kubernetes cluster:
 
-1. You must have an installed and operational TF OpenStack cluster
-   based on the Tungsten Fabric Release 19\ ``xx`` release.
+1. You must have an installed and operational OpenSDN OpenStack cluster
+   based on the OpenSDN Release 19\ ``xx`` release.
 
 2. You must have an installed and operational Kubernetes cluster on the
-   server where you want to install the non-nested TF Kubernetes
+   server where you want to install the non-nested OpenSDN Kubernetes
    cluster.
 
-3. Label the Kubernetes primary node with the TF controller label:
+3. Label the Kubernetes primary node with the OpenSDN controller label:
 
    ``kubectl label node node node-role.opencontrail.org/config=true``
 
@@ -305,9 +305,9 @@ non-nested Kubernetes cluster:
 
    ``systemctl restart kubelet.service``
 
-Provisioning a TF Kubernetes Cluster
+Provisioning a OpenSDN Kubernetes Cluster
 
-Follow these steps to provision TF Kubernetes cluster.
+Follow these steps to provision OpenSDN Kubernetes cluster.
 
 1. Download the ``contrail-ansible-deployer-19<xx>.<NN>.tgz`` Ansible
    Deployer application tool package onto your provisioning host from
@@ -327,7 +327,7 @@ Follow these steps to provision TF Kubernetes cluster.
 
    For a sample ``common.env`` file with required bare minimum
    configurations, see the
-   `common.env.sample.non_nested_mode <https://github.com/tungstenfabric/tf-container-builder/blob/master/kubernetes/sample_config_files/common.env.sample.non_nested_mode>`__
+   `common.env.sample.non_nested_mode <https://github.com/opensdn-io/tf-container-builder/blob/master/kubernetes/sample_config_files/common.env.sample.non_nested_mode>`__
    sample configuration file.
 
    .. note::
@@ -347,13 +347,13 @@ Follow these steps to provision TF Kubernetes cluster.
 5. Copy the file generated from 4 to the primary
    node in your Kubernetes cluster.
 
-6. Create TF components as pods on the Kubernetes cluster as
+6. Create OpenSDN components as pods on the Kubernetes cluster as
    follows:
 
    ``kubectl apply -f non-nested-contrail.yml``
 
-7. Create the following TF pods on the Kubernetes cluster. Ensure
-   that TF-agent pod is created only on the worker node.
+7. Create the following OpenSDN pods on the Kubernetes cluster. Ensure
+   that OpenSDN-agent pod is created only on the worker node.
 
    ::
 

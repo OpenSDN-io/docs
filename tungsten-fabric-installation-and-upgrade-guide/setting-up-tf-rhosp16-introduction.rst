@@ -6,9 +6,9 @@ Understanding Red Hat OpenStack Platform Director
 Red Hat OpenStack Platform Director
 -----------------------------------
 
-| Starting with Tungsten Fabric Release 2008, Tungsten Fabric
-  supports using TF with Red Hat OpenStack Platform Director 16.1.
-| This chapter explains how to integrate a Tungsten Fabric Release
+| Starting with OpenSDN Release 2008, OpenSDN
+  supports using OpenSDN with Red Hat OpenStack Platform Director 16.1.
+| This chapter explains how to integrate a OpenSDN Release
   2008 (or higher) installation with Red Hat OpenStack Platform Director
   16.1.
 
@@ -19,9 +19,9 @@ is an open source project that uses features of OpenStack to deploy a
 fully functional, tenant-facing OpenStack environment.
 
 TripleO can be used to deploy an RDO-based OpenStack environment
-integrated with Tungsten Fabric. Red Hat OpenStack Platform director can
+integrated with OpenSDN. Red Hat OpenStack Platform director can
 be used to deploy an RHOSP-based OpenStack environment integrated with
-Tungsten Fabric.
+OpenSDN.
 
 OSPd uses the concepts of undercloud and overcloud. OSPd sets up an
 undercloud, a single server running an operator-facing deployment that
@@ -50,28 +50,28 @@ bare metal hardware.
 For more information about OSPd architecture, see `OSPd
 documentation <https://docs.openstack.org/tripleo-docs/latest/install/introduction/architecture.html>`__.
 
-Tungsten Fabric Roles
+OpenSDN Roles
 ---------------------
 
 OSPd supports composable roles, which are groups of services that you
 define through Heat templates. Composable roles allow you to integrate
-Tungsten Fabric into the overcloud environment.
+OpenSDN into the overcloud environment.
 
-The following are the Tungsten Fabric roles used for integrating
+The following are the OpenSDN roles used for integrating
 into the overcloud:
 
--  Tungsten Fabric Controller
+-  OpenSDN Controller
 
--  Tungsten Fabric Analytics
+-  OpenSDN Analytics
 
--  Tungsten Fabric Analytics Database
+-  OpenSDN Analytics Database
 
--  Tungsten Fabric TSN
+-  OpenSDN TSN
 
--  Tungsten Fabric DPDK
+-  OpenSDN DPDK
 
 Figure 1 shows the relationship and components of an undercloud and overcloud
-architecture for Tungsten Fabric.
+architecture for OpenSDN.
 
 |Figure 1: Undercloud and Overcloud with Roles|
 
@@ -94,13 +94,13 @@ machines (VMs), but the compute nodes must be deployed to bare metal
 systems. Every overcloud node must support IPMI for booting up from the
 undercloud using PXE.
 
-Ensure the following requirements are met for the Tungsten Fabric
+Ensure the following requirements are met for the OpenSDN
 nodes per role.
 
 -  Non-high availability: A minimum of 4 overcloud nodes are needed for
    control plane roles for a non-high availability deployment:
 
-   -  1x contrail-config (includes TF control)
+   -  1x contrail-config (includes OpenSDN control)
 
    -  1x contrail-analytics
 
@@ -111,7 +111,7 @@ nodes per role.
 -  High availability: A minimum of 12 overcloud nodes are needed for
    control plane roles for a high availability deployment:
 
-   -  3x contrail-config (includes TF control)
+   -  3x contrail-config (includes OpenSDN control)
 
    -  3x contrail-analytics
 
@@ -163,7 +163,7 @@ Ensure the following requirements are met for the provisioning network:
    information will include such things as the IP address of the IPMI
    NIC and the IPMI username and password.
 
--  All of the networks must be available to all of the Tungsten Fabric roles and computes.
+-  All of the networks must be available to all of the OpenSDN roles and computes.
 
 While the provisioning and external networks are sufficient for basic
 applications, you should create additional networks in most overcloud
@@ -203,14 +203,14 @@ Compatibility Matrix
 --------------------
 
 The following combinations of Operating
-System/OpenStack/Deployer/Tungsten Fabric are supported:
+System/OpenStack/Deployer/OpenSDN are supported:
 
 Table 1: Compatibility Matrix
 
 ================ ========= ======== ==================================
-Operating System OpenStack Deployer Tungsten Fabric
+Operating System OpenStack Deployer OpenSDN
 ================ ========= ======== ==================================
-RHEL 8.2         OSP16     OSPd16   Tungsten Fabric 2008 or higher
+RHEL 8.2         OSP16     OSPd16   OpenSDN 2008 or higher
 ================ ========= ======== ==================================
 
 Installation Summary
@@ -225,7 +225,7 @@ The general installation procedure is as follows:
 -  Set up the undercloud, which is the OSPd application.
 
 -  Set up the overcloud, which is the set of services in the
-   tenant-facing network. Tungsten Fabric is part of the overcloud.
+   tenant-facing network. OpenSDN is part of the overcloud.
 
 For more information on installing and using the RHOSPd, see `Red Hat
 documentation <https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/16.1/html/director_installation_and_usage/index>`__.
@@ -237,7 +237,7 @@ documentation <https://access.redhat.com/documentation/en-us/red_hat_openstack_p
       * - Release
         - Description
       * - 2008
-        - Starting with Tungsten Fabric Release 2008, Tungsten Fabric
-          supports using TF with Red Hat OpenStack Platform Director 16.1.
+        - Starting with OpenSDN Release 2008, OpenSDN
+          supports using OpenSDN with Red Hat OpenStack Platform Director 16.1.
           
 .. |Figure 1: Undercloud and Overcloud with Roles| image:: images/g300376.png

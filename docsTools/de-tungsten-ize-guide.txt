@@ -11,6 +11,7 @@ Tungsten Fabric Analytics optional modules >> OpenSDN Analytics optional modules
 Tungsten Fabric Analytics >> OpenSDN Analytics 
 Tungsten Fabric Ansible Deployer >> OpenSDN Ansible Deployer
 Tungsten Fabric Ansible Deployer >> OpenSDN Ansible Deployer
+TF Ansible >> OpenSDN Ansible
 TF BGP >> OpenSDN BGP
 TF BGPaaS >> OpenSDN BGPaaS
 TF BGPaaS features >> OpenSDN BGPaaS features
@@ -19,6 +20,7 @@ TF CNI >> OpenSDN CNI
 TF CSN >> OpenSDN CSN
 Tungsten Fabric Ceilometer plugin >> OpenSDN Ceilometer plugin
 Tungsten Fabric Ceilometer plugin >> OpenSDN Ceilometer plugin 
+TF environment >> OpenSDN environment
 TF Charm >> OpenSDN Charm
 TF Charms >> OpenSDN Charms
 Contrail Cloud >> manually: proprietary
@@ -90,6 +92,7 @@ TF QoS >> OpenSDN QoS
 TF RBAC >> OpenSDN RBAC
 Contrail Registry >> manually: proprietary
 Contrail Release >> manually
+TF Release >> OpenSDN Release
 Tungsten Fabric roles >> OpenSDN roles
 Tungsten Fabric Role and Resource-Based Access >> OpenSDN Role and Resource-Based Access
 TF SNMP >> OpenSDN SNMP 

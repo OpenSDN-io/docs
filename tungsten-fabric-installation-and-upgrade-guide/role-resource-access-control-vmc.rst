@@ -3,10 +3,10 @@ Configuring Role and Resource-Based Access Control
 
 :date: 2020-07-30
 
-Tungsten Fabric Role and Resource-Based Access (RBAC) Overview
+OpenSDN Role and Resource-Based Access (RBAC) Overview
 --------------------------------------------------------------
 
-Tungsten Fabric supports role and resource-based access control
+OpenSDN supports role and resource-based access control
 (RBAC) with API operation-level access control.
 
 The RBAC implementation relies on user credentials obtained from
@@ -67,7 +67,7 @@ Rule Sets and ACL Objects
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The following are the features of rule sets for access control objects
-in TF.
+in OpenSDN.
 
 -  The rule set for validation is the union of rules from the ACL
    attached to:
@@ -123,7 +123,7 @@ Access is allowed as follows:
 
 Configuration
 -------------
-This section describes the parameters used in TF RBAC.
+This section describes the parameters used in OpenSDN RBAC.
 
 Parameter: aaa-mode
 ~~~~~~~~~~~~~~~~~~~
@@ -142,7 +142,7 @@ The ``aaa-mode`` can be set to the following values:
 -  ``rbac``—Authentication is performed and access is granted based on
    role.
 
-   If you are using TF Ansible Deployer to provision Tungsten Fabric,
+   If you are using OpenSDN Ansible Deployer to provision OpenSDN,
    set the value for AAA_MODE to rbac to enable RBAC by default.
 
    ::
@@ -153,14 +153,12 @@ The ``aaa-mode`` can be set to the following values:
         .
         AAA_MODE: rbac
 
-
-
 After enabling RBAC, you must restart the neutron server by running the
 service neutron-server restart command for the changes to take effect.
 
 .. note::
 
-   The ``multi_tenancy`` parameter is deprecated, starting with Tungsten Fabric
+   The ``multi_tenancy`` parameter is deprecated, starting with OpenSDN
    3.0. The parameter should be removed from the configuration. Instead,
    use the ``aaa_mode`` parameter for RBAC to take effect.
 
@@ -222,12 +220,12 @@ Global Read-Only Role
 
 You can configure a global read-only role (``global_read_only_role``).
 
-A ``global_read_only_role`` allows read-only access to all TF
+A ``global_read_only_role`` allows read-only access to all OpenSDN
 resources. The ``global_read_only_role`` must be configured in Keystone.
 The default ``global_read_only_role`` is not set to any value.
 
-A ``global_read_only_role`` user can use the Tungsten Fabric WebUI to view the
-global configuration of TF default settings.
+A ``global_read_only_role`` user can use the OpenSDN WebUI to view the
+global configuration of OpenSDN default settings.
 
 Setting the Global Read-Only Role
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -235,7 +233,7 @@ Setting the Global Read-Only Role
 To set the global read-only role:
 
 1. The ``cloud_admin`` user sets the ``global_read_only_role`` in the
-   Tungsten Fabric API:
+   OpenSDN API:
 
    ``/etc/contrail/contrail-api.conf``
 
@@ -250,10 +248,10 @@ To set the global read-only role:
 Parameter Changes in /etc/neutron/api-paste.ini
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TF RBAC operation is based upon a user token received in the
+OpenSDN RBAC operation is based upon a user token received in the
 ``X-Auth-Token`` header in API requests. The following change must be
 made in ``/etc/neutron/api-paste.ini`` to force Neutron to pass the user
-token in requests to the Tungsten Fabric API server:
+token in requests to the OpenSDN API server:
 ::
 
    keystone = user_token request_id catch_errors ....
@@ -272,10 +270,10 @@ for RBAC to take effect.
 If the ``multi_tenancy`` parameter is not removed, the ``aaa-mode``
 setting is ignored.
 
-Configuring RBAC Using the Tungsten Fabric WebUI
+Configuring RBAC Using the OpenSDN WebUI
 --------------------------------------------------
 
-To use the TF WebUI with RBAC:
+To use the OpenSDN WebUI with RBAC:
 
 1. Set the aaa_mode to no_auth.
 
@@ -289,10 +287,10 @@ To use the TF WebUI with RBAC:
 
 3. Restart services by restarting the container.
 
-You can use the TF WebUI to configure RBAC at both the API level and
+You can use the OpenSDN WebUI to configure RBAC at both the API level and
 the object level. API level access control can be configured at the
 global, domain, and project levels. Object level access is available
-from most of the create or edit screens in the TF WebUI.
+from most of the create or edit screens in the OpenSDN WebUI.
 
 Configuring RBAC at the Global Level
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

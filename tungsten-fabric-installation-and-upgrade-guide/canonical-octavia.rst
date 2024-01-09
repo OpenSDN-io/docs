@@ -1,12 +1,12 @@
-Installing OpenStack Octavia LBaaS with Juju Charms in Tungsten Fabric
+Installing OpenStack Octavia LBaaS with Juju Charms in OpenSDN
 ======================================================================
 
 :date: 2020-05-22
 
-Tungsten Fabric Release 2005 supports Octavia as LBaaS. The
+OpenSDN Release 2005 supports Octavia as LBaaS. The
 deployment supports RHOSP and Juju platforms.
 
-With Octavia as LBaaS, Tungsten Fabric is only maintaining network
+With Octavia as LBaaS, OpenSDN is only maintaining network
 connectivity and is not involved in any load balancing functions.
 
 For each OpenStack load balancer creation, Octavia launches a VM known
@@ -15,7 +15,7 @@ the load balancer in OpenStack. Whenever the load balancer gets updated
 in OpenStack, *amphora VM* updates the running HAPROXY configuration.
 The *amphora VM* is deleted on deleting the load balancer.
 
-Tungsten Fabric provides connectivity to *amphora VM* interfaces.
+OpenSDN provides connectivity to *amphora VM* interfaces.
 *Amphora VM* has two interfaces; one for management and the other for
 data. The management interface is used by the Octavia services for the
 management communication. Since, Octavia services are running in the

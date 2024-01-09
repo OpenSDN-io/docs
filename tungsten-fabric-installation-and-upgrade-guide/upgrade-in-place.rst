@@ -1,28 +1,28 @@
-Upgrading Tungsten Fabric using In-Place Upgrade Procedure
+Upgrading OpenSDN using In-Place Upgrade Procedure
 ==========================================================
 
 :date: 2021-01-19
 
 .. note::
 
-   This procedure can be used for Tungsten Fabric upgrades to Tungsten Fabric 
+   This procedure can be used for OpenSDN upgrades to OpenSDN 
    Release 2003 or earlier only.
 
-If you are upgrading to Tungsten Fabric Release 2005 or later using an in-place upgrade procedure, see :ref:`How to Perform a Zero Impact Tungsten Fabric Upgrade using the Ansible Deployer <AnsibleZIU>`.
+If you are upgrading to OpenSDN Release 2005 or later using an in-place upgrade procedure, see :ref:`How to Perform a Zero Impact OpenSDN Upgrade using the Ansible Deployer <AnsibleZIU>`.
 
-This document provides steps to upgrade Tungsten Fabric using
+This document provides steps to upgrade OpenSDN using
 in-place upgrade procedure.
 
 The procedure supports incremental model and you can use it to upgrade
-from Tungsten Fabric Release ``N-1`` to ``N``.
+from OpenSDN Release ``N-1`` to ``N``.
 
 .. tip::
 
    You must take snapshots of your current system before proceeding with
    the upgrade process.
 
-For a list of supported platforms for all Tungsten Fabric releases,
-see `Tungsten Fabric Supported Platforms
+For a list of supported platforms for all OpenSDN releases,
+see `OpenSDN Supported Platforms
 List <https://www.juniper.net/documentation/en_US/release-independent/contrail/topics/reference/contrail-supported-platforms.pdf>`__  .
 
 1. Update kernel version on all the compute nodes.
@@ -38,13 +38,13 @@ List <https://www.juniper.net/documentation/en_US/release-independent/contrail/t
    desired version tag in this ``instances.yml`` file.
 
    Access ``CONTRAIL_CONTAINER_TAG`` located at `README Access to
-   Tungsten Fabric Registry
+   OpenSDN Registry
    20xx <https://www.juniper.net/documentation/en_US/contrail20/information-products/topic-collections/release-notes/readme-contrail-20.pdf>`__  .
 
 3. Run the following commands from ``contrail-ansible-deployer``
    directory.
 
-   For TF with OpenStack deployment:
+   For OpenSDN with OpenStack deployment:
 
    | ``cd contrail-ansible-deployer``
    | ``ansible-playbook -i inventory/ -e orchestrator=openstack playbooks/configure_instances.yml``

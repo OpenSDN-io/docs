@@ -1,14 +1,14 @@
-Installing and Provisioning TF VMware vRealize Orchestrator Plugin
-==================================================================
+Installing and Provisioning OpenSDN VMware vRealize Orchestrator Plugin
+=======================================================================
 
 :date: 2019-08-09
 
-A dedicated TF plugin is used to connect to VMware vRealize
-Orchestrator (vRO). TF Release 5.0 supported a Beta version of the
-plugin. Starting with TF Release 5.1, a fully supported version of
+A dedicated OpenSDN plugin is used to connect to VMware vRealize
+Orchestrator (vRO). OpenSDN Release 5.0 supported a Beta version of the
+plugin. Starting with OpenSDN Release 5.1, a fully supported version of
 the plugin is available.
 
-You must install the TF VMware vRealize Orchestrator (vRO) plugin
+You must install the OpenSDN VMware vRealize Orchestrator (vRO) plugin
 to connect to the vRO server.
 
 Before you begin installation, ensure the following:
@@ -25,10 +25,10 @@ Before you begin installation, ensure the following:
    You can download the plugin from
    https://www.juniper.net/support/downloads/?p=contrail.
 
-You can deploy the TF plugin in any Java Virtual Machine (JVM)
+You can deploy the OpenSDN plugin in any Java Virtual Machine (JVM)
 compatible environment and load it on an active vRO instance.
 
-The following topics describe how to install and provision the TF
+The following topics describe how to install and provision the OpenSDN
 vRO plugin.
 
 Accessing vRO Control Center
@@ -149,15 +149,15 @@ You connect to the vRO server by using the vRO desktop client.
 
 3. Click :guilabel:`Login` to connect to the vRO server.
 
-Connecting to Tungsten Fabric Controller
+Connecting to OpenSDN Controller
 ----------------------------------------
 
-To connect TF vRO to the Tungsten Fabric Controller:
+To connect OpenSDN vRO to the OpenSDN Controller:
 
 1. Navigate to the :menuselection:`Contrail > Configuration` folder in the workflow
    library. 
 
-2. Select :guilabel:`Create TF controller connection`.
+2. Select :guilabel:`Create OpenSDN controller connection`.
 
    |Figure 7: Workflow Library|
 
@@ -165,18 +165,18 @@ To connect TF vRO to the Tungsten Fabric Controller:
 
    -  **Connection name**—a unique name to identify the connection
 
-   -  **Controller host**—host name of the TF Connector
+   -  **Controller host**—host name of the OpenSDN Connector
 
-   -  **Controller port**—port used to access the Tungsten Fabric Controller
+   -  **Controller port**—port used to access the OpenSDN Controller
 
    |Figure 8: Controller Tab|
 
 4. Click the :guilabel:`Credentials` tab and enter the following credentials to
-   manage the Tungsten Fabric Controller:
+   manage the OpenSDN Controller:
 
-   -  **User name**—user name to access the Tungsten Fabric Controller
+   -  **User name**—user name to access the OpenSDN Controller
 
-   -  **User password**—password to access the Tungsten Fabric Controller
+   -  **User password**—password to access the OpenSDN Controller
 
    -  **Authentication server**—URL of the authentication server
 
@@ -184,19 +184,19 @@ To connect TF vRO to the Tungsten Fabric Controller:
 
 5. Click the :guilabel:`Tenant` tab to define tenant information.
 
-   In the :guilabel:`Tenant` field, enter the name of the TF tenant.
+   In the :guilabel:`Tenant` field, enter the name of the OpenSDN tenant.
 
    |Figure 10: Tenant Tab|
 
 6. Click :guilabel:`Submit` to establish connection.
 
-   Once you connect TF vRO to the Tungsten Fabric Controller, you use
-   TF workflows to make configuration changes to TF.
+   Once you connect OpenSDN vRO to the OpenSDN Controller, you use
+   OpenSDN workflows to make configuration changes to OpenSDN.
 
-Deploying TF vRO plugin
------------------------
+Deploying OpenSDN vRO plugin
+----------------------------
 
-You can deploy the TF plugin in any Java Virtual Machine (JVM)
+You can deploy the OpenSDN plugin in any Java Virtual Machine (JVM)
 compatible environment and load it on an active vRO instance.
 
 

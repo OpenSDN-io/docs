@@ -12,28 +12,28 @@ virtual network from an external infrastructure or a public network.
 
 Before you begin, ensure that the following tasks are completed:
 
--  The Tungsten Fabric Controller base system image has been installed on all
+-  The OpenSDN Controller base system image has been installed on all
    servers.
 
 -  The role-based services have been assigned and provisioned.
 
 -  IP connectivity has been verified between all nodes of the
-   Tungsten Fabric Controller.
+   OpenSDN Controller.
 
--  You have access to Tungsten Fabric Web User Interface (WebUI). You can access the user interface at
+-  You have access to OpenSDN Web User Interface (WebUI). You can access the user interface at
    **http://``nn.nn.nn.nn``:8143**, where **``nn.nn.nn.nn``** is the IP
-   address of the configuration node server that is running the TF
+   address of the configuration node server that is running the OpenSDN
    service.
 
 These topics provide instructions to configure the Control Node with
 BGP.
 
-Configuring the Control Node from Tungsten Fabric WebUI
+Configuring the Control Node from OpenSDN WebUI
 -------------------------------------------------------
 
 To configure BGP peering in the control node:
 
-1. From the Tungsten Fabric Controller module control node
+1. From the OpenSDN Controller module control node
    (**http://``nn.nn.nn.nn``:8143**), select :menuselection:`Configure > Infrastructure > BGP Routers`.
 
    |Figure 1: Configure> Infrastructure > BGP Routers|

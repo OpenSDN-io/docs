@@ -1,19 +1,19 @@
-Installing Tungsten Fabric with OpenStack by Using Juju Charms
+Installing OpenSDN with OpenStack by Using Juju Charms
 ==============================================================
 
 :date: 2020-12-28
 
-You can deploy TF by using Juju Charms. Juju helps you deploy,
+You can deploy OpenSDN by using Juju Charms. Juju helps you deploy,
 configure, and efficiently manage applications on private clouds and
 public clouds. Juju accesses the cloud with the help of a Juju
 controller. A Charm is a module containing a collection of scripts and
-metadata and is used with Juju to deploy TF.
+metadata and is used with Juju to deploy OpenSDN.
 
-Starting in Tungsten Fabric Release 2011, Tungsten Fabric
+Starting in OpenSDN Release 2011, OpenSDN
 supports OpenStack Ussuri with Ubuntu version 18.04 (Bionic Beaver) and
 Ubuntu version 20.04 (Focal Fossa).
 
-TF supports the following charms:
+OpenSDN supports the following charms:
 
 -  contrail-agent
 
@@ -27,10 +27,10 @@ TF supports the following charms:
 
 -  contrail-openstack
 
-These topics describe how to deploy TF by using Juju Charms.
+These topics describe how to deploy OpenSDN by using Juju Charms.
 
-Preparing to Deploy TF by Using Juju Charms
--------------------------------------------
+Preparing to Deploy OpenSDN by Using Juju Charms
+------------------------------------------------
 
 Follow these steps to prepare for deployment:
 
@@ -145,21 +145,21 @@ Follow these steps to prepare for deployment:
       A Juju controller manages and keeps track of applications in the Juju
       cloud environment.
 
-Deploying TF Charms
--------------------
-You can deploy TF Charms in a bundle or manually.
+Deploying OpenSDN Charms
+------------------------
+You can deploy OpenSDN Charms in a bundle or manually.
 
-Deploy TF Charms in a Bundle
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Deploy OpenSDN Charms in a Bundle
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Follow these steps to deploy TF Charms in a bundle.
+Follow these steps to deploy OpenSDN Charms in a bundle.
 
-1. Deploy TF Charms.
+1. Deploy OpenSDN Charms.
 
-   To deploy TF Charms in a bundle, use the
+   To deploy OpenSDN Charms in a bundle, use the
    ``juju deploy <bundle_yaml_file>`` command.
    The following example shows you how to use ``bundle_yaml_file`` to
-   deploy TF on Amazon Web Services (AWS) Cloud.
+   deploy OpenSDN on Amazon Web Services (AWS) Cloud.
    ::
 
       series: bionic
@@ -439,15 +439,15 @@ Follow these steps to deploy TF Charms in a bundle.
         - [ "contrail-openstack", "nova-compute-accel" ]
         - [ "agilio-vrouter5:juju-info", "nova-compute-accel:juju-info"  ]
 
-   You can create or modify the TF Charm deployment bundle YAML
+   You can create or modify the OpenSDN Charm deployment bundle YAML
    file to:
 
-   -  Point to machines or instances where the TF Charms must be
+   -  Point to machines or instances where the OpenSDN Charms must be
       deployed.
 
    -  Include the options you need.
 
-      Each TF Charm has a specific set of options. The options you
+      Each OpenSDN Charm has a specific set of options. The options you
       choose depend on the charms you select. 
 
 2. (Optional) Check the status of deployment.
@@ -503,7 +503,7 @@ Before you begin deployment, ensure that you have:
 
 Follow these steps to deploy Juju Charms manually:
 
-1. Create machine instances for OpenStack, compute, and Tungsten Fabric.
+1. Create machine instances for OpenStack, compute, and OpenSDN.
 
    ::
 
@@ -515,7 +515,7 @@ Follow these steps to deploy Juju Charms manually:
 
    ::
 
-      juju add-machine --constraints mem=15G cores=2 root-disk=300G --series=xenial #for TF machine 2
+      juju add-machine --constraints mem=15G cores=2 root-disk=300G --series=xenial #for OpenSDN machine 2
 
 2. Deploy OpenStack services.
 
@@ -593,7 +593,7 @@ Follow these steps to deploy Juju Charms manually:
 
       juju add-unit nova-compute --to 3 # Add one more unit
 
-4. Deploy and configure TF services.
+4. Deploy and configure OpenSDN services.
 
    ::
 
@@ -624,7 +624,7 @@ Follow these steps to deploy Juju Charms manually:
 
 7. Apply SSL.
 
-   You can apply SSL if needed. To use SSL with TF services,
+   You can apply SSL if needed. To use SSL with OpenSDN services,
    deploy easy-rsa service and ``add-relation`` command to create
    relations to contrail-controller service and contrail-agent services.
 
@@ -641,10 +641,10 @@ Follow these steps to deploy Juju Charms manually:
 
    1. Deploy HAProxy and Keepalived services.
 
-      HAProxy charm is deployed on machines with TF controllers.
+      HAProxy charm is deployed on machines with OpenSDN controllers.
       HAProxy charm must have ``peering_mode`` set to ``active-active``.
       If ``peering_mode`` is set to ``active-passive``, HAProxy creates
-      additional listeners on the same ports as other TF services.
+      additional listeners on the same ports as other OpenSDN services.
       This leads to port conflicts.
 
       Keepalived charm does not require ``to`` option.
@@ -721,7 +721,7 @@ Follow these steps to deploy Juju Charms manually:
 Options for Juju Charms
 -----------------------
 
-Each TF Charm has a specific set of options. The options you
+Each OpenSDN Charm has a specific set of options. The options you
 choose depend on the charms you select. The following tables list the
 various options you can choose:
 
@@ -785,7 +785,7 @@ various options you can choose:
      - Specify the docker image tag
    * - log-level
      - SYS_NOTICE
-     - Specify the log level for TF services.
+     - Specify the log level for OpenSDN services.
        Options:`SYS_EMERG`, `SYS_ALERT`, `SYS_CRIT`, `SYS_ERR`, `SYS_WARN`, `SYS_NOTICE`, `SYS_INFO`, `SYS_DEBUG`
    * - http_proxy
      - 
@@ -807,10 +807,10 @@ various options you can choose:
        ``kernel-hugepages-1g`` and the ``kernel-hugepages-2m`` options are not set.
    * - kernel-hugepages-2m
      - 1024
-     - Specify the number of 2MB huge pages for use with vRouters in kernel mode. Huge pages in Tungsten Fabric
+     - Specify the number of 2MB huge pages for use with vRouters in kernel mode. Huge pages in OpenSDN
        are used primarily to allocate flow and bridge table memory within the vRouter. Huge pages for kernel-mode vRouters
-       provide enough flow and bridge table memory to avoid compute node reboots to complete future Tungsten Fabric software upgrades.
-       1024x2MB huge pages are configured by default starting in Tungsten Fabric Release 2005. A compute node reboot is
+       provide enough flow and bridge table memory to avoid compute node reboots to complete future OpenSDN software upgrades.
+       1024x2MB huge pages are configured by default starting in OpenSDN Release 2005. A compute node reboot is
        required to enable a kernel-mode vRouter huge page setting configuration change, however, so this huge page setting is
        not enabled on a compute node until the compute node is rebooted. After a compute node is rebooted to enable a vRouter
        huge page setting, compute nodes can complete software upgrades without a reboot. We recommend allotting 2GB of memory—either
@@ -857,7 +857,7 @@ various options you can choose:
      - Specify the docker image tag.
    * - log-level
      - SYS_NOTICE
-     - Specify the log level for TF services.
+     - Specify the log level for OpenSDN services.
        Options: ``SYS_EMERG``, ``SYS_ALERT``, ``SYS_CRIT``, ``SYS_ERR``, ``SYS_WARN``, ``SYS_NOTICE``, ``SYS_INFO``, ``SYS_DEBUG``
    * - http_proxy
      - 
@@ -907,7 +907,7 @@ various options you can choose:
      - Specify the docker image tag.
    * - log-level
      - SYS_NOTICE
-     - Specify the log level for TF services.
+     - Specify the log level for OpenSDN services.
        Options: ``SYS_EMERG``, ``SYS_ALERT``, ``SYS_CRIT``, ``SYS_ERR``, ``SYS_WARN``, ``SYS_NOTICE``, ``SYS_INFO``, ``SYS_DEBUG``
    * - http_proxy
      -
@@ -938,7 +938,7 @@ various options you can choose:
      - rbac
      - Specify the authentication mode.
        Options: ``rbsc``, ``cloud-admin``, ``no-auth``.
-       For more information, see `https://github.com/tungstenfabric/docs/blob/master/wiki/tf-controller/RBAC.md <https://github.com/tungstenfabric/docs/blob/master/wiki/tf-controller/RBAC.md>`_
+       For more information, see `https://github.com/opensdn-io/docs/blob/master/wiki/tf-controller/RBAC.md <https://github.com/opensdn-io/docs/blob/master/wiki/tf-controller/RBAC.md>`_
    * - cassandra-minimum-diskgb
      - 20
      - Specify the minimum disk requirement
@@ -953,7 +953,7 @@ various options you can choose:
      - Specify the role name in keystone for users who have read-only access
    * - vip
      - 
-     - Specify if the Tungsten Fabric API VIP is used for configuring client-side software. If not specified, private IP of the first Tungsten Fabric API VIP unit will be used
+     - Specify if the OpenSDN API VIP is used for configuring client-side software. If not specified, private IP of the first OpenSDN API VIP unit will be used
    * - use-external-rabbitmq
      - false
      - To enable the Charm to use the internal RabbitMQ server, set ``use-external-rabbitmq`` to ``false.
@@ -961,7 +961,7 @@ various options you can choose:
        **Note:** Do not change the flag after deployment.
    * - flow-export-rate
      - 0
-     - Specify how many flow records are exported by vRouter agent to the Tungsten Fabric Collector when a flow is created or deleted
+     - Specify how many flow records are exported by vRouter agent to the OpenSDN Collector when a flow is created or deleted
    * - docker-registry
      - 
      - Specify the URL of the docker-registry.
@@ -979,7 +979,7 @@ various options you can choose:
      - Specify the docker image tag.
    * - log-level
      - SYS_NOTICE
-     - Specify the log level for TF services.
+     - Specify the log level for OpenSDN services.
        Options: ``SYS_EMERG``, ``SYS_ALERT``, ``SYS_CRIT``, ``SYS_ERR``, ``SYS_WARN``, ``SYS_NOTICE``, ``SYS_INFO``, ``SYS_DEBUG``
    * - http_proxy
      - 
@@ -1002,7 +1002,7 @@ various options you can choose:
      - Description
    * - ssl_ca
      - 
-     - Specify if the base64-encoded SSL CA certificate is provided to TF keystone clients.
+     - Specify if the base64-encoded SSL CA certificate is provided to OpenSDN keystone clients.
        **Note:** This certificate is required if you use a privately signed ssl_cert and ssl_key.
 
 |
@@ -1047,7 +1047,7 @@ various options you can choose:
      - Specify the docker image tag.
    * - log-level
      - SYS_NOTICE
-     - Specify the log level for TF services.
+     - Specify the log level for OpenSDN services.
        Options: ``SYS_EMERG``, ``SYS_ALERT``, ``SYS_CRIT``, ``SYS_ERR``, ``SYS_WARN``, ``SYS_NOTICE``, ``SYS_INFO``, ``SYS_DEBUG``
    * - http_proxy
      - 
@@ -1065,7 +1065,7 @@ various options you can choose:
    * - Release
      - Description
    * - 2011
-     - Starting in Tungsten Fabric Release 2011, Tungsten Fabric
+     - Starting in OpenSDN Release 2011, OpenSDN
        supports OpenStack Ussuri with Ubuntu version 18.04 (Bionic Beaver) and
        Ubuntu version 20.04 (Focal Fossa).
 

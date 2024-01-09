@@ -1,9 +1,9 @@
-Updating Tungsten Fabric using the Zero Impact Upgrade Process in an Environment using Red Hat Openstack
+Updating OpenSDN using the Zero Impact Upgrade Process in an Environment using Red Hat Openstack
 ============================================================================================================
 
 :date: 2020-09-16 
 
-This document provides the steps needed to update a Tungsten Fabric
+This document provides the steps needed to update a OpenSDN
 deployment that is using Red Hat Openstack as it’s orchestration
 platform. The procedure provides a zero impact upgrade (ZIU) with
 minimal disruption to network operations.
@@ -11,16 +11,16 @@ minimal disruption to network operations.
 When to Use This Procedure
 --------------------------
 
-This procedure is used to upgrade Tungsten Fabric when it is running
+This procedure is used to upgrade OpenSDN when it is running
 in environments using RHOSP13.
 
 The procedure in this document has been validated for the following
-Tungsten Fabric upgrade scenarios:
+OpenSDN upgrade scenarios:
 
-Table 1: Tungsten Fabric with RHOSP13 Validated Upgrade Scenarios
+Table 1: OpenSDN with RHOSP13 Validated Upgrade Scenarios
 
 +----------------------------------+----------------------------------+
-| Starting Tungsten Fabric         | Target Upgraded Tungsten Fabric  |
+| Starting OpenSDN                 | Target Upgraded OpenSDN          |
 | Release                          | Networking Release               |
 +==================================+==================================+
 | 1912.L0                          | 1912.L1                          |
@@ -33,12 +33,12 @@ Table 1: Tungsten Fabric with RHOSP13 Validated Upgrade Scenarios
 +----------------------------------+----------------------------------+
 
 A different procedure is followed for upgrading to earlier target
-Tungsten Fabric releases in environments using RHOSP13
-orchestration. See `Upgrading Tungsten Fabric with Red Hat Openstack
+OpenSDN releases in environments using RHOSP13
+orchestration. See `Upgrading OpenSDN with Red Hat Openstack
 13 using ISSU <rhosp13-issu>`_.
 
 
-If you want to use this procedure to upgrade your Tungsten Fabric
+If you want to use this procedure to upgrade your OpenSDN
 release to other releases, you must engage Juniper Networks professional
 services. Contact your Juniper representative for additional
 information.
@@ -48,16 +48,16 @@ Prerequisites
 
 This document makes the following assumptions about your environment:
 
--  A Tungsten Fabric deployment using Red Hat Openstack version 13
+-  A OpenSDN deployment using Red Hat Openstack version 13
    (RHOSP13) as the orchestration platform is already operational.
 
 -  The overcloud nodes in the RHOSP13 environment have an enabled Red
    Hat Enterprise Linux (RHEL) subscription.
 
--  Your environment is running TF Release 1912 and upgrading to
-   TF Release 1912-L1 or to TF Release 2003 or later.
+-  Your environment is running OpenSDN Release 1912 and upgrading to
+   OpenSDN Release 1912-L1 or to OpenSDN Release 2003 or later.
 
--  If you are updating Red Hat Openstack simultaneously with Tungsten Fabric, we assume that the undercloud node is updated to the
+-  If you are updating Red Hat Openstack simultaneously with OpenSDN, we assume that the undercloud node is updated to the
    latest minor version and that new overcloud images are prepared for
    an upgrade if needed for the upgrade. See the `Upgrading the
    Undercloud <https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/13/html/keeping_red_hat_openstack_platform_updated/assembly-upgrading_the_undercloud>`__
@@ -78,8 +78,8 @@ Before You Begin
 
 We recommend performing these procedures before starting the update:
 
--  Backup your TF configuration database before starting this
-   procedure. See :ref:`How to Backup and Restore TF databases in JSON Format`.
+-  Backup your OpenSDN configuration database before starting this
+   procedure. See :ref:`How to Backup and Restore OpenSDN databases in JSON Format`.
 
 -  Each compute node agent will go down during this procedure, causing
    some compute node downtime. The estimated downtime for a compute node
@@ -90,7 +90,7 @@ We recommend performing these procedures before starting the update:
    downtime, consider migrating workloads or taking other steps to
    accommodate this downtime in your environment.
 
--  If you are updating Red Hat Openstack simultaneously with Tungsten Fabric, 
+-  If you are updating Red Hat Openstack simultaneously with OpenSDN, 
    update Red Hat Openstack to the latest minor release
    version and ensure that the new overcloud images are prepared for the
    upgrade. See the `Upgrading the
@@ -107,10 +107,10 @@ We recommend performing these procedures before starting the update:
    Templates <https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/13/html/advanced_overcloud_customization/sect-understanding_heat_templates>`__
    document from Red Hat for additional information.
 
-Updating Tungsten Fabric in an Environment using Red Hat Openstack
+Updating OpenSDN in an Environment using Red Hat Openstack
 ----------------------------------------------------------------------
 
-To update Tungsten Fabric in an environment that is using Red Hat
+To update OpenSDN in an environment that is using Red Hat
 Openstack as the orchestration platform:
 
 1.  Prepare your docker registry. The registry is often included in the
@@ -120,14 +120,14 @@ Openstack as the orchestration platform:
     Registry <https://docs.docker.com/registry/>`__ from Docker for
     additional information on Docker registry setup.
 
-2.  Backup the TF TripleO Heat Templates. See `Using the TF
+2.  Backup the OpenSDN TripleO Heat Templates. See `Using the OpenSDN
     Heat
     Template <https://www.juniper.net/documentation/en_US/contrail20/topics/task/configuration/heat-template-vnc.html>`__.
 
-3.  Get the TF TripleO Heat Templates (Stable/Queens branch) from
+3.  Get the OpenSDN TripleO Heat Templates (Stable/Queens branch) from
     https://github.com/Juniper/contrail-tripleo-heat-templates.
 
-4.  (Optional) Update the TF TripleO Puppet module to the latest
+4.  (Optional) Update the OpenSDN TripleO Puppet module to the latest
     version and prepare Swift Artifacts, as applicable.
 
     Below are sample commands entered in the undercloud:
@@ -146,9 +146,9 @@ Openstack as the orchestration platform:
     is set in the ``contrail-services.yaml`` file.
 
     You can obtain the ``ContrailImageTag`` parameter from the 
-    :ref:`Getting Started with Tungsten Fabric <GettingStarted>`.
+    :ref:`Getting Started with OpenSDN <GettingStarted>`.
 
-6.  (Recommended) If you are upgrading to Tungsten Fabric Release
+6.  (Recommended) If you are upgrading to OpenSDN Release
     2005 or later, check and, if needed, enable kernel vRouter huge page
     support to support future compute node upgrades without rebooting.
 
@@ -172,15 +172,15 @@ Openstack as the orchestration platform:
     Notes about kernel-mode vRouter huge page support in Red Hat
     Openstack environments:
 
-    -  Kernel-mode vRouter huge page support was introduced in TF Release 2005, and is configured to support 2 1GB huge
-       pages by default in Tungsten Fabric Release 2005 or later.
+    -  Kernel-mode vRouter huge page support was introduced in OpenSDN Release 2005, and is configured to support 2 1GB huge
+       pages by default in OpenSDN Release 2005 or later.
 
        A compute node has to be rebooted once for a huge page
        configuration to finalize. After this initial reboot, the compute
-       node can perform future Tungsten Fabric software upgrades
+       node can perform future OpenSDN software upgrades
        without rebooting.
 
-       Notably, a compute node in an environment running Tungsten Fabric 
+       Notably, a compute node in an environment running OpenSDN 
        2005 or later has not enabled huge page support for
        kernel-mode vRouters until it is rebooted. The 2x1GB huge page
        support configuration is present by default, but it isn’t enabled
@@ -232,7 +232,7 @@ Openstack as the orchestration platform:
        contrail-parameters.yaml -e
        docker_registry.yaml
 
-8.  Prepare the overcloud nodes that include TF containers for the
+8.  Prepare the overcloud nodes that include OpenSDN containers for the
     update.
 
     -  Pull the images in the repository onto the overcloud nodes.
@@ -257,10 +257,10 @@ Openstack as the orchestration platform:
        significant for this upgrade:
 
        -  CONTRAIL_NEW_IMAGE_TAG—The image tag of the target upgrade
-          version of TF. The default value is latest.
+          version of OpenSDN. The default value is latest.
 
           If needed, you can obtain this parameter for a specific image
-          from the :ref:`Getting Started with Tungsten Fabric Guide <GettingStarted>`
+          from the :ref:`Getting Started with OpenSDN Guide <GettingStarted>`
 
           .. note::
 
@@ -286,19 +286,19 @@ Openstack as the orchestration platform:
 
        .. caution::
 
-          TF services stop working when the script starts running.
+          OpenSDN services stop working when the script starts running.
 
        ::
 
           ~/tripleo-heat-templates/tools/contrail/update_contrail_preparation.sh
 
-9.  Update the Tungsten Fabric Controller nodes:
+9.  Update the OpenSDN Controller nodes:
 
     -  Run the openstack overcloud update run command on the first
-       TF controller and, if needed, on a Tungsten Fabric Analytics node.
-       The purpose of this step is to update one Tungsten Fabric Controller and
-       one Tungsten Fabric Analytics node to support the environment so the
-       other Tungsten Fabric Controllers and analytics nodes can be updated
+       OpenSDN controller and, if needed, on a OpenSDN Analytics node.
+       The purpose of this step is to update one OpenSDN Controller and
+       one OpenSDN Analytics node to support the environment so the
+       other OpenSDN Controllers and analytics nodes can be updated
        without incurring additional downtime.
 
        Example:
@@ -307,7 +307,7 @@ Openstack as the orchestration platform:
 
           openstack overcloud update run --nodes overcloud-contrailcontroller-0
 
-       Ensure that the TF status is ok on
+       Ensure that the OpenSDN status is ok on
        overcloud-contrailcontroller-0 before proceeding.
 
        If the analytics and the analyticsdb nodes are on separate nodes,
@@ -319,14 +319,14 @@ Openstack as the orchestration platform:
           openstack overcloud update run --roles ContrailAnalytics,ContrailAnalyticsDatabase
 
     -  After the upgrade, check the docker container status and versions
-       for the Tungsten Fabric Controllers and the Tungsten Fabric Analytics and
+       for the OpenSDN Controllers and the OpenSDN Analytics and
        AnalyticsDB nodes.
 
        ::
 
           docker ps -a
 
-    -  Update the remaining Tungsten Fabric Controller nodes:
+    -  Update the remaining OpenSDN Controller nodes:
 
        Example:
 

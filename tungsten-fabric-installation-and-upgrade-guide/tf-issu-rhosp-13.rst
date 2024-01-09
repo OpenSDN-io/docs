@@ -1,28 +1,28 @@
 .. _rhosp13-issu:
 
-Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
+Upgrading OpenSDN with Red Hat Openstack 13 using ISSU
 ==================================================================
 
-      This document provides steps to upgrade Tungsten Fabric with
+      This document provides steps to upgrade OpenSDN with
       an in-service software upgrade (ISSU) in an environment using Red
       Hat Openstack Platform 13 (RHOSP13).
 
  When to Use This Procedure
 
-   Use this procedure to upgrade Tungsten Fabric when it is running
+   Use this procedure to upgrade OpenSDN when it is running
    in environments using RHOSP13.
 
-   This procedure has been validated for the following Tungsten Fabrci upgrades:
+   This procedure has been validated for the following OpenSDN upgrades:
 
    .. container:: table-wrap
 
       .. container:: tbody
 
-         Table 1: Tungsten Fabric with RHOSP13 Validated Upgrade
+         Table 1: OpenSDN with RHOSP13 Validated Upgrade
          Scenarios
 
          +----------------------------------+----------------------------------+
-         | Starting Tungsten Fabric         | Target Tungsten Fabric           |
+         | Starting OpenSDN                 | Target OpenSDN                   |
          | Release                          | Upgrade Release                  |
          +==================================+==================================+
          | 5.1                              | 1907                             |
@@ -38,21 +38,21 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
          | 1911                             | 1912                             |
          +----------------------------------+----------------------------------+
 
-   Starting in Tungsten Fabric Releases R2011, use the
-   Zero Impact Upgrade (ZIU) procedure to upgrade Tungsten Fabric in
+   Starting in OpenSDN Releases R2011, use the
+   Zero Impact Upgrade (ZIU) procedure to upgrade OpenSDN in
    environments using Red Hat Openstack orchestration. See `Updating
-   Tungsten Fabric using the Zero Impact Upgrade Process in an
+   OpenSDN using the Zero Impact Upgrade Process in an
    Environment using Red Hat
    Openstack <ffu-ziu-rhosp16.1-cn.rst>`.
 
    .. rubric:: Before you begin
       :name: id-before-you-begin
 
-   -  Obtain the ``ContrailImageTag`` value for your Tungsten Fabric
+   -  Obtain the ``ContrailImageTag`` value for your OpenSDN
       release. You can obtain this value from the readme files at the
       following locations:
 
-      -  Tungsten Fabric Release Tags: :ref:`Getting Started with Tungsten Fabric <GettingStarted>`
+      -  OpenSDN Release Tags: :ref:`Getting Started with OpenSDN <GettingStarted>`
 
    -  Enable RHEL subscription for the overcloud nodes.
 
@@ -80,14 +80,14 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
 
          ``(undercloud) [stack@queensa ~]$ cat .ssh/id_rsa.pub``
 
-   -  Backup the Tungsten Fabric configuration database.
+   -  Backup the OpenSDN configuration database.
 
-      See `How to Backup and Restore TF Databases in JSON Format <How to Backup and Restore TF databases in JSON Format>`.
+      See `How to Backup and Restore OpenSDN Databases in JSON Format <How to Backup and Restore OpenSDN databases in JSON Format>`.
 
    .. rubric:: Procedure
       :name: id-procedure
 
-   1.  Get TF TripleO Heat Templates (Stable/Queens branch) from
+   1.  Get OpenSDN TripleO Heat Templates (Stable/Queens branch) from
        https://github.com/Juniper/contrail-tripleo-heat-templates.
 
        Take a back up of the existing directory if you are copying the
@@ -98,7 +98,7 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
        ``contrail-dpdk-nic-config.yaml`` (for compute node running dpdk
        mode) files.
 
-   2.  Update TF TripleO Puppet module to the latest version and
+   2.  Update OpenSDN TripleO Puppet module to the latest version and
        prepare Swift Artifacts, as applicable.
 
          .. code-block ::
@@ -108,17 +108,17 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
                       (undercloud) [stack@queensa ~]$ tar czvf puppet-modules.tgz usr/
                       (undercloud) [stack@queensa ~]$ upload-swift-artifacts -c contrail-artifacts -f puppet-modules.tgz
 
-   3.  Prepare docker registry with Tungsten Fabric images. It can
+   3.  Prepare docker registry with OpenSDN images. It can
        be undercloud or a separate node.
 
    4.  Update the version of Red Hat running in the undercloud.
 
              **Note**
              This procedure updates the version of Red Hat running in
-             the undercloud before deploying the Tungsten Fabric Controller 
+             the undercloud before deploying the OpenSDN Controller 
              In-Service Software Upgrade (ISSU) node in .
 
-             You can deploy the Tungsten Fabric Controller In-Service Software
+             You can deploy the OpenSDN Controller In-Service Software
              Upgrade (ISSU) node before performing this step if there is
              a reason to change the sequence in your environment.
 
@@ -138,19 +138,19 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
        undercloud <https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/13/html/keeping_red_hat_openstack_platform_updated/assembly-upgrading_the_undercloud>`__.
 
 
-   5.  Deploy the TF Controller In-Service Software Upgrade (ISSU)
+   5.  Deploy the OpenSDN Controller In-Service Software Upgrade (ISSU)
        node.
 
        a. Prepare new server node and create flavor
           ``contrail-controller-issu`` for the ISSU node.
           The hardware requirements for ISSU node is the same as for the
-          TF Controller Node.
+          OpenSDN Controller Node.
 
        b. Prepare the parameters in the yaml file,
           ``~/tripleo-heat-templates/environments/contrail/contrail-issu.yaml``:
 
           -  ``ContrailIssuSshKey``—Generate and set the ssh keys. You
-             require SSH access between ISSU and TF Controller
+             require SSH access between ISSU and OpenSDN Controller
              nodes.
 
              ``ContrailIssuSshKey`` is same as ``MigrationSshKey``.
@@ -181,7 +181,7 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
 
                 ``openstack overcloud deploy ...\-e ~/tripleo-heat-templates/environments/contrail/contrail-issu.yaml``
 
-       e. Check the status of Tungsten Fabric service on the ISSU node.
+       e. Check the status of OpenSDN service on the ISSU node.
 
           All services must be ``active`` .
 
@@ -478,7 +478,7 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
 
           The status must be ``active``.
 
-   9.  Upgrade Tungsten Fabric Plugins including ``Neutron, Heat,`` etc. on
+   9.  Upgrade OpenSDN Plugins including ``Neutron, Heat,`` etc. on
        OpenStack controllers and connect them to the ISSU node.
 
        Example for environment with a single OpenStack controller:
@@ -516,7 +516,7 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
                       openstack overcloud upgrade run --nodes $nodes --playbook upgrade_steps_playbook.yaml
                       openstack overcloud upgrade run --nodes $nodes --playbook deploy_steps_playbook.yaml
 
-   10. Disconnect the ISSU node from the Tungsten Fabric control plane.
+   10. Disconnect the ISSU node from the OpenSDN control plane.
 
        a. Make SSH connection to ISSU node.
 
@@ -530,13 +530,13 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
 
                 ``cd /etc/contrail/issu/./issu_node_sync_post.sh./issu_node_pair.sh del``
 
-       c. Check the status of Tungsten Fabric service on the ISSU node.
+       c. Check the status of OpenSDN service on the ISSU node.
 
           ``sudo contrail-status``
 
           The status must be ``active`` or ``backup``.
 
-   11. Upgrade the Tungsten Fabric control plane node.
+   11. Upgrade the OpenSDN control plane node.
 
        a. Run the following commands:
 
@@ -553,17 +553,17 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
 
                 ``openstack overcloud upgrade run --nodes $nodes  --playbook deploy_steps_playbook.yamlopenstack overcloud upgrade run --nodes $nodes --playbook post_upgrade_steps_playbook.yaml``
 
-       b. Check the status of Tungsten Fabric service on the Tungsten Fabric control
+       b. Check the status of OpenSDN service on the OpenSDN control
           plane node.
 
           ``sudo contrail-status``
 
           The status must be ``active`` or ``backup``.
 
-   12. Upgrade TF Analytics and TF AnalyticsDB nodes:
+   12. Upgrade OpenSDN Analytics and OpenSDN AnalyticsDB nodes:
 
-       Example for an environment with three TF Analytics and
-       three TF AnalyticsDB nodes:
+       Example for an environment with three OpenSDN Analytics and
+       three OpenSDN AnalyticsDB nodes:
 
        .. container:: sample
           :name: jd0e691
@@ -580,16 +580,16 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
                       openstack overcloud upgrade run --nodes $nodes --playbook upgrade_steps_playbook.yaml
                       openstack overcloud upgrade run --nodes $nodes --playbook deploy_steps_playbook.yaml
 
-   13. Connect the ISSU node to the upgraded TF control plane
+   13. Connect the ISSU node to the upgraded OpenSDN control plane
        node.
 
        a. Make SSH connection to the ISSU node.
 
-       b. Pair the ISSU node with upgraded Tungsten Fabric control plane.
+       b. Pair the ISSU node with upgraded OpenSDN control plane.
 
           ``cd /etc/contrail/issu./issu_node_pair.sh add pair_with_new``
 
-       c. Sync data with new Tungsten Fabric control plane.
+       c. Sync data with new OpenSDN control plane.
 
           ``issu_config=issu_revert.conf ./issu_node_sync.sh``
 
@@ -615,10 +615,10 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
 
              ``nodes=overcloud-controller-0 openstack overcloud upgrade run --nodes $nodes --playbook post_upgrade_steps_playbook.yaml``
 
-   15. Disconnect ISSU and upgraded TF control plane.
+   15. Disconnect ISSU and upgraded OpenSDN control plane.
 
        a. Make SSH connection to ISSU node.
-       b. Un-pair ISSU node with the old Tungsten Fabric cluster.
+       b. Un-pair ISSU node with the old OpenSDN cluster.
 
           .. container:: sample
              :name: jd0e744
@@ -656,12 +656,12 @@ Upgrading Tungsten Fabric with Red Hat Openstack 13 using ISSU
 
           | Make SSH connection to each controller and perform sudo
             reboot.
-          | You must wait till the node is rebooted and Tungsten Fabric 
+          | You must wait till the node is rebooted and OpenSDN 
             services are up.
 
           ``sudo contrail-status``
 
-   18. Check the status of Tungsten Fabric service on all the upgrades nodes.
+   18. Check the status of OpenSDN service on all the upgrades nodes.
 
        ``sudo contrail-status``
 

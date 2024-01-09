@@ -1,4 +1,4 @@
-Using Netronome SmartNIC vRouter with Tungsten Fabric
+Using Netronome SmartNIC vRouter with OpenSDN
 =========================================================
 
 :date: 2021-01-19
@@ -9,7 +9,7 @@ Using Netronome SmartNIC vRouter with Tungsten Fabric
    available for evaluation purposes only. It is not intended for
    deployment in production networks.
 
-TF supports Netronome Agilio CX SmartNICs for Tungsten Fabric
+OpenSDN supports Netronome Agilio CX SmartNICs for OpenSDN
 deployment with Red Hat OpenStack Platform Director (RHOSPd) 13
 environment.
 
@@ -20,10 +20,10 @@ functions (VNFs) per server.
 
 Benefits:
 
--  Increased PPS capacity of Tungsten Fabric vRouter datapath allowing
+-  Increased PPS capacity of OpenSDN vRouter datapath allowing
    applications to reach their full processing capacity.
 
--  Reclaimed CPU cores from Tungsten Fabric vRouter off-loading allowing more
+-  Reclaimed CPU cores from OpenSDN vRouter off-loading allowing more
    VMs and VNFs to be deployed per server.
 
 The goal of this topic is to provide a procedure for deploying
@@ -121,7 +121,7 @@ Procedure:
 
       ``[root@overcloud-novacompute-2 heat-admin]# docker ps -a | grep agilioc7c611b5168b        docker.io/netronomesystems/agilio-vrouter:2.38-rhel-queens             "./entrypoint.sh"        46 seconds ago      Up 38 seconds agilio_vrouter``
 
-2. Prepare the Tungsten Fabric cluster for deployment.
+2. Prepare the OpenSDN cluster for deployment.
 
    .. note::
 

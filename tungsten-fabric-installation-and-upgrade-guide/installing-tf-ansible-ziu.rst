@@ -1,17 +1,17 @@
-How to Perform a Zero Impact Tungsten Fabric Upgrade using the Ansible Deployer
+How to Perform a Zero Impact OpenSDN Upgrade using the Ansible Deployer
 ===============================================================================
 
 :date: 2021-01-19
 
-Starting in Tungsten Fabric Release 2005, you can perform a Zero
-Impact Upgrade (ZIU) of Tungsten Fabric using the TF Ansible
-Deployer container. The Tungsten Fabric Ansible Deployer container image can be
+Starting in OpenSDN Release 2005, you can perform a Zero
+Impact Upgrade (ZIU) of OpenSDN using the OpenSDN Ansible
+Deployer container. The OpenSDN Ansible Deployer container image can be
 loaded from the Juniper Networks Contrail Container Registry hosted at
 ``hub.juniper.net/contrail``.
 
 Use the procedure in this document to perform a Zero Impact Upgrade
-(ZIU) of Tungsten Fabric using the Tungsten Fabric Ansible Deployer
-container. This ZIU allows Tungsten Fabric to upgrade while
+(ZIU) of OpenSDN using the OpenSDN Ansible Deployer
+container. This ZIU allows OpenSDN to upgrade while
 sustaining minimal network downtime.
 
 Before you begin:
@@ -20,36 +20,36 @@ Before you begin:
    later.
 
 -  You can use this procedure to incrementally upgrade to the next
-   Tungsten Fabric release only. For instance, if you are running
-   Tungsten Fabric Release 2003 and want to upgrade to the next
-   TF Release—which is Tungsten Fabric Release 2005—you can
+   OpenSDN release only. For instance, if you are running
+   OpenSDN Release 2003 and want to upgrade to the next
+   OpenSDN Release—which is OpenSDN Release 2005—you can
    use this procedure to perform the upgrade.
 
    This procedure is not validated for upgrades between releases that
    are two or more releases apart. For instance, it could not be used to
-   upgrade from Tungsten Fabric Release 2002 to Tungsten Fabric
+   upgrade from OpenSDN Release 2002 to OpenSDN
    Release 2005.
 
-   For a list of Tungsten Fabric releases in a table that
-   illustrates Tungsten Fabric release order, see `Contrail
+   For a list of OpenSDN releases in a table that
+   illustrates OpenSDN release order, see `Contrail
    Networking Supported
    Platforms <https://www.juniper.net/documentation/en_US/release-independent/contrail/topics/reference/contrail-supported-platforms.pdf>`__  .
 
--  The Tungsten Fabric Ansible Deployer container can only be used in CentOS
+-  The OpenSDN Ansible Deployer container can only be used in CentOS
    environments.
 
 -  Take snapshots of your current configurations before you proceed with
-   the upgrade process. For details, refer to :ref:`How to Backup and Restore TF databases in JSON Format`.
+   the upgrade process. For details, refer to :ref:`How to Backup and Restore OpenSDN databases in JSON Format`.
 
 This procedure illustrates how to perform a ZIU using the Ansible
 deployer container. It includes a representative example of the steps
-being performed to upgrade from Tungsten Fabric Release 2005 to
+being performed to upgrade from OpenSDN Release 2005 to
 Release 2008.
 
 To perform the ZIU using the Ansible deployer:
 
 1.  Pull the ``contrail-ansible-deployer`` file for the target upgrade
-    release. This procedure is typically performed from a TF
+    release. This procedure is typically performed from a OpenSDN
     controller running in your environment, but it can also be performed
     from a separate server which has network connectivity to the
     deployment that is being upgraded.
@@ -81,12 +81,12 @@ To perform the ZIU using the Ansible deployer:
        and ``password`` credentials.
 
     -  ``contrail_container_tag``—the container tag ID for your target
-       Tungsten Fabric release. The ``contrail_container_tag`` for
+       OpenSDN release. The ``contrail_container_tag`` for
        any Contrail Release 20 software can be obtained from `README
-       Access to Tungsten Fabric Registry
+       Access to OpenSDN Registry
        20xx <https://www.juniper.net/documentation/en_US/contrail20/information-products/topic-collections/release-notes/readme-contrail-20.pdf>`__  .
 
-2.  Start the Tungsten Fabric Ansible Deployer:
+2.  Start the OpenSDN Ansible Deployer:
 
     ::
 
@@ -95,10 +95,10 @@ To perform the ZIU using the Ansible deployer:
 3.  Navigate to the ``instances.yaml`` file and open it for editing.
 
     The ``instances.yaml`` file was used to initially deploy the setup.
-    The ``instances.yaml`` can be loaded into the TF Ansible
+    The ``instances.yaml`` can be loaded into the OpenSDN Ansible
     Deployer and edited to supported the target upgrade version.
 
-    *TF Release 2008 Target Upgrade Example using VI as the
+    *OpenSDN Release 2008 Target Upgrade Example using VI as the
     editor*:
 
     ::
@@ -114,8 +114,8 @@ To perform the ZIU using the Ansible deployer:
     ``contrail_configuration:`` hierarchy within the ``instances.yaml``
     file.
 
-    The ``CONTRAIL_CONTAINER_TAG`` for any TF Release 20 software
-    can be obtained from `README Access to Tungsten Fabric Registry
+    The ``CONTRAIL_CONTAINER_TAG`` for any OpenSDN Release 20 software
+    can be obtained from `README Access to OpenSDN Registry
     20xx <https://www.juniper.net/documentation/en_US/contrail20/information-products/topic-collections/release-notes/readme-contrail-20.pdf>`__  .
 
     Here is an example instances.yml file configuration:
@@ -134,7 +134,7 @@ To perform the ZIU using the Ansible deployer:
 5.  Upgrade the control plane by running the ziu.yml playbook file from
     inside the  container.
 
-    -  For Tungsten Fabric Release 2005 to Tungsten Fabric
+    -  For OpenSDN Release 2005 to OpenSDN
        Release 2008:
 
        Upgrade the control plane by running the ``ziu.yml`` playbook
@@ -143,7 +143,7 @@ To perform the ZIU using the Ansible deployer:
        sudo -E ansible-playbook -v -e orchestrator=openstack -e
        config_file=instances.yaml playbooks/ziu.yml
 
-    -  For Tungsten Fabric Release 2011 and later:
+    -  For OpenSDN Release 2011 and later:
 
        Upgrade the control plane by running the controller stage of
        ``ziu.yml`` playbook file.
@@ -155,13 +155,13 @@ To perform the ZIU using the Ansible deployer:
 6.  Upgrade the Openstack plugin by running the install_openstack.yml
     playbook file.
 
-    -  For Tungsten Fabric Release 2005 to Tungsten Fabric
+    -  For OpenSDN Release 2005 to OpenSDN
        Release 2008:
 
        sudo -E ansible-playbook -v -e orchestrator=openstack -e
        config_file=instances.yaml playbooks/install_openstack.yml
 
-    -  For Tungsten Fabric Release 2011 and later:
+    -  For OpenSDN Release 2011 and later:
 
        sudo -E ansible-playbook -v -e stage=openstack -e
        orchestrator=openstack -e config_file=../instances.yaml
@@ -265,7 +265,7 @@ To perform the ZIU using the Ansible deployer:
 
 9.  Upgrade compute nodes.
 
-    -  For Tungsten Fabric Release 2005 to Tungsten Fabric
+    -  For OpenSDN Release 2005 to OpenSDN
        Release 2008:
 
        Run the install_contrail.yml playbook file to upgrade the compute
@@ -276,7 +276,7 @@ To perform the ZIU using the Ansible deployer:
        sudo -E ansible-playbook -v -e orchestrator=openstack -e
        config_file=instances.yaml playbooks/install_contrail.yml
 
-    -  For Tungsten Fabric Release 2011 and later:
+    -  For OpenSDN Release 2011 and later:
 
        Run the compute stage of ziu.yml playbook file to upgrade the
        compute nodes that were uncommented in the instances.yaml file.
@@ -295,6 +295,6 @@ You can access the Ansible playbook logs of the upgrade at
 
 .. note::
    
-   Starting in Tungsten Fabric Release 2005, you can perform a Zero
-   Impact Upgrade (ZIU) of Tungsten Fabric using the TF Ansible
+   Starting in OpenSDN Release 2005, you can perform a Zero
+   Impact Upgrade (ZIU) of OpenSDN using the OpenSDN Ansible
    Deployer container.

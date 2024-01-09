@@ -1,19 +1,19 @@
-Integrating vCenter for Tungsten Fabric
+Integrating vCenter for OpenSDN
 =======================================
 
 :date: 2020-03-10
 
-These topics provide instructions for integrating Tungsten Fabric 5.1.x
+These topics provide instructions for integrating OpenSDN 5.1.x
 and microservices with VMware vCenter.
 
 Prerequisites
 -------------
 
-Before you start the integration, ensure that the TF controller
+Before you start the integration, ensure that the OpenSDN controller
 meets the prerequisites given in 
 :ref:`Server Requirements and Supported Platforms <ServerReqAndPlatform>`.
 
-Follow these steps to prepare TF controller(s):
+Follow these steps to prepare OpenSDN controller(s):
 
 ::
 
@@ -48,7 +48,7 @@ EAM:
 -  Integrate with other vCenter features like AddHos, Maintenance Mode,
    vSphere DRS, vSphere DPM, and VMWare HA.
 
-These topics provide instructions for integrating Tungsten Fabric 5.1.x
+These topics provide instructions for integrating OpenSDN 5.1.x
 and microservices with VMware vCenter.
 
 Set Up vCenter Server
@@ -56,7 +56,7 @@ Set Up vCenter Server
 
 Follow these steps to set up the vCenter server.
 
-1. Download the Tungsten Fabric Ansible Deployer
+1. Download the OpenSDN Ansible Deployer
    (``contrail-ansible-deployer-< >.tgz``) onto your provisioning host.
    You can download the deployer from
    https://www.juniper.net/support/downloads/?p=contrail#sw.
@@ -242,31 +242,31 @@ Follow these steps to set up the vCenter server.
               - mac: 00:77:56:aa:bb:77
           vcenter_server: SRV1 #leave this
 
-4. Run the TF vCenter playbook.
+4. Run the OpenSDN vCenter playbook.
 
    ``ansible-playbook playbooks/vcenter.yml``
 
    .. note::
 
-      Verify that the hostnames for the TF controller(s) and the
+      Verify that the hostnames for the OpenSDN controller(s) and the
       ContrailVMs (vRouters) are unique in ``/etc/hostname`` file.
 
    You can verify hostname from either the DHCP options (if the
    management network uses DHCP) or manually (if the management network
    uses static IP allocation).
 
-Configure TF Parameters
------------------------
+Configure OpenSDN Parameters
+----------------------------
 
-Populate the file ``config/instances.yaml`` with TF roles.
+Populate the file ``config/instances.yaml`` with OpenSDN roles.
 
 For an example file, see
 ``contrail-ansible-deployer/confing/instances.yaml.vcenter_example``.
 
-Install TF
-----------
+Install OpenSDN
+---------------
 
-Install TF by running the following TF playbooks:
+Install OpenSDN by running the following OpenSDN playbooks:
 
 ``ansible-playbook -i inventory/ -e orchestrator=vcenter playbooks/configure_instances.yml``
 
@@ -277,7 +277,7 @@ Monitor and Manage ContrailVM from ESX Agent Manager
 
 ContrailVMs can be monitored from EAM by using ContrailVM-Agency.
 
-Follow these steps to monitor and manage TF VM from EAM:
+Follow these steps to monitor and manage OpenSDN VM from EAM:
 
 1. Resolve issues from the ContrailVM-Agency.
 
@@ -313,7 +313,7 @@ Follow these steps to monitor and manage TF VM from EAM:
       necessary settings in the vCenter server.
 
    4. Add ContrailVM details to ``instances.yaml`` and provision
-      TF on the newly added ContrailVm (router). 
+      OpenSDN on the newly added ContrailVm (router). 
 
 3. Clean up the ContrailVM-Agency.
 

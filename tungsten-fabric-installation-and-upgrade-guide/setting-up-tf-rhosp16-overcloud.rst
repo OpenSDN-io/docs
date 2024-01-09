@@ -6,7 +6,7 @@ Setting Up the Overcloud
 Summary
 -------
 
-Follow this topic to setting up the overcloud for Tungsten Fabric
+Follow this topic to setting up the overcloud for OpenSDN
 deployment with RHOSP 16.1.
 
 Configuring the Overcloud
@@ -131,7 +131,7 @@ for the overcloud.
 
       cp -r /usr/share/openstack-tripleo-heat-templates/ tripleo-heat-templates
 
-6. Download and copy the TF heat templates from
+6. Download and copy the OpenSDN heat templates from
    https://support.juniper.net/support/downloads.
 
    ::
@@ -182,13 +182,13 @@ for the overcloud.
 
          openstack overcloud container image upload --config-file ~/local_registry_images.yaml
 
-9. Create and upload the TF containers.
+9. Create and upload the OpenSDN containers.
 
-   1. Create the TF container file.
+   1. Create the OpenSDN container file.
 
       .. note::
 
-         This step is optional. The TF containers can be downloaded
+         This step is optional. The OpenSDN containers can be downloaded
          from external registries later.
 
       ::
@@ -196,7 +196,7 @@ for the overcloud.
          cd ~/tf-heat-templates/tools/contrail
          ./import_contrail_container.sh -f container_outputfile -r registry -t tag [-i insecure] [-u username] [-p password] [-c certificate path]
 
-      Here are few examples of importing TF containers from
+      Here are few examples of importing OpenSDN containers from
       different sources:
 
       -  Import from password protected public registry:
@@ -223,7 +223,7 @@ for the overcloud.
 
             ./import_contrail_container.sh -f /tmp/contrail_container -r 10.0.0.1:5443 -i 1 -t 1234
 
-   2. Upload TF containers to the undercloud registry:
+   2. Upload OpenSDN containers to the undercloud registry:
 
       ::
 
@@ -231,13 +231,13 @@ for the overcloud.
 
 .. _customizing-the-contrail-service-with-templates:
 
-Customizing the Tungsten Fabric Service with Templates (contrail-services.yaml)
+Customizing the OpenSDN Service with Templates (contrail-services.yaml)
 -------------------------------------------------------------------------------
 
-This section contains information to customize TF services for
+This section contains information to customize OpenSDN services for
 your network by modifying the ``contrail-services.yaml`` file.
 
--  Tungsten Fabric Services customization
+-  OpenSDN Services customization
 
    ::
 
@@ -257,7 +257,7 @@ your network by modifying the ``contrail-services.yaml`` file.
         ContrailControllerParameters:
           AAAMode: rbac
 
--  TF registry settings
+-  OpenSDN registry settings
 
    ::
 
@@ -291,14 +291,14 @@ your network by modifying the ``contrail-services.yaml`` file.
            ContrailRegistryCertUrl: http://device.example.net/pub/device.example.net.crt
            ContrailRegistry: device.example.net:5443
 
--  TF Container image settings
+-  OpenSDN Container image settings
 
    ::
 
       parameter_defaults:
         ContrailImageTag: queens-5.0-104-rhel-queens
 
-Customizing the Tungsten Fabric Network with Templates
+Customizing the OpenSDN Network with Templates
 ------------------------------------------------------
 
 Overview
@@ -320,7 +320,7 @@ internal_api 710  All
 external_api 720  OpenStack CTRL
 storage      740  OpenStack CTRL, Computes
 storage_mgmt 750  OpenStack CTRL
-tenant       -    TF CTRL, Computes
+tenant       -    OpenSDN CTRL, Computes
 ============ ==== ========================
 
 .. _roles-configuration-roles_data:
@@ -373,7 +373,7 @@ Compute Node
        - Tenant
        - Storage
 
-Tungsten Fabric Controller
+OpenSDN Controller
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
@@ -383,7 +383,7 @@ Tungsten Fabric Controller
    ###############################################################################
    - name: ContrailController
      description: |
-       ContrailController role that has all the TF controler services loaded
+       ContrailController role that has all the OpenSDN controler services loaded
        and handles config, control and webui functions
      CountDefault: 1
      tags:
@@ -403,7 +403,7 @@ Compute DPDK
    ###############################################################################
    - name: ContrailDpdk
      description: |
-       Tungsten Fabric DPDK Node role
+       OpenSDN DPDK Node role
      CountDefault: 0
      tags:
        - contraildpdk
@@ -422,7 +422,7 @@ Compute SRIOV
    ###############################################################################
    - name: ContrailSriov
      description: |
-       Tungsten Fabric SR-IOV node role
+       OpenSDN SR-IOV node role
      CountDefault: 0
      tags:
        - contrailsriov
@@ -441,7 +441,7 @@ Compute CSN
    ###############################################################################
    - name: ContrailTsn
      description: |
-       Tungsten Fabric Tsn Node role
+       OpenSDN Tsn Node role
      CountDefault: 0
      tags:
        - contrailtsn
@@ -523,7 +523,7 @@ OpenStack Controller
    description: >
      Software Config to drive os-net-config to configure multiple interfaces
      for the compute role. This is an example for a Nova compute node using
-     Tungsten Fabric vRouter and the vhost0 interface.
+     OpenSDN vRouter and the vhost0 interface.
 
 ::
 
@@ -676,7 +676,7 @@ OpenStack Controller
        value:
          get_resource: OsNetConfigImpl
 
-Tungsten Fabric Controller
+OpenSDN Controller
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ::
@@ -688,7 +688,7 @@ Tungsten Fabric Controller
    description: >
      Software Config to drive os-net-config to configure multiple interfaces
      for the compute role. This is an example for a Nova compute node using
-     Tungsten Fabric vRouter and the vhost0 interface.
+     OpenSDN vRouter and the vhost0 interface.
 
 ::
 
@@ -839,7 +839,7 @@ Compute Node
    description: >
      Software Config to drive os-net-config to configure multiple interfaces
      for the compute role. This is an example for a Nova compute node using
-     Tungsten Fabric vRouter and the vhost0 interface.
+     OpenSDN vRouter and the vhost0 interface.
 
 ::
 
@@ -1492,7 +1492,7 @@ Remote Compute
 
 Remote Compute extends the data plane to remote locations (POP) whilest
 keeping the control plane central. Each POP will have its own set of
-TF control services, which are running in the central location.
+OpenSDN control services, which are running in the central location.
 The difficulty is to ensure that the compute nodes of a given POP
 connect to the Control nodes assigned to that POC. The Control nodes
 must have predictable IP addresses and the compute nodes have to know

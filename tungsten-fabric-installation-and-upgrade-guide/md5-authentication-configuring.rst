@@ -3,7 +3,7 @@ Configuring MD5 Authentication for BGP Sessions
 
 :date: 2019-04-23
 
-TF supports MD5 authentication for BGP peering based on RFC 2385.
+OpenSDN supports MD5 authentication for BGP peering based on RFC 2385.
 
 This option allows BGP to protect itself against the introduction of
 spoofed TCP segments into the connection stream. Both of the BGP peers
@@ -16,7 +16,7 @@ own key) and compares the two digests. For valid segments, the
 comparison is successful since both sides know the key.
 
 The following are ways to enable BGP MD5 authentication and set the keys
-on the TF node.
+on the OpenSDN node.
 
 1. If the ``md5`` key is not included in the provisioning, and the node
    is already provisioned, you can run the following script with an

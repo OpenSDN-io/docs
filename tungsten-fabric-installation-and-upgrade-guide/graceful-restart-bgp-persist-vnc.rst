@@ -4,7 +4,7 @@ Configuring Graceful Restart and Long-lived Graceful Restart
 :date: 2020-08-25
 
 Graceful restart and long-lived graceful restart BGP helper modes are
-supported for the TF control node and XMPP helper mode.
+supported for the OpenSDN control node and XMPP helper mode.
 
 Application of Graceful Restart and Long-lived Graceful Restart
 ---------------------------------------------------------------
@@ -18,10 +18,10 @@ Graceful restart and long-lived graceful restart features can be used to
 alleviate traffic disruption caused by downs.
 
 When configured, graceful restart features enable existing network
-traffic to be unaffected if TF controller processes go down. The
-TF implementation ensures that if a TF control module
+traffic to be unaffected if OpenSDN controller processes go down. The
+OpenSDN implementation ensures that if a OpenSDN control module
 restarts, it can use graceful restart functionality provided by its BGP
-peers. Or when the BGP peers restart, TF provides a graceful
+peers. Or when the BGP peers restart, OpenSDN provides a graceful
 restart helper mode to minimize the impact to the network. The graceful
 restart features can be used to ensure that traffic is not affected by
 temporary outage of processes.
@@ -38,7 +38,7 @@ After a certain duration, if a downed session does not come back up, all
 remaining stale routes are deleted and withdrawn from advertised peers.
 
 The graceful restart and long-lived graceful restart features can be
-enabled only for BGP peers in TF 3.2.
+enabled only for BGP peers in OpenSDN 3.2.
 
 BGP Graceful Restart Helper Mode
 --------------------------------
@@ -92,9 +92,9 @@ graceful restart features.
 XMPP Helper Mode
 ----------------
 
-TF supports for long-lived graceful restart (LLGR) with XMPP
+OpenSDN supports for long-lived graceful restart (LLGR) with XMPP
 helper mode. Graceful restart and long lived graceful restart can be
-enabled using the Tungsten Fabric WebUI or by using the provision_control
+enabled using the OpenSDN WebUI or by using the provision_control
 script.
 
 The helper modes can also be enabled via schema, and can be disabled
@@ -107,7 +107,7 @@ Configuration Parameters
 
 Graceful restart parameters are configured in the
 ``global-system-config`` of the schema. They can be configured by means
-of a provisioning script or by using the Tungsten Fabric WebUI.
+of a provisioning script or by using the OpenSDN WebUI.
 
 Configure a non-zero restart time to advertise for graceful restart and
 long-lived graceful restart capabilities from peers.
@@ -190,7 +190,7 @@ The following are examples:
 ``service contrail-control restart``
 
 For more details about graceful restart configuration, see
-`https://github.com/tungstenfabric/docs/blob/master/wiki/tf-controller/Graceful-Restart.md <https://github.com/tungstenfabric/docs/blob/master/wiki/tf-controller/Graceful-Restart.md>`_.
+`https://github.com/opensdn-io/docs/blob/master/wiki/tf-controller/Graceful-Restart.md <https://github.com/opensdn-io/docs/blob/master/wiki/tf-controller/Graceful-Restart.md>`_.
 
 Cautions for Graceful Restart
 -----------------------------

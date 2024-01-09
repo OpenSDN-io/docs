@@ -6,7 +6,7 @@ Understanding Red Hat OpenStack Platform Director
 Red Hat OpenStack Platform Director
 -----------------------------------
 
-This chapter explains how to integrate a Tungsten Fabric 5.1.\ ``x``
+This chapter explains how to integrate a OpenSDN 5.1.\ ``x``
 installation (or higher) with Red Hat OpenStack Platform Director 13.
 
 Red Hat OpenStack Platform provides an installer called the Red Hat
@@ -16,9 +16,9 @@ is an open source project that uses features of OpenStack to deploy a
 fully functional, tenant-facing OpenStack environment.
 
 TripleO can be used to deploy an RDO-based OpenStack environment
-integrated with Tungsten Fabric. Red Hat OpenStack Platform director can
+integrated with OpenSDN. Red Hat OpenStack Platform director can
 be used to deploy an RHOSP-based OpenStack environment integrated with
-TF.
+OpenSDN.
 
 OSPd uses the concepts of undercloud and overcloud. OSPd sets up an
 undercloud, a single server running an operator-facing deployment that
@@ -47,28 +47,28 @@ bare metal hardware.
 For more information about OSPd architecture, see `OSPd
 documentation <https://docs.openstack.org/developer/tripleo-docs/introduction/architecture.html>`__.
 
-Tungsten Fabric roles
+OpenSDN roles
 ---------------------
 
 OSPd supports composable roles, which are groups of services that you
 define through Heat templates. Composable roles allow you to integrate
-TF into the overcloud environment.
+OpenSDN into the overcloud environment.
 
-The following are the TF roles used for integrating into the
+The following are the OpenSDN roles used for integrating into the
 overcloud:
 
--  Tungsten Fabric Controller
+-  OpenSDN Controller
 
--  Tungsten Fabric Analytics
+-  OpenSDN Analytics
 
--  Tungsten Fabric Analytics Database
+-  OpenSDN Analytics Database
 
--  Tungsten Fabric TSN
+-  OpenSDN TSN
 
--  Tungsten Fabric DPDK
+-  OpenSDN DPDK
 
 Figure 1 shows the relationship and components of an undercloud and overcloud
-architecture for TF.
+architecture for OpenSDN.
 
 |Figure 1: Undercloud and Overcloud with Roles|
 
@@ -91,13 +91,13 @@ machines (VMs), but the compute nodes must be deployed to bare metal
 systems. Every overcloud node must support IPMI for booting up from the
 undercloud using PXE.
 
-Ensure the following requirements are met for the TF nodes per
+Ensure the following requirements are met for the OpenSDN nodes per
 role.
 
 -  Non-high availability: A minimum of 4 overcloud nodes are needed for
    control plane roles for a non-high availability deployment:
 
-   -  1x contrail-config (includes TF control)
+   -  1x contrail-config (includes OpenSDN control)
 
    -  1x contrail-analytics
 
@@ -108,7 +108,7 @@ role.
 -  High availability: A minimum of 12 overcloud nodes are needed for
    control plane roles for a high availability deployment:
 
-   -  3x contrail-config (includes TF control)
+   -  3x contrail-config (includes OpenSDN control)
 
    -  3x contrail-analytics
 
@@ -160,7 +160,7 @@ Ensure the following requirements are met for the provisioning network:
    information will include such things as the IP address of the IPMI
    NIC and the IPMI username and password.
 
--  All of the networks must be available to all of the TF roles
+-  All of the networks must be available to all of the OpenSDN roles
    and computes.
 
 While the provisioning and external networks are sufficient for basic
@@ -207,22 +207,20 @@ Compatibility Matrix
 --------------------
 
 The following combinations of Operating
-System/OpenStack/Deployer/TF are supported:
+System/OpenStack/Deployer/OpenSDN are supported:
 
 Table 1: Compatibility Matrix
 
 +----------------+----------------+----------------+----------------+
-| Operating      | OpenStack      | Deployer       | Tungsten       |
-| System         |                |                | Fabric         |
+| Operating      | OpenStack      | Deployer       | OpenSDN        |
+| System         |                |                |                |
 +================+================+================+================+
-| RHEL 7.5       | OSP13          | OSPd13         | Tungsten       |
-|                |                |                | Fabric         |
+| RHEL 7.5       | OSP13          | OSPd13         | OpenSDN        |
 |                |                |                | 5.1.\ ``x`` or |
 |                |                |                | higher         |
 +----------------+----------------+----------------+----------------+
-| CentOS 7.5     | RDO            | tripleo        | Tungsten       |
-|                | queens/stable  | queens/stable  | Fabric         |
-|                |                |                | (latest)       |
+| CentOS 7.5     | RDO            | tripleo        | OpenSDN        |
+|                | queens/stable  | queens/stable  | (latest)       |
 +----------------+----------------+----------------+----------------+
 
 Installation Summary
@@ -237,7 +235,7 @@ The general installation procedure is as follows:
 -  Set up the undercloud, which is the OSPd application.
 
 -  Set up the overcloud, which is the set of services in the
-   tenant-facing network. TF is part of the overcloud.
+   tenant-facing network. OpenSDN is part of the overcloud.
 
 For more information on installing and using the RHOSPd, see `Red Hat
 documentation <https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/13/html-single/director_installation_and_usage/>`__.

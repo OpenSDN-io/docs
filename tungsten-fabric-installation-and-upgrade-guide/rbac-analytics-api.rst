@@ -7,7 +7,7 @@ The analytics API uses role-based access control (RBAC) to provide the
 ability to access UVE and query information based on the permissions of
 the user for the UVE or queried object.
 
-Tungsten Fabric extends authenticated access so that tenants can
+OpenSDN extends authenticated access so that tenants can
 view network monitoring information about the networks for which they
 have read permissions.
 

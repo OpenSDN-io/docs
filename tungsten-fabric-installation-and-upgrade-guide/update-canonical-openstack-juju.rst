@@ -1,9 +1,9 @@
-Updating Tungsten Fabric using the Zero Impact Upgrade Procedure in a Canonical Openstack Deployment with Juju Charms
+Updating OpenSDN using the Zero Impact Upgrade Procedure in a Canonical Openstack Deployment with Juju Charms
 =====================================================================================================================
 
 :date: 2020-12-09
 
-This document provides the steps needed to update a Tungsten Fabric
+This document provides the steps needed to update a OpenSDN
 deployment that is using Canonical Openstack as it’s orchestration
 platform. The procedure utilizes Juju charms and provides a zero impact
 upgrade (ZIU) with minimal disruption to network operations.
@@ -13,32 +13,32 @@ Prerequisites
 
 This document makes the following assumptions about your environment:
 
--  A Tungsten Fabric deployment using Canonical Openstack as the
+-  A OpenSDN deployment using Canonical Openstack as the
    orchestration platform is already operational.
 
--  Juju charms for TF services are active in your environment, and
-   the Tungsten Fabric controller has access to the Juju jumphost
+-  Juju charms for OpenSDN services are active in your environment, and
+   the OpenSDN controller has access to the Juju jumphost
    and the Juju cluster.
 
 When to Use This Procedure
 --------------------------
 
-This procedure is used to upgrade Tungsten Fabric when it is running
+This procedure is used to upgrade OpenSDN when it is running
 in environments using Canonical Openstack.
 
 You can use this procedure to incrementally upgrade to the next main
-Tungsten Fabric release only. This procedure is not validated for
+OpenSDN release only. This procedure is not validated for
 upgrades between releases that are two or more releases apart.
 
 The procedure in this document has been validated for the following
-Tungsten Fabric upgrade scenarios:
+OpenSDN upgrade scenarios:
 
-Table 1: Tungsten Fabric with Canonical Openstack Validated Upgrade
+Table 1: OpenSDN with Canonical Openstack Validated Upgrade
 Scenarios
 
 +----------------------------------+----------------------------------+
-| Starting Tungsten Fabric         | Target Upgraded Tungsten         |
-| Release                          | Fabric Release                   |
+| Starting OpenSDN                 | Target Upgraded OpenSDN Release  |
+| Release                          |                                  |
 +==================================+==================================+
 | 1912.L0                          | 1912.L1                          |
 +----------------------------------+----------------------------------+
@@ -61,12 +61,12 @@ this procedure:
 
 -  Enable huge pages for the kernel-mode vRouter.
 
-   Starting in Tungsten Fabric Release 2005, you can enable huge
+   Starting in OpenSDN Release 2005, you can enable huge
    pages in the kernel-mode vRouter to avoid future compute node reboots
-   during upgrades. Huge pages in Tungsten Fabric are used primarily
+   during upgrades. Huge pages in OpenSDN are used primarily
    to allocate flow and bridge table memory within the vRouter. Huge
    pages for kernel-mode vRouters provide enough flow and bridge table
-   memory to avoid compute node reboots to complete future Tungsten Fabric software upgrades.
+   memory to avoid compute node reboots to complete future OpenSDN software upgrades.
 
    We recommend allotting 2GB of memory—either using the default
    1024x2MB huge page size setting or the 2x1GB size setting—for huge
@@ -76,7 +76,7 @@ this procedure:
    A compute node reboot is required to initially enable huge pages.
    Future compute node upgrades can happen without reboots after huge
    pages are enabled. The 1024x2MB huge page setting is configured by
-   default starting in Tungsten Fabric Release 2005, but is not
+   default starting in OpenSDN Release 2005, but is not
    active in any compute node until the compute node is rebooted to
    enable the setting.
 
@@ -107,10 +107,10 @@ this procedure:
          use 1GB huge page settings on your compute node before enabling
          the setting.
 
-Updating Tungsten Fabric in a Canonical Openstack Deployment Using Juju Charms
+Updating OpenSDN in a Canonical Openstack Deployment Using Juju Charms
 ------------------------------------------------------------------------------
 
-To update Tungsten Fabric in an environment that is using Canonical
+To update OpenSDN in an environment that is using Canonical
 Openstack as the orchestration platform:
 
 1. Upgrade all charms. See the `Upgrading
@@ -118,8 +118,8 @@ Openstack as the orchestration platform:
    document from Juju.
 
 2. From the Juju jumphost, enter the run-action command to place all
-   control plane services—Tungsten Fabric Controller, Tungsten Fabric Analytics, &
-   Tungsten Fabric AnalyticsDB—into maintenance mode in preparation for the
+   control plane services—OpenSDN Controller, OpenSDN Analytics, &
+   OpenSDN AnalyticsDB—into maintenance mode in preparation for the
    upgrade.
 
    ::
@@ -135,8 +135,8 @@ Openstack as the orchestration platform:
    Wait for all charms to move to the ``maintenance`` status. You can
    check the status of all charms by entering the juju status command.
 
-3. Update the image tags in Juju for the Tungsten Fabric Analytics, TF
-   AnalyticsDB, TF Agent, and TF OpenStack services.
+3. Update the image tags in Juju for the OpenSDN Analytics, OpenSDN
+   AnalyticsDB, OpenSDN Agent, and OpenSDN OpenStack services.
 
    ::
 
@@ -145,14 +145,14 @@ Openstack as the orchestration platform:
        juju config contrail-agent image-tag=master-latest
        juju config contrail-openstack image-tag=master-latest
 
-   If a Tungsten Fabric Service node (CSN) is part of the cluster, also update
-   the image tags in Juju for the Tungsten Fabric Service node.
+   If a OpenSDN Service node (CSN) is part of the cluster, also update
+   the image tags in Juju for the OpenSDN Service node.
 
    ::
 
       juju config contrail-agent-csn image-tag=master-latest
 
-4. Update the image tag in Juju for the Tungsten Fabric Controller service:
+4. Update the image tag in Juju for the OpenSDN Controller service:
 
    ::
 
@@ -246,8 +246,8 @@ Openstack as the orchestration platform:
       juju run-action contrail-agent/2 upgrade
       ...
 
-   If Tungsten Fabric Service nodes (CSNs) are part of the cluster, also
-   upgrade every TF CSN agent:
+   If OpenSDN Service nodes (CSNs) are part of the cluster, also
+   upgrade every OpenSDN CSN agent:
 
    ::
 
@@ -271,7 +271,7 @@ Openstack as the orchestration platform:
       after this initial reboot.
 
    1024x2MB huge page support is configured by default starting in
-   Tungsten Fabric Release 2005, which is also the first Tungsten Fabric 
+   OpenSDN Release 2005, which is also the first OpenSDN 
    release that supports huge pages. If you are upgrading to
    Release 2005 for the first time, a compute node reboot is always
    required because huge pages could not have been previously enabled.

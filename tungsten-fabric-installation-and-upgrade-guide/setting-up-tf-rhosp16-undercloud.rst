@@ -6,7 +6,7 @@ Setting Up the Undercloud
 Summary
 -------
 
-Follow this topic to setting up the undercloud for Tungsten Fabric
+Follow this topic to setting up the undercloud for OpenSDN
 deployment with RHOSP 16.1.
 
 Install the Undercloud

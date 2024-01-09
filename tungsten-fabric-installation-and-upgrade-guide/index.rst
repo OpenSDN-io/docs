@@ -1,14 +1,14 @@
 .. _GettingStarted:
 
-Tungsten Fabric Installation and Upgrade Guide
+OpenSDN Installation and Upgrade Guide
 ==============================================
 
-Use this guide to install and upgrade Tungsten Fabric solution. This guide covers various installation scenarios including:
+Use this guide to install and upgrade OpenSDN solution. This guide covers various installation scenarios including:
 
-* Tungsten Fabric with Kolla/Ocata OpenStack.
-* Tungsten Fabric with Red Hat.
-* Tungsten Fabric with Juju Charms.
-* Tungsten Fabric with VMware vCenter.
+* OpenSDN with Kolla/Ocata OpenStack.
+* OpenSDN with Red Hat.
+* OpenSDN with Juju Charms.
+* OpenSDN with VMware vCenter.
 
 
 Supported platforms and server requirements
@@ -21,7 +21,7 @@ Supported platforms and server requirements
    hardware-reqs-vnc
   
 
-Installing Tungsten Fabric with OpenStack
+Installing OpenSDN with OpenStack
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Setting Up Contrail with Red Hat OpenStack 16.1
@@ -51,7 +51,7 @@ Setting Up Contrail with Red Hat OpenStack 13
    rhosp-octavia
 
 
-Using Tungsten Fabric with Juju Charms
+Using OpenSDN with Juju Charms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
@@ -64,7 +64,7 @@ Using Tungsten Fabric with Juju Charms
    canonical-octavia
    smartnic-vrouter-juju-charms
 
-Using Tungsten Fabric with VMware vCenter
+Using OpenSDN with VMware vCenter
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
@@ -131,7 +131,7 @@ Post Installation Tasks
    vcenter-tf
 
 
-Upgrading Tungsten Fabric
+Upgrading OpenSDN
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
@@ -145,7 +145,7 @@ Upgrading Tungsten Fabric
    upgrade-in-place
    ffu-ziu-rhosp16.1-cn
 
-Backup and restore Tungsten Fabric
+Backup and restore OpenSDN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::

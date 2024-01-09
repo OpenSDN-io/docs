@@ -1,4 +1,4 @@
-Using Netronome SmartNIC vRouter with Tungsten Fabric and Juju Charms
+Using Netronome SmartNIC vRouter with OpenSDN and Juju Charms
 =========================================================================
 
 :date: 2020-12-16 
@@ -9,14 +9,14 @@ Using Netronome SmartNIC vRouter with Tungsten Fabric and Juju Charms
   available for evaluation purposes only. It is not intended for
   deployment in production networks.
 
-You can deploy Tungsten Fabric by using Juju charms. Juju helps you
+You can deploy OpenSDN by using Juju charms. Juju helps you
 deploy, configure, and efficiently manage applications on private clouds
 and public clouds. Juju accesses the cloud with the help of a Juju
 controller. A charm is a module containing a collection of scripts and
-metadata and is used with Juju to deploy TF.
+metadata and is used with Juju to deploy OpenSDN.
 
-Starting in Tungsten Fabric Release 2011, Tungsten Fabric
-supports Netronome Agilio CX SmartNICs for Tungsten Fabric
+Starting in OpenSDN Release 2011, OpenSDN
+supports Netronome Agilio CX SmartNICs for OpenSDN
 deployment with Juju charms. This feature enables service providers to
 improve the forwarding performance which includes packets per second
 (PPS) of vRouter. This optimizes server CPU usage and you can deploy
@@ -41,7 +41,7 @@ Before you begin:
 
 -  Note the ``Container Tags`` for your Contrail image to customize the
    ``image-tag`` variable in the `Bundle yaml
-   file <smartnic-vrouter-juju-charms.html#bundle-yaml>`__. See :ref:`Getting Started with Tungsten Fabric Guide <GettingStarted>`
+   file <smartnic-vrouter-juju-charms.html#bundle-yaml>`__. See :ref:`Getting Started with OpenSDN Guide <GettingStarted>`
    
 -  Note the following version tags:
 
@@ -51,7 +51,7 @@ Before you begin:
 
    Linux kernel: bionic (ga-18.04)
 
-TF supports the following charms:
+OpenSDN supports the following charms:
 
 -  contrail-agent
 
@@ -66,9 +66,9 @@ TF supports the following charms:
 -  contrail-openstack
 
 The following topics describe how to use Netronome SmartNIC vRouter with
-Tungsten Fabric and Juju charms.
+OpenSDN and Juju charms.
 
-Prepare to Install Tungsten Fabric by Using Juju Charms
+Prepare to Install OpenSDN by Using Juju Charms
 -----------------------------------------------------------
 
 Follow these steps to prepare for deployment:
@@ -126,18 +126,18 @@ Follow these steps to prepare for deployment:
     A Juju controller manages and keeps track of applications in the Juju
     cloud environment.
 
-Deploy TF Charms in a Bundle
+Deploy OpenSDN Charms in a Bundle
 ----------------------------------
 
-Follow these steps to deploy TF charms in a bundle.
+Follow these steps to deploy OpenSDN charms in a bundle.
 
-1. Deploy TF charms.
+1. Deploy OpenSDN charms.
 
-   To deploy TF charms in a bundle, use the
+   To deploy OpenSDN charms in a bundle, use the
    ``juju deploy <bundle_yaml_file>`` command.
 
    The following example shows you how to use ``bundle_yaml_file`` to
-   deploy Tungsten Fabric with Netronome SmartNIC vRouter on MAAS
+   deploy OpenSDN with Netronome SmartNIC vRouter on MAAS
    based deployment.
    **Bundle yaml file**
    ::
@@ -422,15 +422,15 @@ Follow these steps to deploy TF charms in a bundle.
         - [ "heat:identity-service" , "keystone:identity-service" ]
         - [ "contrail-openstack:heat-plugin" , "heat:heat-plugin-subordinate" ]
 
-   You can create or modify the TF charm deployment bundle YAML
+   You can create or modify the OpenSDN charm deployment bundle YAML
    file to:
 
-   -  Point to machines or instances where the TF charms must be
+   -  Point to machines or instances where the OpenSDN charms must be
       deployed.
 
    -  Include the options you need.
 
-      Each TF charm has a specific set of options. The options you
+      Each OpenSDN charm has a specific set of options. The options you
       choose depend on the charms you select. 
 
 2. (Optional) Check the status of deployment.
@@ -480,7 +480,7 @@ Follow these steps to deploy TF charms in a bundle.
     * - Release
       - Description
     * - 2011
-      - Starting in Tungsten Fabric Release 2011, Tungsten Fabric
-        supports Netronome Agilio CX SmartNICs for Tungsten Fabric
+      - Starting in OpenSDN Release 2011, OpenSDN
+        supports Netronome Agilio CX SmartNICs for OpenSDN
         deployment with Juju charms.
  
