@@ -1,9 +1,6 @@
 Infrastructure
 ==============
 
-Docs Structure
---------------
-
 .. toctree::
    :maxdepth: 2
    :titlesonly:
@@ -11,8 +8,8 @@ Docs Structure
 
    opensdn-infrastructure.rst
 
-Infrastucture Documents
------------------------
+Documents
+---------
 
 -  `OpenSDN CI`_: The founding document for OpenSDN infrastructure such as CI/CD, Gerrit, and related tools.
 
