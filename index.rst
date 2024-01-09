@@ -30,14 +30,29 @@ Documentation Structure
    :maxdepth: 1
    :titlesonly:
 
+Release Information
+~~~~~~~~~~~~~~~~~~~
+
    release/index.rst
-   opensdn-installation-and-upgrade-guide/index.rst
+
+Core Architecture & Features
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
    opensdn-feature-architecture-guide/index.rst
    opensdn-cloud-native-user-guide/index.rst
    opensdn-service-provider-focused-features-guide/index.rst
    opensdn-networking-and-security-user-guide/index.rst
-   opensdn-monitoring-and-troubleshooting-guide/index.rst
    opensdn-operator/index.rst
+
+OpenSDN Operations
+~~~~~~~~~~~~~~~~~~
+
+   opensdn-installation-and-upgrade-guide/index.rst
+   opensdn-monitoring-and-troubleshooting-guide/index.rst
+
+OpenSDN Development
+~~~~~~~~~~~~~~~~~~~
+
    contributing-to-opensdn/index.rst
    infrastructure/index.rst
 
