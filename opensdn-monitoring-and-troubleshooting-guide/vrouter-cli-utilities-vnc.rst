@@ -21,9 +21,9 @@ provided by the vRouter can be used to display these data structures and
 better understand the behavior that one sees in a compute node.
 
 This section describes the shell prompt utilities available for
-examining the state of the vRouter kernel module in TF.
+examining the state of the vRouter kernel module in OpenSDN.
 
-The most useful commands for inspecting the Tungsten Fabric vRouter module are
+The most useful commands for inspecting the OpenSDN vRouter module are
 summarized in the following table.
 
 +---------------+-----------------------------------------------------+
@@ -235,7 +235,7 @@ command. Following is a brief description of each option.
 clear Command
 -------------
 
-Tungsten Fabric Release 2008 supports clearing of vif statistics
+OpenSDN Release 2008 supports clearing of vif statistics
 counters for all interfaces by using the ``--clear`` command. 
 Table 2: clear Command Options
 
@@ -1074,7 +1074,7 @@ Example: nh --help
 dpdkinfo Command
 ----------------
 
-In Tungsten Fabric Release 2008, the ``dpdkinfo`` command enables
+In OpenSDN Release 2008, the ``dpdkinfo`` command enables
 you to see the details of the internal data structures of a DPDK enabled
 vRouter.
 
@@ -1495,7 +1495,7 @@ The dpdkinfo --app command displays the following information:
 Example: dpdkinfo --ddp list
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In Tungsten Fabric Release 2011, you can use the dpdkinfo --ddp list
+In OpenSDN Release 2011, you can use the dpdkinfo --ddp list
 command to display the list of DDP profiles added in the vRouter.
 
 The dpdkinfo --ddp list displays a summary of the DDP profile added in
@@ -1515,7 +1515,7 @@ of the profile, version number, and profile name.
 dpdkconf Command
 ----------------
 
-In Tungsten Fabric Release 2011, the ``dpdkconf`` command enables
+In OpenSDN Release 2011, the ``dpdkconf`` command enables
 you to configure a DPDK enabled vRouter. In release 2011, you can use
 the ``dpdkconf`` command to enable or delete a DDP profile in vRouter.
 
@@ -1547,10 +1547,10 @@ already loaded in the vRouter.
       * - Release
         - Description
       * - 2011
-        - In Tungsten Fabric Release 2011, you can use the dpdkinfo --ddp list command to display the list of DDP profiles added in the vRouter.
+        - In OpenSDN Release 2011, you can use the dpdkinfo --ddp list command to display the list of DDP profiles added in the vRouter.
       * - 2011	
-        - In Tungsten Fabric Release 2011, the dpdkconf command enables you to configure a DPDK enabled vRouter. In release 2011, you can use the dpdkconf command to enable or delete a DDP profile in vRouter.
+        - In OpenSDN Release 2011, the dpdkconf command enables you to configure a DPDK enabled vRouter. In release 2011, you can use the dpdkconf command to enable or delete a DDP profile in vRouter.
       * - 2011
-        - Tungsten Fabric Release 2008 supports clearing of vif statistics counters for all interfaces by using the --clear command.
+        - OpenSDN Release 2008 supports clearing of vif statistics counters for all interfaces by using the --clear command.
       * - 2011	
-        - In Tungsten Fabric Release 2008, the dpdkinfo command enables you to see the details of the internal data structures of a DPDK enabled vRouter.
+        - In OpenSDN Release 2008, the dpdkinfo command enables you to see the details of the internal data structures of a DPDK enabled vRouter.

@@ -6,7 +6,7 @@ Using the Wireshark Plugin to Analyze Packets Between vRouter and vRouter Agent 
 Wireshark is a an application that analyzes packets from a network and
 displays the packet information in detail.
 
-Tungsten Fabric Release 2008 and later supports the Wireshark
+OpenSDN Release 2008 and later supports the Wireshark
 ``agent_header.lua`` plugin, which enables you to capture and analyze
 the packets exchanged between a vRouter data plane and vRouter agent.
 You can capture the packets by executing the vifdump -i 2 and the
@@ -29,7 +29,7 @@ Follow these steps to configure the Wireshark plugin and dissect agent
 header information in a packet:
 
 1. Download the Wireshark plugin from GitHub:
-   https://github.com/tungstenfabric/tf-vrouter/tree/master/utils/agent_hdr_plugin.
+   https://github.com/opensdn-io/tf-vrouter/tree/master/utils/agent_hdr_plugin.
 
 2. Copy the plugin in to the following Wireshark directory on your
    Macintosh OS computer:
@@ -66,7 +66,7 @@ Follow these steps to configure the Wireshark plugin in a Windows OS
 computer and dissect agent header information in a packet:
 
 1. Download the Wireshark plugin from GitHub:
-   https://github.com/tungstenfabric/tf-vrouter/tree/master/utils/agent_hdr_plugin.
+   https://github.com/opensdn-io/tf-vrouter/tree/master/utils/agent_hdr_plugin.
 
 2. If you are using Windows 32-bit OS, copy the plugin in to the
    following Wireshark directory on your computer:
@@ -124,7 +124,7 @@ the contrail-tools container:
         - Starting from release 2011, the Wireshark ``agent_header.lua`` plugin is 
           supported on Macintosh OS as well as Windows OS computers.
       * - 2011
-        - Tungsten Fabric Release 2008 and later supports the Wireshark 
+        - OpenSDN Release 2008 and later supports the Wireshark 
           ``agent_header.lua`` plugin, which enables you to capture and analyze
           the packets exchanged between a vRouter data plane and vRouter agent.
 

@@ -3,7 +3,7 @@ Using Sandump Tool​
 
 :date: 2020-11-10
 
-Starting with Tungsten Fabric Release 2008, *Sandump* tool is
+Starting with OpenSDN Release 2008, *Sandump* tool is
 available in contrail-tools container. You can use the *Sandump* tool on
 macOS machines.
 
@@ -11,7 +11,7 @@ Sandump tool captures the Sandesh messages from netlink connection
 between Agent and vRouter (only DPDK mode) and provides interpretation
 of all the captured bytes.​
 
-Starting with Tungsten Fabric Release 2011, you can use *Sandump*
+Starting with OpenSDN Release 2011, you can use *Sandump*
 tool on Windows machines.
 
 Sandesh is a southbound interface protocol based on Apache Thrift, to
@@ -88,7 +88,7 @@ Follow the procedure to use Sandump tool:
       Windows OS.
 
       1. Download the ``sandump_wireshark_plugin`` folder from the
-         https://github.com/tungstenfabric/tf-vrouter/tree/master/utils/sandump
+         https://github.com/opensdn-io/tf-vrouter/tree/master/utils/sandump
          repository.
 
       2. Copy the ``sandump_wireshark_plugin/main.lua`` file in
@@ -127,7 +127,7 @@ Follow the procedure to use Sandump tool:
       macOS.
 
       1. Download the ``sandump_wireshark_plugin`` folder from the
-         https://github.com/tungstenfabric/tf-vrouter/tree/master/utils/sandump
+         https://github.com/opensdn-io/tf-vrouter/tree/master/utils/sandump
          repository.
 
       2. Copy the ``sandump_wireshark_plugin`` folder in
@@ -168,10 +168,10 @@ Follow the procedure to use Sandump tool:
       * - Release
         - Description
       * - 2011
-        - Starting with Tungsten Fabric Release 2011, you can use *Sandump*
+        - Starting with OpenSDN Release 2011, you can use *Sandump*
           tool on Windows machines.
       * - 2008
-        - Starting with Tungsten Fabric Release 2008, *Sandump* tool is
+        - Starting with OpenSDN Release 2008, *Sandump* tool is
           available in contrail-tools container. You can use the *Sandump* tool on
           macOS machines.
  

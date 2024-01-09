@@ -6,7 +6,7 @@ Using Contrail-Tools
 Contrail-tools container provides centralized location for all the
 available tools and CLI commands in one place.
 
-Starting with Tungsten Fabric Release 2008, contrail-tools command
+Starting with OpenSDN Release 2008, contrail-tools command
 will be installed by default.
 
 contrail-tools command enables you to log in to the contrail-tools
@@ -122,6 +122,6 @@ There are 2 ways to execute the contrail-tools command:
       * - Release
         - Description
       * - 2011
-        - Starting with Tungsten Fabric Release 2008, contrail-tools command
+        - Starting with OpenSDN Release 2008, contrail-tools command
           will be installed by default.
  

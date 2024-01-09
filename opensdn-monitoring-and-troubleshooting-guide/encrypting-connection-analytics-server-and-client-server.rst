@@ -3,13 +3,13 @@ Encryption Between Analytics API Servers and Client Servers
 
 :data: 2019-10-15 
 
-Tungsten Fabric Release 2011 supports SSL encryption for the
+OpenSDN Release 2011 supports SSL encryption for the
 connection between Analytics API servers and Client servers. 
 In releases prior to release 2011, the connection between Analytics API servers and the
 Client servers was not encrypted, which could pose a security threat.
 
-SSL encryption is supported in Tungsten Fabric Release 2011 only
-when Tungsten Fabric is deployed with Red Hat OpenStack Platform
+SSL encryption is supported in OpenSDN Release 2011 only
+when OpenSDN is deployed with Red Hat OpenStack Platform
 (RHOSP). In the RHOSP deployment, a global flag is added, which
 determines the status of the SSL encryption.
 
@@ -75,5 +75,5 @@ connection between Analytics API servers and Client servers.
       * - Release
         - Description
       * - 2011
-        - Tungsten Fabric 2011 supports SSL encryption for the
+        - OpenSDN 2011 supports SSL encryption for the
           connection between Analytics API servers and Client servers.

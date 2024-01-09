@@ -1,10 +1,10 @@
-Tungsten Fabric Analytics and Troubleshooting Guide
+OpenSDN Analytics and Troubleshooting Guide
 ===================================================
 
 :data: 2019-12-17
 
-Use this guide to understand Tungsten Fabric analytics. 
-Tungsten Fabric analytics nodes are responsible 
+Use this guide to understand OpenSDN analytics. 
+OpenSDN analytics nodes are responsible 
 for the collection of system state information, usage statistics, 
 and debug information from all of the software modules across all of the nodes of the system.
 
@@ -14,8 +14,8 @@ Documentation Structure
 Monitoring and Troubleshooting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Understanding TF Analytics
-**************************
+Understanding OpenSDN Analytics
+*******************************
 
 .. toctree::
    :maxdepth: 1
@@ -23,8 +23,8 @@ Understanding TF Analytics
 
    encrypting-connection-analytics-server-and-client-server
 
-Configuring TF Analytics
-************************
+Configuring OpenSDN Analytics
+*****************************
 
 .. toctree::
    :maxdepth: 1
