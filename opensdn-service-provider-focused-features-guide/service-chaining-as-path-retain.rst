@@ -14,7 +14,7 @@ according to the network policy. One such BGP attribute, is the AS path
 attribute. AS path is a sequence of autonomous systems that network
 packets traverse. By default, the AS path is nullified while leaking
 routes from the source to the destination network in a service chain.
-Starting with Tungsten Fabric Release 2011, you can configure the AS
+Starting with OpenSDN Release 2011, you can configure the AS
 path to be retained in the routes re-originated from the destination VN
 to the source VN in a service chain. You also have the ability to enable
 or disable the path retention for selected service chains.
@@ -64,7 +64,7 @@ chain:
       * - Release
         - Desription
       * - 2011
-        - Starting with Tungsten Fabric Release 2011, you can configure the AS
+        - Starting with OpenSDN Release 2011, you can configure the AS
           path to be retained in the routes re-originated from the destination VN
           to the source VN in a service chain. You also have the ability to enable
           or disable the path retention for selected service chains.

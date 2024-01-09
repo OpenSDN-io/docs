@@ -1,27 +1,27 @@
-Tungsten Fabric vRouter MAC Address - IP Address Learning and Bidirectional Forwarding and Detection Health Checking for Pods on Virtual Machines
+OpenSDN vRouter MAC Address - IP Address Learning and Bidirectional Forwarding and Detection Health Checking for Pods on Virtual Machines
 =================================================================================================================================================
 
 :date: 2020-12-11
 
-In Tungsten Fabric Release 2011, the Tungsten Fabric vRouter agent
+In OpenSDN Release 2011, the OpenSDN vRouter agent
 dynamically learns the MAC address-IP address binding of a pod deployed
 on a virtual machine (VM). This enables the vRouter agent to perform an
-efficient pod to pod communication in Tungsten Fabric.
+efficient pod to pod communication in OpenSDN.
 
 In previous releases, the MAC address - IP address of a pod is assigned
-by OpenStack. Tungsten Fabric is unable to perform pod to pod
+by OpenStack. OpenSDN is unable to perform pod to pod
 communication as it does not have the reachability information of the
 pods hosted by the VMs.
 
-In the Contrail Command user interface (UI), the **Dynamic Address
+In the OpenSDN Command user interface (UI), the **Dynamic Address
 Learning** checkbox must be enabled while creating a virtual network.
 This enables the vRouter agent to learn the MAC address-IP address of
 the pods connected to the virtual network.
 
-In release 2011, Tungsten Fabric also supports Bidirectional
+In release 2011, OpenSDN also supports Bidirectional
 Forwarding and Detection (BFD) based health check to verify the
 liveliness of a pod. The BFD session is enabled for a list of
-target IP addresses. In release 2011, Tungsten Fabric supports IPv4
+target IP addresses. In release 2011, OpenSDN supports IPv4
 target IP addresses. The vRouter agent learns these IP addresses through
 the MAC address - IP address learning feature. The BFD health check
 session is initiated, when the vRouter agent learns the target IP
@@ -130,12 +130,12 @@ Table 1: Create Health Check Fields
       * - Release
         - Description
       * - 2011
-        - In Tungsten Fabric Release 2011, the Tungsten Fabric vRouter agent
+        - In OpenSDN Release 2011, the OpenSDN vRouter agent
           dynamically learns the MAC address-IP address binding of a pod deployed
           on a virtual machine (VM). This enables the vRouter agent to perform an
-          efficient pod to pod communication in Tungsten Fabric.
+          efficient pod to pod communication in OpenSDN.
       * - 2011
-        - In release 2011, Tungsten Fabric also supports Bidirectional
+        - In release 2011, OpenSDN also supports Bidirectional
           Forwarding and Detection (BFD) based health check to verify the
           liveliness of a pod.
  

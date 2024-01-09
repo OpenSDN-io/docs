@@ -2,7 +2,7 @@ Layer 3 Multihoming
 ===================
 Traditionally, Multichassis Link Aggregation Group(MC-LAG) has been leveraged to achieve redundancy from the top of rack(TOR) switch.
 
-Starting with Tungsten Fabric 21.12 we are adding high availability support with Layer 3 multihoming without the need for MC-LAG or bond interfaces.
+Starting with OpenSDN 21.12 we are adding high availability support with Layer 3 multihoming without the need for MC-LAG or bond interfaces.
 
 Layer 3 multihoming allows vRouter to recognize multiple uplink connections. vRouter supports multihoming up to three top-of-rack (TOR) leaf switches. Static routes are used between the compute node and the TOR switches to access the vRouter's loopback interface (lo0).
 
@@ -22,24 +22,24 @@ Here are the high-level steps for Layer 3 multihoming on Ansible based Openstack
 The provisioning script looks up IP routes and selects physical interfaces from the ECMP route. Physical interface name list, IP address list, and gateway address list for the interfaces gets populated in contrail-vrouter-agent.conf on every compute node.
 
 2. Create a loopback interface (lo0) on the computes.
-Contrail vRouter uses the lo0 IP address to initiate and terminate vRouter services (Extensible Messaging and Presence Protocol (XMPP) and overlay traffic).
+OpenSDN vRouter uses the lo0 IP address to initiate and terminate vRouter services (Extensible Messaging and Presence Protocol (XMPP) and overlay traffic).
 
-Note: Contrail provisioning does not change the underlay network configuration.
+Note: OpenSDN provisioning does not change the underlay network configuration.
 
 3. Assign a /32 IP address to the lo0 interface from a predefined address pool and manage the lo0 interface IP address.
 To ensure connectivity between computes, ToR leaf must be configured to use loopback addresses on compute nodes through multihomed physical interfaces. Loopback IP address gets populated in contrail-vrouter-agent.conf on every compute node.
 
 4. Use gateway IP addresses (leaf switches) for external connectivity and controller connectivity.
 
-5. Contrail vRouter retains the vhost0 interface (without an IP address) to process vhost packets from the Linux stack to controller or the lo interface of the other computes (for example, XMPP, VR-VR traffic, or Linklocal).
+5. OpenSDN vRouter retains the vhost0 interface (without an IP address) to process vhost packets from the Linux stack to controller or the lo interface of the other computes (for example, XMPP, VR-VR traffic, or Linklocal).
 
-6. Contrail vRouter uses netfilter hooks to capture packets sent using the lo0 interface source IP address and then processes the packets using vhost. This ensures that XMPP traffic is load balanced too.
+6. OpenSDN vRouter uses netfilter hooks to capture packets sent using the lo0 interface source IP address and then processes the packets using vhost. This ensures that XMPP traffic is load balanced too.
 
 Note: Netfilter hooks are used when the vRouter is multihomed in Kernel mode. When the vRouter is in Data Plane Development Kit (DPDK) mode, a source routing technique is used for multihoming.
 
-7. Contrail vRouter creates a new type of ECMP nexthop that contains the encapsulation nexthops to the ToR switches. The overlay routes will point to this ECMP nexthop, which allows traffic to be load balanced across the ToR switches.
+7. OpenSDN vRouter creates a new type of ECMP nexthop that contains the encapsulation nexthops to the ToR switches. The overlay routes will point to this ECMP nexthop, which allows traffic to be load balanced across the ToR switches.
 
-8. Contrail vRouter Agent monitors reachability through ARP requests for the encapsulated nexthop of the TOR switch. In case of ARP failure (either due to a connection or a network issue), the nexthop is marked unreachable and traffic is naturally routed to the other nexthops.
+8. OpenSDN vRouter Agent monitors reachability through ARP requests for the encapsulated nexthop of the TOR switch. In case of ARP failure (either due to a connection or a network issue), the nexthop is marked unreachable and traffic is naturally routed to the other nexthops.
 
 Layer 3 Multihoming Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -110,7 +110,7 @@ Before you begin, ensure that Layer 3 connectivity is established across the fab
 
 Here are the high-level steps for Layer 3 multihoming on vRouter deployment for Red Hat Openstack version 16.2 (RHOSP16.2):
 
-1. Checkout stable/train branch from https://github.com/tungstenfabric/tf-tripleo-heat-templates.
+1. Checkout stable/train branch from https://github.com/opensdn-io/tf-tripleo-heat-templates.
 
 2. Make the following changes in contrail-controller ctrl-data section of the environments/contrail/contrail-net.yaml file.
 

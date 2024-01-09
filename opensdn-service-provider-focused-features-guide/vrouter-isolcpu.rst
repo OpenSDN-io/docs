@@ -3,7 +3,7 @@ Optimizing DPDK vRouter Performance Through Full CPU Partitioning and Isolation
 
 :date: 2020-03-19
 
-Tungsten Fabric Release 2011 supports full CPU partitioning. CPU
+OpenSDN Release 2011 supports full CPU partitioning. CPU
 isolation is an RHEL method to partition and isolate the CPU cores on a
 compute node from the symmetric multiprocessing (SMP) balancing and
 scheduler algorithms. The full CPU isolation feature optimizes the

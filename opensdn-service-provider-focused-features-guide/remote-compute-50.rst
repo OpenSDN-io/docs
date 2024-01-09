@@ -3,20 +3,20 @@ Remote Compute
 
 :date: 2020-12-01
 
-Tungsten Fabric supports remote compute, a method of managing a
-TF deployment across many small distributed data centers
+OpenSDN supports remote compute, a method of managing a
+OpenSDN deployment across many small distributed data centers
 efficiently and cost effectively.
 
 Remote Compute Overview
 -----------------------
 
-Remote compute enables the deployment of Tungsten Fabric in many
+Remote compute enables the deployment of OpenSDN in many
 small distributed data centers, up to hundreds or even thousands, for
 telecommunications point-of-presence (PoPs) or central offices (COs).
 Each small data center has only a small number of computes, typically
 5-20 in a rack, running a few applications such as video caching,
 traffic optimization, and virtual Broadband Network Gateway (vBNG). It
-is not cost effective to deploy a full TF controller cluster of
+is not cost effective to deploy a full OpenSDN controller cluster of
 nodes of control, configuration, analytics, database, and the like, in
 each distributed PoP on dedicated servers. Additionally, manually
 managing hundreds or thousands of clusters is not feasible
@@ -29,12 +29,12 @@ Remote compute is implemented by means of a subcluster that manages
 compute nodes at remote sites to receive configurations and exchange
 routes.
 
-The key concepts of Contrail remote compute include:
+The key concepts of OpenSDN remote compute include:
 
 -  Remote compute employs a subcluster to manage remote compute nodes
    away from the primary data center.
 
--  The TF control cluster is deployed in large centralized data
+-  The OpenSDN control cluster is deployed in large centralized data
    centers, where it can remotely manage compute nodes in small
    distributed small data centers.
 
@@ -76,7 +76,7 @@ hosted on the primary cluster.
 Subcluster Properties
 ~~~~~~~~~~~~~~~~~~~~~
 
-The Tungsten Fabric WebUI shows a list of subcluster objects, each with a list
+The OpenSDN WebUI shows a list of subcluster objects, each with a list
 of associated vrouters and BGP routers that are local in that remote
 site and the ASN property.
 
@@ -100,7 +100,7 @@ General properties of subclusters include:
 Inter Subcluster Route Filtering
 --------------------------------
 
-Tungsten Fabric Release 2011 supports inter subcluster route
+OpenSDN Release 2011 supports inter subcluster route
 filtering (Beta). With this release, a new extended community called
 ``origin-sub-cluster`` (similar to ``origin-vn``) is added to all routes
 originating from a subcluster.
@@ -146,7 +146,7 @@ also rejected.
 Provisioning a Remote Compute Cluster
 -------------------------------------
 
-Tungsten Fabric enables you to provision remote compute using an
+OpenSDN enables you to provision remote compute using an
 ``instances.yaml`` file. The YAML file described in this
 section builds upon that minimum configuration and uses
 Figure 1 as an example data center network topology.
@@ -369,7 +369,7 @@ The entire YAML file is contained below.
      CONTAINER_REGISTRY: 10.xx.x.81:5000
      REGISTRY_PRIVATE_INSECURE: True
 
-   contrail_configuration:           # Contrail service configuration section
+   contrail_configuration:           # OpenSDN service configuration section
      CONTRAIL_VERSION: <contrail_version>
      CONTROLLER_NODES: 10.60.0.5
      CLOUD_ORCHESTRATOR: openstack
@@ -401,7 +401,7 @@ The entire YAML file is contained below.
 .. note::
 
    Replace ``<contrail_version>`` with the correct contrail_container_tag
-   value for your Tungsten Fabric release. The respective
+   value for your OpenSDN release. The respective
    contrail_container_tag values are listed in `README Access to Contrail
    Registry <https://www.juniper.net/documentation/en_US/contrail19/information-products/topic-collections/release-notes/readme-contrail-19.pdf>`__  .
 
@@ -411,7 +411,7 @@ The entire YAML file is contained below.
       * - Release
         - Description
       * - 2011
-        - Tungsten Fabric Release 2005 supports inter subcluster route filtering (Beta).
+        - OpenSDN Release 2005 supports inter subcluster route filtering (Beta).
 
 Release
 
@@ -419,7 +419,7 @@ Description
 
 `2005 <#jd0e85>`__
 
-Tungsten Fabric Release 2005 supports inter subcluster route
+OpenSDN Release 2005 supports inter subcluster route
 filtering (Beta).
  
 

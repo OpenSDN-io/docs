@@ -29,7 +29,7 @@ Documentation Structure
    tungsten-fabric-installation-and-upgrade-guide/index.rst
    opensdn-feature-architecture-guide/index.rst
    opensdn-cloud-native-user-guide/index.rst
-   tungsten-fabric-service-provider-focused-features-guide/index.rst
+   opensdn-service-provider-focused-features-guide/index.rst
    opensdn-networking-and-security-user-guide/index.rst
    opensdn-monitoring-and-troubleshooting-guide/index.rst
    opensdn-operator/index.rst

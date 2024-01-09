@@ -1,10 +1,10 @@
-Tungsten Fabric Service Provider Focused Features Guide
+OpenSDN Service Provider Focused Features Guide
 =======================================================
 
 :date: 2020-11-20
 
 Use this guide to understand the features that would be used by service providers. 
-This guide also provides information about advanced service chain configuration in Tungsten Fabric.
+This guide also provides information about advanced service chain configuration in OpenSDN.
 
 Documentation Structure
 -----------------------
@@ -37,7 +37,7 @@ Advanced Service Chain Configuration
    :maxdepth: 1
    :titlesonly:
    
-   tf-routing-policy-sp-features
+   opensdn-routing-policy-sp-features
 
 Service Chaining - AS PATH RETAIN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -48,7 +48,7 @@ Service Chaining - AS PATH RETAIN
 
    service-chaining-as-path-retain
 
-High Availability in Contrail Networking
+High Availability in OpenSDN Networking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::

@@ -3,10 +3,10 @@ Routing Policy
 
 :date: 2020-11-11
 
-Starting with Tungsten Fabric Release 1910, virtual network routing
+Starting with OpenSDN Release 1910, virtual network routing
 policies are automatically applied to secondary routes.
 
-Tungsten Fabric uses routing policy infrastructure to manipulate the
+OpenSDN uses routing policy infrastructure to manipulate the
 route and path attribute dynamically and supports attaching the import
 routing policy on the service instances.
 
@@ -114,7 +114,7 @@ that the term doesn’t have any match condition. This indicates that all
 routes match this term and action is applied according to the action
 specified in the term.
 
-The following table describes the match conditions supported by Tungsten Fabric.
+The following table describes the match conditions supported by OpenSDN.
 
 .. list-table:: 
       :header-rows: 1
@@ -148,7 +148,7 @@ Routing Policy Action and Update Action
 
 The policy action contains two parts, action and update action.
 
-The following table describes ``action`` as supported by Tungsten Fabric.
+The following table describes ``action`` as supported by OpenSDN.
 
 +-----------+-----------+--------------------------------------------+
 | Action    | Terminal? | Description                                |
@@ -175,7 +175,7 @@ The following table describes ``action`` as supported by Tungsten Fabric.
 The update action section specifies the route modification to be
 performed on the matching route.
 
-The following table describes ``update action`` as supported by Tungsten Fabric.
+The following table describes ``update action`` as supported by OpenSDN.
 
 .. list-table:: 
       :header-rows: 1
@@ -258,7 +258,7 @@ Create > Routing Policy`. See the following example.
 
 .. note::
 
-   The Tungsten Fabric WebUI and REST APIs enable you to configure a BGP routing
+   The OpenSDN WebUI and REST APIs enable you to configure a BGP routing
    policy and then assign it to a virtual network, but the routing policy
    will not be applied if the virtual network is attached to an L3VPN.
 
@@ -418,7 +418,7 @@ the static route. See the following example.
       * - Release
         - Description
       * - 2011 
-        - Starting with Tungsten Fabric Release 2011, virtual network routing
+        - Starting with OpenSDN Release 2011, virtual network routing
           policies are automatically applied to secondary routes.
 
 

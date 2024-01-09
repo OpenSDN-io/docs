@@ -1,5 +1,5 @@
-Fast Routing Convergence with Tungsten Fabric
-=============================================
+Fast Routing Convergence with OpenSDN
+=====================================
 
 :date: 2020-08-25
 
@@ -45,10 +45,10 @@ depends on the following actions:
 The availability of services depends on the time taken for failure
 detection and correction.
 
-Fast Network Convergence in a Network Managed by Tungsten Fabric
+Fast Network Convergence in a Network Managed by OpenSDN
 ----------------------------------------------------------------
 
-Tungsten Fabric provides software defined networking solution that
+OpenSDN provides software defined networking solution that
 offers network virtualization at the compute node-level through overlay
 networking. In a software-defined network, failures might occur in the
 overlay or in the underlay. A failure in the overlay can be the failure
@@ -59,8 +59,8 @@ underlay, the most critical ones are the SDN gateway failure and compute
 node failure.
 
 Fast convergence feature improves the convergence time in case of
-failures in a cluster managed by Tungsten Fabric. In a typical
-Tungsten Fabric-managed network, the customer end points connect to
+failures in a cluster managed by OpenSDN. In a typical
+OpenSDN-managed network, the customer end points connect to
 the vRouter through MPLSoUDP, GRE, or VXLAN overlay tunnels from the
 gateway device. The vRouters connect to the MPLS gateway through the
 fabric endpoints.
@@ -107,16 +107,16 @@ Figure 2: Tunnel Endpoint Failure: vRouter
 
 |image1|
 
-Starting with Release 2008, Tungsten Fabric supports fast
+Starting with Release 2008, OpenSDN supports fast
 convergence. The fast convergence feature reduces the convergence time
-in case of an overlay end point failure. The TF control plane
+in case of an overlay end point failure. The OpenSDN control plane
 responds to the changes in the underlay network and then takes action to
 achieve convergence quickly, reducing convergence time that would have
 taken in a typical scenario where control plane depends on BGP hold time
 expiration. Typically, the spines come to know of any tunnel end point
 failures through the BFD or the link down protocols. With the fast
 convergence feature, the spine propagates this information to the
-Tungsten Fabric Controller and removes the tunnel end point from the control
+OpenSDN Controller and removes the tunnel end point from the control
 node through a routing table update. The control node recognizes this as
 a tunnel end point failure and initiates routing convergence. To respond
 to northbound failures (gateway failure), the control node performs a
@@ -130,7 +130,7 @@ recommended timeout value is nine (9) seconds. A lower value is
 recommended only for smaller clusters.
 
 Figure 3 shows how
-Tungsten Fabric achieves fast convergence by using the destination
+OpenSDN achieves fast convergence by using the destination
 reachability information that the spine gathers through BFD or link down
 protocols, and by using the XMPP timeout information sent to the control
 node to detect a failure in the vRouter.
@@ -145,7 +145,7 @@ Figure 3: Fast Convergence in a Contrail-managed Network
       * - Release
         - Description
       * - 2011
-        - Starting with Release 2011, Tungsten Fabric supports fast
+        - Starting with Release 2011, OpenSDN supports fast
           convergence.
       * - 2011
         - To achieve fast convergence in case of a southbound failure (vRouter

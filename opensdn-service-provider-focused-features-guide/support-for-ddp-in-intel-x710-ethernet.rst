@@ -1,13 +1,13 @@
-Tungsten Fabric DPDK vRouter Support for Intel DDP Technology in Fortville NICs
+OpenSDN DPDK vRouter Support for Intel DDP Technology in Fortville NICs
 ===============================================================================
 
 :date: 2020-12-09 
 
-In Tungsten Fabric Release 2011, the Tungsten Fabric DPDK enabled vRouter
+In OpenSDN Release 2011, the OpenSDN DPDK enabled vRouter
 uses the Intel dynamic device personalization (DDP) technology. The
 Intel DDP technology provides a programmable pipeline, which enables you
 to meet specific use cases as per your requirement. Similarly in
-Tungsten Fabric, the Intel DDP technology enables you to forward
+OpenSDN, the Intel DDP technology enables you to forward
 packets with MPLSoGRE encapsulation. The Intel DDP technology is
 supported only by Intel Ethernet 700 Series (Fortville Series) NICs.
 
@@ -20,11 +20,11 @@ the packets to other CPU cores, which processes the packets in the Rx
 queue. This reduces the capacity of the vRouter and affects its
 performance.
 
-In release 2011, Tungsten Fabric uses the Intel DDP technology,
+In release 2011, OpenSDN uses the Intel DDP technology,
 which enables the Fortville NICs to perform load-balancing for the
 MPLSoGRE packets. The Intel DDP technology allows dynamic
 re-configuration of the packet processing pipeline in the NIC at
-runtime, without rebooting the server. Tungsten Fabric is configured
+runtime, without rebooting the server. OpenSDN is configured
 with an MPLSoGRE profile to process the incoming packets with MPLSoGRE
 encapsulation. The MPLSoGRE profile enables the NIC to distribute the
 packets evenly across different hardware Rx queues and enables the CPU
@@ -78,7 +78,7 @@ enabled vRouter:
       * - Release
         - Description
       * - 2011
-        - In Tungsten Fabric Release 2011, the Tungsten Fabric DPDK enabled vRouter
+        - In OpenSDN Release 2011, the OpenSDN DPDK enabled vRouter
           uses the Intel dynamic device personalization (DDP) technology. The
           Intel DDP technology provides a programmable pipeline, which enables you
           to meet specific use cases as per your requirement
