@@ -64,18 +64,6 @@ Using OpenSDN with Juju Charms
    canonical-octavia
    smartnic-vrouter-juju-charms
 
-Using OpenSDN with VMware vCenter
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-   :maxdepth: 1
-   :titlesonly:
-
-   vcenter-opensdn
-   install-opensdn-vRO-plugin
-   integrating-opensdn501-with-vRO
-   vcenter-as-orchestrator-deployment-scenarios-501
-
 
 Post Installation Tasks
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -103,12 +91,9 @@ Post Installation Tasks
    deploying-opensdn-using-juju-charms
    graceful-restart-bgp-persist-vnc
    hardware-reqs-vnc
-   how-to-install-opensdn-networking-openshift4
    opensdn-issu-rhosp-13
    install-opensdn-rhosp-ziu
-   install-opensdn-vRO-plugin
    installing-opensdn-ansible-ziu
-   integrating-opensdn501-with-vRO
    juju-charms-nested-kubernetes
    md5-authentication-configuring
    provisioning-k8s-cluster
@@ -127,8 +112,6 @@ Post Installation Tasks
    update-canonical-openstack-juju
    upgrade-opensdn-ansible-deployer
    upgrade-in-place
-   vcenter-as-orchestrator-deployment-scenarios-501
-   vcenter-opensdn
 
 
 Upgrading OpenSDN

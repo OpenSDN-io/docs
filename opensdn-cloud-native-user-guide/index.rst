@@ -21,16 +21,17 @@ Using OpenSDN with Kubernetes
    how-to-use-keystone-in-kubernetes
    flow-stickiness-for-lb
 
-OpenSDN with Red Hat Openshift
+OpenSDN Operator Upgrade for K8s
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. toctree::
    :maxdepth: 1
    :titlesonly:
 
-   how-to-install-opensdn-openshift46
    opensdn-operator-upgrade-ocp4
 
+.. warning::
+   This documentation needs an evaluation of whether it still has value or not.
    
 Using KubeVirt
 ~~~~~~~~~~~~~~

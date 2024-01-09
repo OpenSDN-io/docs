@@ -23,6 +23,10 @@ Standardized policies will make your security team happy, too.
    treat this documentation with care.  References to the above may still be in many
    parts of the documentation.
 
+TODO
+----
+. Get rid of marginal or rarely used features and configurations (e.g. OpenShift support)
+
 Documentation
 -------------
 
