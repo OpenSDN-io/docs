@@ -2,16 +2,16 @@
    To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
 
 ===============================================================
-Getting Started with Tungsten Fabric and Ansible Deployer
+Getting Started with OpenSDN and Ansible Deployer
 ===============================================================
 
 Prerequisites
 -------------
 
-Deployment instructions presented in this document install and configure Tungsten Fabric SDN solution in a 3 node environment (1 OpenStack/Tungsten Fabric Controller, 2 OpenStack/Tungsten Fabric Computes) using OpenStack Ocata as orchestrator. We will further refer to these 3 nodes as 'Target nodes'.
+Deployment instructions presented in this document install and configure OpenSDN solution in a 3 node environment (1 OpenStack/OpenSDN Controller, 2 OpenStack/OpenSDN Computes) using OpenStack Ocata as orchestrator. We will further refer to these 3 nodes as 'Target nodes'.
 A node can be either a virtual machine or a bare-metal server; either way, user experience is seamless.
 
-Tungsten Fabric solution is provisioned via `Ansible` automation tool. In order to deploy Tungsten Fabric solution, besides the 3 nodes mentioned earlier, we also need another node, from which we will run `Ansible` commands. Similarly, this node can be either a virtual machine or a bare-metal server. We will refer to this node as 'Deploy node'.
+OpenSDN solution is provisioned via `Ansible` automation tool. In order to deploy OpenSDN solution, besides the 3 nodes mentioned earlier, we also need another node, from which we will run `Ansible` commands. Similarly, this node can be either a virtual machine or a bare-metal server. We will refer to this node as 'Deploy node'.
 
 Supported Operating Systems for the Target nodes and the Deploy node are `RedHat7.5` or greater and `CentOS7.5` or greater.
 
@@ -19,7 +19,7 @@ Supported Operating Systems for the Target nodes and the Deploy node are `RedHat
 Hardware and Software Requirements
 ----------------------------------
 
-1st thing that needs to be established before deploying Tungsten Fabric solution is the hardware on which we will deploy it. Below are specified the minimum hardware and software requirements that need to be met for a smooth Tungsten Fabric experience.
+1st thing that needs to be established before deploying OpenSDN solution is the hardware on which we will deploy it. Below are specified the minimum hardware and software requirements that need to be met for a smooth OpenSDN experience.
 
 Hardware:
 
@@ -109,7 +109,7 @@ Please note that all commands, on the Deploy node, have been run as **root**.
        instances:
          bms1:
            provider: bms
-           ip: &tungsten_fabric_ip_address <Tungsten_Fabric_Controller_Mgmt_IP_Address>
+           ip: &opensdn_ip_address <OpenSDN_Controller_Mgmt_IP_Address>
            roles:
                config_database:
                config:
@@ -120,13 +120,13 @@ Please note that all commands, on the Deploy node, have been run as **root**.
                openstack:
          bms2:
            provider: bms
-           ip: <Tungsten_Fabric_Compute1_Mgmt_IP_Address>
+           ip: <OpenSDN_Compute1_Mgmt_IP_Address>
            roles:
                vrouter:
                openstack_compute:
          bms3:
            provider: bms
-           ip: <Tungsten_Fabric_Compute2_Mgmt_IP_Address>
+           ip: <OpenSDN_Compute2_Mgmt_IP_Address>
            roles:
                vrouter:
                openstack_compute:
@@ -168,9 +168,9 @@ Please note that all commands, on the Deploy node, have been run as **root**.
 
    ``# ansible-playbook -i inventory/ -e orchestrator=openstack playbooks/install_contrail.yml``
 
-#. After the Tungsten Fabric deployment, we can run ``contrail-status`` command on both Tungsten Fabric Controller node and Tungsten Fabric Compute Node(s) to check whether Tungsten Fabric Docker containers are up and running. A successful installation should display all Tungsten Fabric containers as `active`.
+#. After the OpenSDN deployment, we can run ``contrail-status`` command on both OpenSDN Controller node and OpenSDN Compute Node(s) to check whether OpenSDN Docker containers are up and running. A successful installation should display all OpenSDN containers as `active`.
 
-   Below it is displayed the output of ``# contrail-status`` command run on Tungsten Fabric Controller node and on Tungsten Fabric Compute node, respectively:
+   Below it is displayed the output of ``# contrail-status`` command run on OpenSDN Controller node and on OpenSDN Compute node, respectively:
 
    ``# contrail-status``
 
@@ -227,20 +227,20 @@ Please note that all commands, on the Deploy node, have been run as **root**.
    agent: active
 
 
-Run Tungsten Fabric
+Run OpenSDN
 -------------------
 
    Sometimes, the `neutron-server` Docker container is continuously restarting. 
 
-   **Workaround** Comment out `service_plugins` line from `/etc/kolla/neutron-server/neutron.conf` located on the Tungsten Fabric Controller node and then restart `neutron_server` docker container so that the change is taken into consideration:
+   **Workaround** Comment out `service_plugins` line from `/etc/kolla/neutron-server/neutron.conf` located on the OpenSDN Controller node and then restart `neutron_server` docker container so that the change is taken into consideration:
 
     ``sed -i 's/^service_plugins = neutron_plugin_contrail.plugins.opencontrail.loadbalancer.v2.plugin.LoadBalancerPluginV2/#service_plugins = neutron_plugin_contrail.plugins.opencontrail.loadbalancer.v2.plugin.LoadBalancerPluginV2/g' /etc/kolla/neutron-server/neutron.conf``
 
     ``docker restart neutron_server``
 
-   Next, the user can login via Tungsten Fabric Web UI, by accessing:
+   Next, the user can login via OpenSDN Web UI, by accessing:
 
-   ``https://<Tungsten_Fabric_Controller_Mgmt_IP_Address>:8143``
+   ``https://<OpenSDN_Controller_Mgmt_IP_Address>:8143``
 
    with the following credentials:
    
@@ -273,9 +273,9 @@ Below are reference links related to further details of features and use cases.
 Getting Started with `tf-devstack`
 ==============================================
 
-Repository: https://gerrit.tungsten.io/r/admin/repos/tungstenfabric/tf-devstack
+Repository: https://gerrit.opensdn.io/r/admin/repos/opensdn-io/tf-devstack
 
-README Documentation: https://gerrit.tungsten.io/r/gitweb?p=tungstenfabric/tf-devstack.git;a=blob;f=README.md;hb=HEAD
+README Documentation: https://gerrit.opensdn.io/r/gitweb?p=opensdn-io/tf-devstack.git;a=blob;f=README.md;hb=HEAD
 
-Instructional Blog Post: https://tungsten.io/getting-started-with-tungsten-fabric-using-tf-devstack/
+Instructional Blog Post: https://opensdn.io/getting-started-with-tungsten-fabric-using-tf-devstack/
 

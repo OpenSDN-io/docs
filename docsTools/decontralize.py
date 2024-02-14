@@ -1,3 +1,4 @@
+#!/usr/local/bin/python3
 import os
 import argparse, textwrap
 import re 
@@ -21,7 +22,7 @@ class DeContralizeDocument(object):
         #open dictionary
         d = open(args.dictionary, "r")
         print("Looking for: [Cc]ontrail( |:|\\n|\.)")
-        print("Occurences found: "+str(len(re.findall("[Cc]ontrail( |:|\n|\.)",content)))+"")
+        print(("Occurences found: "+str(len(re.findall("[Cc]ontrail( |:|\n|\.)",content)))+""))
         print("Among them:")
         #for each line
         for line in d:
@@ -37,7 +38,7 @@ class DeContralizeDocument(object):
 
             #if there are more than zero occurences then show the number
             if content.count(fromto[0])>0:
-                print(str(len(re.findall("{}( |:|\n|\.)".format(fromto[0]),content)))+" "+fromto[0])
+                print((str(len(re.findall("{}( |:|\n|\.)".format(fromto[0]),content)))+" "+fromto[0]))
             #if marked as manually then skip it
             if "manually" in str(fromto[1]):
                 continue
@@ -48,7 +49,7 @@ class DeContralizeDocument(object):
             #fromto[1]="TEEEEST manifests"
             #look for patterns that end with space, colon, new line, or full stop as we don't want to replace things that might be a source code or CLI commands.
             content=re.sub("{}(?=( |:|\n|.))".format(fromto[0]),fromto[1],content)
-        print("\nOccurences left: "+str(len(re.findall("[Cc]ontrail( |:|\n|\.)",content)))+"\n")
+        print(("\nOccurences left: "+str(len(re.findall("[Cc]ontrail( |:|\n|\.)",content)))+"\n"))
         #remove obsolete HTML tags
         #opening <div> for samples and output
         content=re.sub(".*raw:: html\n\n.*<div[a-zA-z =\"\-\.\d]*(sample|output|ltr)[a-zA-z =\"\-\.\d]*>","",content)

@@ -27,7 +27,7 @@ Any patch must undergo review by others before it gets committed.
 ==============================
 
 #. Use Linux Foundation user credentials to login.
-   Gerrit UI login: https://gerrit.tungsten.io/r/login/%2F%2Fq%2Fstatus%3Aopen
+   Gerrit UI login: https://gerrit.opensdn.io/r/login/%2F%2Fq%2Fstatus%3Aopen
 #. Under **Your**-> **Changes** :
 
    **Incoming reviews:** Someone made a change and they want you to review.
@@ -74,7 +74,7 @@ g. If you have selected **side-by-side diff** view, file-level comments can also
 2.2. Adding Review Score
 -------------------------
 
-a. Click on the **Reply** button in the main page. For example: https://gerrit.tungsten.io/r/c/tungstenfabric/docs/+/351.
+a. Click on the **Reply** button in the main page. For example: https://gerrit.opensdn.io/r/c/opensdn/docs/+/351.
 b. Add your score. In order to pass, the final reviewer must give +2 score.
 
 2.3 Submitting the Patch
