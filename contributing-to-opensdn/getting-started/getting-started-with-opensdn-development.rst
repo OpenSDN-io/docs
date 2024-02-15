@@ -72,6 +72,7 @@ https://github.com/OpenSDN-io/tf-devstack/tree/master/ansible
 -------------------------------------------------------
 
 ::
+
          sudo useradd <username>
          sudo passwd <username> 
          sudo usermod -aG wheel <username>
@@ -80,21 +81,25 @@ https://github.com/OpenSDN-io/tf-devstack/tree/master/ansible
 Modify user rigths configuration. Open the sudoers file
 
 ::
+
          sudo visudo
 
 In the opened file, locate the line
 
 ::
+
          %wheel  ALL=(ALL)       ALL
 
 Change it to 
 
 ::
+
          %wheel ALL=(ALL)        NOPASSWD: ALL
 
 Switch to the new user and navigate to the home directory
 
 ::
+
          su <username>
          cd
 
@@ -173,9 +178,7 @@ https://gerrit-review.googlesource.com/Documentation/user-notify.html
 
    ::
 
-      git config –global user.email username@someone.com gitdir=$(git
-      rev-parse –git-dir); scp -p -P 29418
-      username@gerrit.opensdn.io:hooks/commit-msg ${gitdir}/hooks/
+      git config --global user.email username@someone.com
 
 3. Clone the repo where changes need to be committed
 
