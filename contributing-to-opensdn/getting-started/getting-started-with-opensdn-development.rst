@@ -82,7 +82,7 @@ operation of the Gerrit (see section 1.1).
 -------------------------------------------------------------
 
 Reviewing process is organized using Gerrit system and
-"git review" command, `Ref1`_ , `Ref2`_.
+"git review" command, :ref:`Ref1` , :ref:`Ref2`.
 
 3.1 Setup SSH access
 --------------------
@@ -191,3 +191,4 @@ it using in Discord opensdn-discord.
 .. _Ref1: https://gerrit-review.googlesource.com/Documentation/user-notify.html
 
 .. _Ref2: https://docs.opendev.org/opendev/git-review/latest/installation.html
+
