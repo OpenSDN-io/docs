@@ -15,6 +15,7 @@ Before contributing you will need next accounts:
 
 1. a `GitHub <https://github.com>` account with publicly available e-mail
 (Settings -> Public profile -> Public e-mail);
+
 2. a `Gerrit <https://gerrit.opensdn.io>` account linked to the GitHub
 account (using the GitHub account credentials).
 
