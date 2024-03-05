@@ -103,7 +103,7 @@ using via GitHub credentials.
    After the execution, you should see:
 
    ::
-   
+
       **** Welcome to Gerrit Code Review ****
 
       Hi <sshusername>, you have successfully connected over SSH.
@@ -134,15 +134,9 @@ command:
       sudo yum install git-review
    
    Or it can be installed using pip `Ref2`_:
-<<<<<<< HEAD
 
    ::
 
-=======
-
-   ::
-
->>>>>>> 8bf7165e202351deed05ff592b9148c659e8f69a
       sudo pip install git-review
 
 2. Configure Gerrit:
@@ -182,6 +176,7 @@ command:
    In case of successfull execution of the command, you will see:
 
    ::
+
       remote: SUCCESS
 
 NOTE. If any of the steps above have raised questions, you can raise an issue on:
