@@ -86,7 +86,7 @@ operation of the Gerrit (see section 1.1).
 -------------------------------------------------------------
 
 Reviewing process is organized using Gerrit system and
-"git review" command, :ref:`Ref1` , :ref:`Ref2`.
+"git review" command, Ref1_ , Ref2_.
 
 3.1 Setup SSH access
 --------------------
@@ -139,7 +139,7 @@ command:
 
       sudo yum install git-review
    
-   Or it can be installed using pip `Ref2`_:
+   Or it can be installed using pip Ref2_:
 
    ::
 
