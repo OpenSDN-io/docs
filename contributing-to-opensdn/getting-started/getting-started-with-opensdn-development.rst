@@ -1,3 +1,7 @@
+.. _Ref1: https://gerrit-review.googlesource.com/Documentation/user-notify.html
+
+.. _Ref2: https://docs.opendev.org/opendev/git-review/latest/installation.html
+
 Getting started as a contributor
 ================================
 
@@ -55,7 +59,7 @@ Where "<username@someone.com>" corresponds to your GitHub email address.
 2.3 Add SSH key to GitHub account
 ---------------------------------
 
-1. Run `GitHub <https://github.com>` web page in a browser. 
+1. Run `GitHub <https://github.com>`_ web page in a browser. 
 
 2. Go to profile and select settings.
 
@@ -87,7 +91,7 @@ Reviewing process is organized using Gerrit system and
 3.1 Setup SSH access
 --------------------
 
-1. Log into your `OpenSDN Gerrit account <https://gerrit.opensdn.io>`
+1. Log into your `OpenSDN Gerrit account <https://gerrit.opensdn.io>`_
 using via GitHub credentials.
 
 2. Go to top-right corner -> Settings.
@@ -123,7 +127,7 @@ using via GitHub credentials.
 
       Connection to hostname closed.
 
-   Available OpenSDN repositories are listed `here <https://gerrit.opensdn.io/admin/repos>`.
+   Available OpenSDN repositories are listed `here <https://gerrit.opensdn.io/admin/repos>`_.
 
 3.2 Pushing code changes for a review
 -------------------------------------
@@ -188,7 +192,5 @@ it using in Discord opensdn-discord.
 4. References
 -------------
 
-.. _Ref1: https://gerrit-review.googlesource.com/Documentation/user-notify.html
 
-.. _Ref2: https://docs.opendev.org/opendev/git-review/latest/installation.html
 
