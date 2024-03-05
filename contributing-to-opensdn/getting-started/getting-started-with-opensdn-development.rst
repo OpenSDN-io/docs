@@ -1,23 +1,31 @@
-Getting started as a developer
-==============================
+Getting started as a contributor
+================================
 
 This brief note would serve as a reference for a developer looking to
-start-up on the OpenSDN development environment.
+start-up on the contributing to OpenSDN platform.
 
-PLEASE NOTE: Until 2018, OpenSDN was named “OpenContrail”. There
-are still several references to the old name in the code and other
-utilities.
+PLEASE NOTE: Until 2023, OpenSDN was named “Tungsten Fabric” and
+before 2019 it had title “OpenContrail”. There are still several 
+references to the old name in the code and other utilities. 
 
+1. Prerequisites
+----------------
 
-1. OS installation and configuration
-------------------------------------
+Before contributing you will need next accounts:
 
-Install Centos 7 for a stable installation of OpenSDN.
+1. a `GitHub <https://github.com>` account with publicly available e-mail
+(Settings -> Public profile -> Public e-mail);
+2. a `Gerrit <https://gerrit.opensdn.io>` account linked to the GitHub
+account (using the GitHub account credentials).
 
-You can also use Ubuntu 20.04 (In case of problems, check https://github.com/OpenSDN-io/tf-devstack)
+2. Git installation and configuration
+-------------------------------------
 
-1.1 Relevant packages for the OpenSDN installation
-----------------------------------------------------------
+2.1 Installation of the Git version control system
+---------------------------------------------------
+Next programs will be needed: git command and OpenSSH server.
+For example, on RPM based systems (CentOS, Fedora, etc) they can be installed with
+these commands:
 
 ::
 
@@ -26,8 +34,10 @@ You can also use Ubuntu 20.04 (In case of problems, check https://github.com/Ope
         sudo yum install git-core
         sudo yum install openssh-server
 
-1.2 Generate SSH key and add it to local SSH-agent
---------------------------------------------------
+2.2 Generation of an SSH key
+----------------------------
+
+If an SSH key was already generated, then this step can be omitted.
 
 Ref:
 https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account
@@ -37,120 +47,63 @@ https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account
         ssh-keygen -t rsa -b 4096 -C "<username@someone.com>" //press "Enter" every time you see question
         eval $(ssh-agent -s)
         ssh-add ~/.ssh/id_rsa
-        cat ~/.ssh/id_rsa.pub
 
-Copy the entire output line(your public ssh id)
+Where "<username@someone.com>" corresponds to your GitHub email address.
 
 
-1.3 Add SSH key to GitHub account
+2.3 Add SSH key to GitHub account
 ---------------------------------
 
-1. Go to profile and select settings
+1. Run `GitHub <https://github.com>` web page in a browser. 
 
-2. Choose SSH and GPG keys -> New SSH key
+2. Go to profile and select settings.
 
-3. Give a title for the key
+3. Choose SSH and GPG keys -> New SSH key.
 
-4. Paste the key copied in step 1.2
+4. Give a title for the key in "Title" field.
 
-5. Add SSH key
-
-6. Make sure that in GitHub settings in Public profile you have public email(that you will add to global git config)
-   This is required for the correct operation of the Gerrit
-
-
-2. OpenSDN + Devstack setup(Ansible Deployer)
------------------------------------------------------
-
-Ref: https://github.com/OpenSDN-io/tf-devstack
-
-If you have any questions, you can see more detailed instructions in this README:
-
-https://github.com/OpenSDN-io/tf-devstack/tree/master/ansible
-
-2.1 Create a nonroot user and add it to the wheel group
--------------------------------------------------------
+5. Copy the public SSH key (for example, obtained from step 2.2):
 
 ::
+        cat ~/.ssh/id_rsa.pub
 
-         sudo useradd <username>
-         sudo passwd <username> 
-         sudo usermod -aG wheel <username>
+6. Paste the public SSH key into "Key" field.
 
+7. Add SSH key.
 
-Modify user rigths configuration. Open the sudoers file
-
-::
-
-         sudo visudo
-
-In the opened file, locate the line
-
-::
-
-         %wheel  ALL=(ALL)       ALL
-
-Change it to 
-
-::
-
-         %wheel ALL=(ALL)        NOPASSWD: ALL
-
-Switch to the new user and navigate to the home directory
-
-::
-
-         su <username>
-         cd
+8. Make sure that in GitHub settings in Public profile you have public email
+(the one you will add to global git config). This is required for the correct
+operation of the Gerrit (see section 1.1).
 
 
-2.1 Clone Contrail-installer and devstack Repositories
-------------------------------------------------------
+3. Setting up Gerrit for committing code changes for a review
+-------------------------------------------------------------
 
-::
-
-        git clone http://github.com/OpenSDN-io/tf-devstack
-   
-
-2.2 Set up OpenSDN
---------------------------
-
-Execute script and wait for installation:
-::
-
-        ./tf-devstack/ansible/run.sh  // 
-
-2.3 Accessing Openstack and OpenSDN GUIs
-------------------------------------------------
-Openstack and contrail GUIs can be accessed as follows:-
-
-1. OpenSDN GUI: :code:`http://localhost:8143/`
-
-2. Openstack GUI: :code:`http://localhost/dashboard/` (only if you have installed with the openstack orchestrator)
-
-
-3. Setting up Gerrit for committing code-changes for review
------------------------------------------------------------
-
-https://gerrit-review.googlesource.com/Documentation/user-notify.html
+Reviewing process is organized using Gerrit system and
+"git review" command, `Ref1`_ , `Ref2`_.
 
 3.1 Setup SSH access
 --------------------
 
-1. Log into your account at https://gerrit.opensdn.io (via GitHub)
+1. Log into your `OpenSDN Gerrit account <https://gerrit.opensdn.io>`
+using via GitHub credentials.
 
-2. Go to top-right corner -> settings
+2. Go to top-right corner -> Settings.
 
-3. Left panel: SSH Keys -> New SSH key
+3. Left panel: SSH Keys -> New SSH key.
 
-4. Copy ssh key from step 1.2
+4. Copy the public SSH key from step 2.3.5.
 
-5. Test the SSH access
+5. Test the SSH access using your Gerrit account name "sshusername":
 
    ::
 
       $ ssh -p 29418 sshusername@gerrit.opensdn.io
+   
+   After the execution, you should see:
 
+   ::
+   
       **** Welcome to Gerrit Code Review ****
 
       Hi <sshusername>, you have successfully connected over SSH.
@@ -160,25 +113,40 @@ https://gerrit-review.googlesource.com/Documentation/user-notify.html
 
    ::
 
-      git clone ssh://sshusername@gerrit.opensdn.io:29418/REPOSITORY_NAME.git   
+      git clone ssh://sshusername@gerrit.opensdn.io:29418/REPOSITORY_NAME.git
+   
+   After the execution, you should see:
+
+   ::
 
       Connection to hostname closed.
 
-3.2 Pushing code-changes for review
------------------------------------
+   Available OpenSDN repositories are listed `here <https://gerrit.opensdn.io/admin/repos>`.
 
+3.2 Pushing code changes for a review
+-------------------------------------
 
-1. Install git-review
+1. Install git-review utility. For example, on RPM-based systems run the
+command:
 
    ::
 
       sudo yum install git-review
+   
+   Or it can be installed using pip `Ref2`_:
 
-2. Configure Gerrit
+   ::
+
+      sudo pip install git-review
+
+2. Configure Gerrit:
 
    ::
 
       git config --global user.email username@someone.com
+   
+   where "username@someone.com" is your email address that is publicly visible on
+   your GitHub profile page.
 
 3. Clone the repo where changes need to be committed
 
@@ -186,15 +154,18 @@ https://gerrit-review.googlesource.com/Documentation/user-notify.html
 
       git clone
       ssh://sshusername@gerrit.opensdn.io:29418/REPOSITORY_NAME.git
+   
+   where "sshusername" is your OpenSDN Gerrit account name and "REPOSITORY_NAME"
+   is the name of an OpenSDN repository (e.g., tf-dev-env, tf-controller, etc).
 
 4. Commit the changes
 
    ::
 
-      git commit -m "<commit-note>"
+      git commit -m "<commit-note>" -s
 
-   Note: please ensure that any change being committed should have a corresponding
-   launch-pad bug-id mentioned in the commit message, i.e. "Bug #1679466"
+   "-s" option is needed to sign a commit with your own e-mail and digital
+   signature.
 
 5. Push the locally committed changes up for review
 
@@ -202,4 +173,19 @@ https://gerrit-review.googlesource.com/Documentation/user-notify.html
 
       git review
 
-NOTE. If any of the steps above have raised questions, you can read the documentation at the link above
+   In case of successfull execution of the command, you will see:
+
+   ::
+
+      remote: SUCCESS
+
+NOTE. If any of the steps above have raised questions, you can raise an issue on:
+https://where.to.raise.an.issue, contact the reponsible resp@opensdn.io or ask
+it using in Discord opensdn-discord.
+
+4. References
+-------------
+
+.. _Ref1: https://gerrit-review.googlesource.com/Documentation/user-notify.html
+
+.. _Ref2: https://docs.opendev.org/opendev/git-review/latest/installation.html
