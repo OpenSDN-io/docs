@@ -192,5 +192,8 @@ it using in Discord opensdn-discord.
 4. References
 -------------
 
+1. Ref1_ : Gerrit Code Review - Email Notifications
+
+2. Ref2_ : gitreview. Installation and Configuration
 
 
