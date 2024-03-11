@@ -28,10 +28,10 @@ references to the old name in the code and other utilities.
 Before contributing you will need next accounts:
 
 1. a `GitHub <https://github.com>`_ account with publicly available e-mail
-(Settings -> Public profile -> Public e-mail);
+   (Settings -> Public profile -> Public e-mail);
 
 2. a `Gerrit <https://gerrit.opensdn.io>`_ account linked to the GitHub
-account (using the GitHub account credentials).
+   account (using the GitHub account credentials).
 
 2. Git installation and configuration
 -------------------------------------
@@ -88,8 +88,8 @@ Where "<username@someone.com>" corresponds to your GitHub email address.
 7. Add SSH key.
 
 8. Make sure that in GitHub settings in Public profile you have public email
-(the one you will add to global git config). This is required for the correct
-operation of the Gerrit (see section 1.1).
+   (the one you will add to global git config). This is required for the correct
+   operation of the Gerrit (see section 1.1).
 
 
 3. Setting up Gerrit for committing code changes for a review
@@ -136,7 +136,7 @@ Reviewing process is organized using Gerrit system and
 -------------------------------------
 
 1. Install git-review utility. For example, on RPM-based systems run the
-command:
+   command:
 
    ::
 
