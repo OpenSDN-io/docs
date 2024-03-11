@@ -102,7 +102,7 @@ Reviewing process is organized using Gerrit system and
 --------------------
 
 1. Log into your `OpenSDN Gerrit account <https://gerrit.opensdn.io>`_
-using via GitHub credentials.
+   using via GitHub credentials.
 
 2. Go to top-right corner -> Settings.
 
