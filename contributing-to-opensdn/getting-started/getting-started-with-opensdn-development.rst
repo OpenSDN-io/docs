@@ -141,8 +141,8 @@ Reviewing process is organized using Gerrit system and
    ::
 
       sudo yum install git-review
-   
-Or it can be installed using pip Ref2_:
+
+   Or it can be installed using pip Ref2_:
 
    ::
 
