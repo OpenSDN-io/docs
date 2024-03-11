@@ -1,6 +1,16 @@
+.. _Ref0: https://thomas-cokelaer.info/tutorials/sphinx/rest_syntax.html
+
 .. _Ref1: https://gerrit-review.googlesource.com/Documentation/user-notify.html
 
 .. _Ref2: https://docs.opendev.org/opendev/git-review/latest/installation.html
+
+.. _Ref3: https://github.com/OpenSDN-io/community/issues
+
+.. _Ref4: https://github.com/orgs/OpenSDN-io/discussions
+
+.. _Ref5: https://discord.gg/35533ukb
+
+.. _Ref6: https://t.me/tungstenfabric_ru
 
 Getting started as a contributor
 ================================
@@ -29,8 +39,8 @@ account (using the GitHub account credentials).
 2.1 Installation of the Git version control system
 ---------------------------------------------------
 Next programs will be needed: git command and OpenSSH server.
-For example, on RPM based systems (CentOS, Fedora, etc) they can be installed with
-these commands:
+For example, on RPM based systems (CentOS, Fedora, etc) they can be 
+installed with these commands:
 
    ::
 
@@ -86,7 +96,7 @@ operation of the Gerrit (see section 1.1).
 -------------------------------------------------------------
 
 Reviewing process is organized using Gerrit system and
-"git review" command, Ref1_ , Ref2_.
+"git review" command, Ref1_, Ref2_.
 
 3.1 Setup SSH access
 --------------------
@@ -114,20 +124,12 @@ using via GitHub credentials.
 
       Hi <sshusername>, you have successfully connected over SSH.
 
-   Unfortunately, interactive shells are disabled. 
-   To clone a hosted Git repository, use:
-
-   ::
+      Unfortunately, interactive shells are disabled. 
+      To clone a hosted Git repository, use:
 
       git clone ssh://sshusername@gerrit.opensdn.io:29418/REPOSITORY_NAME.git
    
-   After the execution, you should see:
-
-   ::
-
       Connection to hostname closed.
-
-   Available OpenSDN repositories are listed `here <https://gerrit.opensdn.io/admin/repos>`_.
 
 3.2 Pushing code changes for a review
 -------------------------------------
@@ -139,7 +141,7 @@ command:
 
       sudo yum install git-review
    
-   Or it can be installed using pip Ref2_:
+Or it can be installed using pip Ref2_:
 
    ::
 
@@ -154,17 +156,19 @@ command:
    where "username@someone.com" is your email address that is publicly visible on
    your GitHub profile page.
 
-3. Clone the repo where changes need to be committed
+3. Clone the repo where your changes need to be introduced:
 
    ::
 
-      git clone
-      ssh://sshusername@gerrit.opensdn.io:29418/REPOSITORY_NAME.git
+      git clone ssh://sshusername@gerrit.opensdn.io:29418/opensdn-io/REPOSITORY_NAME
    
    where "sshusername" is your OpenSDN Gerrit account name and "REPOSITORY_NAME"
    is the name of an OpenSDN repository (e.g., tf-dev-env, tf-controller, etc).
+   Available OpenSDN repositories are listed `here <https://gerrit.opensdn.io/admin/repos>`_.
 
-4. Commit the changes
+4. Introduce your changes to the source code of the cloned repository.
+
+5. Commit the changes
 
    ::
 
@@ -173,21 +177,26 @@ command:
    "-s" option is needed to sign a commit with your own e-mail and digital
    signature.
 
-5. Push the locally committed changes up for review
+6. Push the locally committed changes up for review
 
    ::
 
       git review
 
-   In case of successfull execution of the command, you will see:
+   In case of successfull execution of the command, you will see in your terminal:
 
    ::
 
       remote: SUCCESS
 
-NOTE. If any of the steps above have raised questions, you can raise an issue on:
-https://where.to.raise.an.issue, contact the reponsible resp@opensdn.io or ask
-it using in Discord opensdn-discord.
+NOTE. If any of the steps above have raised questions you can:
+
+* create an issue on in the community repository Ref3_;
+
+* discuss your question in the discussions section Ref4_;
+
+* or ask for help in Discord Ref5_ or in Telegram Ref6_.
+
 
 4. References
 -------------
