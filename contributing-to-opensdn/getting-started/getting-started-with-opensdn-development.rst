@@ -103,9 +103,13 @@ Reviewing process is organized using Gerrit system and
 
 #. Log into your `OpenSDN Gerrit account <https://gerrit.opensdn.io>`_
 using via GitHub credentials.
+
 #. Go to top-right corner -> Settings.
+
 #. Left panel: SSH Keys -> New SSH key.
+
 #. Copy the public SSH key from step 2.3.5.
+
 #. Test the SSH access using your Gerrit account name "sshusername":
 
    ::
