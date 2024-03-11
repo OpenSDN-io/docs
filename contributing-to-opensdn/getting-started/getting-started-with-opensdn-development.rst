@@ -101,22 +101,22 @@ Reviewing process is organized using Gerrit system and
 3.1 Setup SSH access
 --------------------
 
-   #. Log into your `OpenSDN Gerrit account <https://gerrit.opensdn.io>`_
+1. Log into your `OpenSDN Gerrit account <https://gerrit.opensdn.io>`_
 using via GitHub credentials.
 
-   #. Go to top-right corner -> Settings.
+2. Go to top-right corner -> Settings.
 
-   #. Left panel: SSH Keys -> New SSH key.
+3. Left panel: SSH Keys -> New SSH key.
 
-   #. Copy the public SSH key from step 2.3.5.
+4. Copy the public SSH key from step 2.3.5.
 
-   #. Test the SSH access using your Gerrit account name "sshusername":
+5. Test the SSH access using your Gerrit account name "sshusername":
 
    ::
 
       $ ssh -p 29418 sshusername@gerrit.opensdn.io
-   
-   After the execution, you should see:
+
+6. After the execution, you should see:
 
    ::
 
@@ -130,6 +130,7 @@ using via GitHub credentials.
       git clone ssh://sshusername@gerrit.opensdn.io:29418/REPOSITORY_NAME.git
    
       Connection to hostname closed.
+
 
 3.2 Pushing code changes for a review
 -------------------------------------
