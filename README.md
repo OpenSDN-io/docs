@@ -11,7 +11,6 @@ I have not formally documented the usage requirements other than the commands to
 1. Install Sphinx-build https://www.sphinx-doc.org/en/master/usage/installation.html
 2. Install Tox https://tox.readthedocs.io/en/latest/install.html
 
-
 ## Building the docs
 
 Build the docs static site.
