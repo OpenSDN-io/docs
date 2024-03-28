@@ -8,7 +8,7 @@
 
 .. _Ref4: https://github.com/orgs/OpenSDN-io/discussions
 
-.. _Ref5: https://discord.gg/35533ukb
+.. _Ref5: https://discord.gg/YWFjR9bWFs
 
 .. _Ref6: https://t.me/tungstenfabric_ru
 
