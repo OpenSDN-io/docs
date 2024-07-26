@@ -6,7 +6,7 @@ Understanding OpenSDN quotas
 Overview: OpenSDN quotas
 ----------------------------
 
-Quotas used to prevent system capacities from being exhausted without notification. Quotas are operational limits.
+Quotas are used to prevent system capacities from being exhausted without notification. Quotas are operational limits.
 
 Quotas are currently enforced at the tenant (or project) level. OpenSDN support quotas for the next resources:
 
@@ -51,9 +51,9 @@ Using OpenSDN quotas with WebUI
 
 WebUI uses a VNC API to set and get project quota settings. To get a current quota usage/limits WebUI counting list of resource
 
-objects for each resource what could be slow with a large amount of resources.
+objects for each resource type what could be slow with a large amount of resources.
 
-To get and configure quotas need to open Configure -> Infrastructure -> Project Settings -> Quotas (opened by default)
+To get and configure quotas open Configure -> Infrastructure -> Project Settings -> Quotas (opened by default)
 
 Using OpenSDN quotas with Openstack (tf-neutron-plugin)
 --------------------------------------------------------
@@ -76,17 +76,17 @@ tf-neutron-plugin counting list of resource objects for each resource what could
 Creating resources with quota limits
 ------------------------------------
 
-For each resource per project OpenSDN stores quota counter in Zookeeper. When user trying to create a new resource with
+For each resource per a project, OpenSDN stores quota counter in Zookeeper. When user tries to create a new resource with
 
-applied limits current quota usage will be verified and 412 error raised in case of OverQuota. New resource will be
+applied limits current quota usage will be verified and 412 error will be raised in case of OverQuota. New resource will be
 
-created if quota verified and quota rolled back if resource creation failed with any other reasons.
+created if quota is verified. Quota rolled back if resource creation failed with any other reasons.
 
 
 Check current quotas in Zookeeper
 ---------------------------------
 
-The following command could help check quotas in Zookeeper.
+The following command could help to check quotas in Zookeeper.
 
 +--------------------------------------------+-------------------------------------------------------------------------+
 | Action                                     | Command                                                                 |
